@@ -1,4 +1,5 @@
 'use client';
+import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
@@ -13,7 +14,11 @@ import {
   Store,
   Users,
   AlertTriangle,
-  X
+  X,
+  RefreshCw,
+  ChevronUp,
+  ChevronDown,
+  Plus
 } from 'lucide-react';
 
 interface DashboardSidebarProps {
@@ -66,6 +71,30 @@ export function DashboardSidebar({ isOpen, onClose }: DashboardSidebarProps) {
   const userRole = getUserRoleFromPath(pathname);
   const config = roleConfig[userRole];
   const RoleIcon = config.icon;
+
+  // Role switching state
+  const [isRoleSwitcherOpen, setIsRoleSwitcherOpen] = useState(false);
+
+  // Simulate user having multiple roles - in real app this would come from user data
+  const userRoles: ('advertiser' | 'publisher' | 'admin')[] = ['advertiser', 'publisher'];
+
+  const availableRoles = userRoles.filter(role => role !== userRole);
+
+  const handleRoleSwitch = (newRole: 'advertiser' | 'publisher' | 'admin') => {
+    const roleRoutes = {
+      advertiser: '/dashboard/advertiser',
+      publisher: '/dashboard/publisher',
+      admin: '/dashboard/admin'
+    };
+    setIsRoleSwitcherOpen(false);
+    window.location.href = roleRoutes[newRole];
+  };
+
+  const handleAddRole = () => {
+    const roleToAdd = userRole === 'advertiser' ? 'publisher' : 'advertiser';
+    alert(`Adding ${roleToAdd} role - this would start a guided setup process!`);
+    setIsRoleSwitcherOpen(false);
+  };
 
   return (
     <>
@@ -129,23 +158,118 @@ export function DashboardSidebar({ isOpen, onClose }: DashboardSidebarProps) {
             </div>
           </nav>
 
-          {/* Footer */}
+          {/* Footer with Role Switcher */}
           <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex items-center gap-3 p-3 bg-gray-100 dark:bg-gray-800/30 rounded-lg">
+            {/* Role Switcher Dropdown */}
+            {isRoleSwitcherOpen && (
+              <>
+                {/* Backdrop */}
+                <div
+                  className="fixed inset-0 z-40"
+                  onClick={() => setIsRoleSwitcherOpen(false)}
+                />
+
+                {/* Dropdown */}
+                <div className="absolute bottom-20 left-4 right-4 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-50 p-3">
+                  <div className="text-xs font-medium text-gray-900 dark:text-white/50 uppercase tracking-wide mb-3">
+                    Switch Role
+                  </div>
+
+                  <div className="space-y-2">
+                    {availableRoles.map((role) => {
+                      const roleData = roleConfig[role];
+                      const RoleIconComponent = roleData.icon;
+
+                      return (
+                        <button
+                          key={role}
+                          onClick={() => handleRoleSwitch(role)}
+                          className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors text-left"
+                        >
+                          <div className="w-6 h-6 bg-brand/10 rounded flex items-center justify-center">
+                            <RoleIconComponent className="w-4 h-4 text-brand" />
+                          </div>
+                          <div className="flex-1">
+                            <div className="text-sm font-medium text-gray-900 dark:text-white">
+                              Switch to {roleData.title}
+                            </div>
+                          </div>
+                          <RefreshCw className="w-3 h-3 text-gray-400" />
+                        </button>
+                      );
+                    })}
+
+                    {/* Add Role Option */}
+                    {userRoles.length < 2 && (
+                      <>
+                        <div className="border-t border-gray-200 dark:border-gray-700 pt-2">
+                          <button
+                            onClick={handleAddRole}
+                            className="w-full flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors text-left border-2 border-dashed border-gray-300 dark:border-gray-600"
+                          >
+                            <div className="w-6 h-6 border-2 border-dashed border-gray-400 dark:border-gray-500 rounded flex items-center justify-center">
+                              <Plus className="w-3 h-3 text-gray-400" />
+                            </div>
+                            <div className="flex-1">
+                              <div className="text-sm font-medium text-gray-900 dark:text-white">
+                                Add {userRole === 'advertiser' ? 'Publisher' : 'Advertiser'} Role
+                              </div>
+                              <div className="text-xs text-gray-900 dark:text-white/60">
+                                {userRole === 'advertiser'
+                                  ? 'Monetize your traffic'
+                                  : 'Create campaigns'
+                                }
+                              </div>
+                            </div>
+                          </button>
+                        </div>
+                      </>
+                    )}
+                  </div>
+
+                  {/* Cross-role tip */}
+                  <div className="mt-3 p-2 bg-brand/5 border border-brand/20 rounded-lg">
+                    <div className="text-xs text-brand font-medium mb-1">💡 Pro Tip</div>
+                    <div className="text-xs text-gray-900 dark:text-white/70">
+                      {userRole === 'advertiser'
+                        ? 'Publishers with dual roles increase revenue by 67%'
+                        : 'Advertisers using own inventory save 35% on costs'
+                      }
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
+            {/* Current User/Role Display */}
+            <button
+              onClick={() => setIsRoleSwitcherOpen(!isRoleSwitcherOpen)}
+              className="w-full flex items-center gap-3 p-3 bg-gray-100 dark:bg-gray-800/30 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-800/50 transition-colors"
+            >
               <div className="w-8 h-8 bg-brand/10 rounded-full flex items-center justify-center">
-                <span className="text-sm font-medium text-brand">
-                  {userRole.charAt(0).toUpperCase()}
-                </span>
+                <RoleIcon className="w-4 h-4 text-brand" />
               </div>
-              <div className="flex-1 min-w-0">
+              <div className="flex-1 min-w-0 text-left">
                 <div className="text-sm font-medium text-gray-900 dark:text-white truncate">
-                  {userRole.charAt(0).toUpperCase() + userRole.slice(1)} User
+                  {config.title}
+                  {userRoles.length > 1 && (
+                    <span className="text-xs text-brand ml-1">+{userRoles.length - 1}</span>
+                  )}
                 </div>
-                <div className="text-xs text-gray-900 dark:text-white/60">
-                  0x1234...5678
+                <div className="text-xs text-gray-900 dark:text-white/60 truncate">
+                  {userRoles.length > 1 ? 'Multi-role • 0x1234...5678' : '0x1234...5678'}
                 </div>
               </div>
-            </div>
+              {availableRoles.length > 0 && (
+                <div className="flex-shrink-0">
+                  {isRoleSwitcherOpen ? (
+                    <ChevronDown className="w-4 h-4 text-gray-400" />
+                  ) : (
+                    <ChevronUp className="w-4 h-4 text-gray-400" />
+                  )}
+                </div>
+              )}
+            </button>
           </div>
         </div>
       </div>

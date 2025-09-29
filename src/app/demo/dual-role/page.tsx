@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { RoleSwitcher } from '@/components/ui/RoleSwitcher';
-import { UnifiedDashboardSidebar } from '@/components/dashboard/UnifiedDashboardSidebar';
+// Removed UnifiedDashboardSidebar import - now integrated into main dashboard
 import { BrandCallout } from '@/components/ui/BrandElements';
 import {
   ArrowRight,
@@ -18,7 +18,6 @@ import {
 
 export default function DualRoleDemoPage() {
   const [currentRole, setCurrentRole] = useState<'advertiser' | 'publisher' | 'admin'>('advertiser');
-  const [showSidebar, setShowSidebar] = useState(false);
 
   const userRoles: ('advertiser' | 'publisher')[] = ['advertiser', 'publisher'];
 
@@ -61,12 +60,6 @@ export default function DualRoleDemoPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-brand-50 to-brand-100 dark:from-gray-900 dark:to-gray-800">
-      {/* Demo Sidebar */}
-      <UnifiedDashboardSidebar
-        isOpen={showSidebar}
-        onClose={() => setShowSidebar(false)}
-      />
-
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
@@ -78,35 +71,41 @@ export default function DualRoleDemoPage() {
           </p>
         </div>
 
-        {/* Demo Controls */}
+        {/* Demo Guide */}
         <Card className="p-6 mb-8">
-          <div className="flex flex-col lg:flex-row items-center gap-6">
-            <div className="flex-1">
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
-                Interactive Role Switcher
-              </h3>
-              <p className="text-sm text-gray-900 dark:text-white/70 mb-4">
-                Try switching between roles to see how the interface adapts
-              </p>
+          <div className="text-center">
+            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+              ✅ Integrated Role Switcher
+            </h3>
+            <p className="text-sm text-gray-900 dark:text-white/70 mb-4">
+              The role switcher has been integrated into the main dashboard sidebar.
+              <br />
+              <strong>Try it now:</strong> Go to any dashboard page and click the user area at the bottom of the sidebar!
+            </p>
 
-              <RoleSwitcher
-                currentRole={currentRole}
-                availableRoles={userRoles}
-                onRoleChange={setCurrentRole}
-                onAddRole={handleAddRole}
-                showAddRole={true}
-              />
-            </div>
-
-            <div className="lg:border-l lg:border-gray-200 lg:dark:border-gray-700 lg:pl-6">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                variant="outline"
-                onClick={() => setShowSidebar(true)}
+                onClick={() => window.location.href = '/dashboard/advertiser'}
                 className="flex items-center gap-2"
               >
-                <Users className="w-4 h-4" />
-                View Unified Sidebar
+                <TrendingUp className="w-4 h-4" />
+                Test in Advertiser Dashboard
               </Button>
+
+              <Button
+                variant="outline"
+                onClick={() => window.location.href = '/dashboard/publisher'}
+                className="flex items-center gap-2"
+              >
+                <Globe className="w-4 h-4" />
+                Test in Publisher Dashboard
+              </Button>
+            </div>
+
+            <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
+              <div className="text-sm text-blue-800 dark:text-blue-200">
+                💡 <strong>How to use:</strong> Look for the user area at the bottom-left of the sidebar with the chevron icon - click it to switch roles!
+              </div>
             </div>
           </div>
         </Card>

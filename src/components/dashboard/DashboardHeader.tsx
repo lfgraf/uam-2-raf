@@ -2,7 +2,7 @@
 
 import { Button } from '@/components/ui/Button';
 import { Bell, Menu, Search, Sun, Moon, CheckCircle, AlertCircle, TrendingUp, DollarSign, X } from 'lucide-react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface DashboardHeaderProps {
   onMenuClick: () => void;
@@ -48,6 +48,28 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
   const [darkMode, setDarkMode] = useState(false);
   const [notificationsOpen, setNotificationsOpen] = useState(false);
 
+  // Initialize dark mode from localStorage
+  useEffect(() => {
+    const isDark = localStorage.getItem('darkMode') === 'true';
+    setDarkMode(isDark);
+    if (isDark) {
+      document.documentElement.classList.add('dark');
+    }
+  }, []);
+
+  // Toggle dark mode
+  const toggleDarkMode = () => {
+    const newDarkMode = !darkMode;
+    setDarkMode(newDarkMode);
+    localStorage.setItem('darkMode', String(newDarkMode));
+
+    if (newDarkMode) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+  };
+
   return (
     <header className="h-16 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-6">
       {/* Left side */}
@@ -78,8 +100,9 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
         <Button
           variant="ghost"
           size="sm"
-          onClick={() => setDarkMode(!darkMode)}
+          onClick={toggleDarkMode}
           className="p-2"
+          aria-label="Toggle dark mode"
         >
           {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
         </Button>

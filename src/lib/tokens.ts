@@ -77,13 +77,12 @@ export const tokens = {
   },
 
   fontFamilies: {
-    heading: 'Inter',
-    body: 'Roboto',
+    default: 'CoFo Sans',
   },
 
   fontWeights: {
     regular: '400',
-    bold: '700',
+    medium: '500',
   },
 
   lineHeights: {

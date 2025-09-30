@@ -35,7 +35,6 @@ export function Button({
         'transition-all duration-200 ease-in-out',
         'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900',
         'disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none',
-        'font-heading',
         buttonVariants[variant],
         buttonSizes[size],
         className

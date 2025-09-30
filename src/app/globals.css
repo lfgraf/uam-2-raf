@@ -4,27 +4,26 @@
 
 @layer base {
   :root {
-    --font-heading: var(--font-cofo-medium), system-ui, -apple-system, sans-serif;
-    --font-body: var(--font-cofo-regular), system-ui, -apple-system, sans-serif;
+    --font-sans: var(--font-cofo-regular), system-ui, -apple-system, sans-serif;
   }
 
   html {
-    font-family: var(--font-body);
+    font-family: var(--font-sans);
   }
 
   body {
     @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-white;
-    font-family: var(--font-body);
-    line-height: 1.6;
+    font-family: var(--font-sans);
+    line-height: 1.5;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    @apply font-semibold;
+    font-family: var(--font-sans);
+    font-weight: 500;
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
 
   h1 {
@@ -59,13 +58,5 @@
 @layer components {
   .card {
     @apply rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 p-6 shadow-sm;
-  }
-
-  .heading {
-    font-family: var(--font-heading);
-  }
-
-  .body-text {
-    font-family: var(--font-body);
   }
 }

@@ -1,14 +1,15 @@
 'use client';
 
 import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import { MoreVertical, Play, Pause, BarChart3 } from 'lucide-react';
+import { CampaignStateBadge, CampaignState } from '@/components/ui/CampaignStateBadge';
+import { MoreVertical, Play, Pause, BarChart3, DollarSign } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface Campaign {
   id: string;
   name: string;
-  status: 'active' | 'paused' | 'completed';
+  state: CampaignState; // Using new state: active, bidding, expired
+  status: 'active' | 'paused'; // Keep for play/pause actions
   budget: number;
   spent: number;
   conversions: number;
@@ -19,13 +20,8 @@ interface Campaign {
 
 interface CampaignCardProps {
   campaign: Campaign;
+  onClaimFunds?: (campaignId: string) => void;
 }
-
-const statusConfig = {
-  active: { label: 'Active', color: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' },
-  paused: { label: 'Paused', color: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300' },
-  completed: { label: 'Completed', color: 'bg-gray-100 text-gray-800 dark:bg-graphite-800 dark:text-gray-300' }
-};
 
 const performanceConfig = {
   excellent: { color: 'text-green-600', bg: 'bg-green-50 dark:bg-green-900/20' },
@@ -33,10 +29,10 @@ const performanceConfig = {
   poor: { color: 'text-red-600', bg: 'bg-red-50 dark:bg-red-900/20' }
 };
 
-export function CampaignCard({ campaign }: CampaignCardProps) {
+export function CampaignCard({ campaign, onClaimFunds }: CampaignCardProps) {
   const spendPercentage = (campaign.spent / campaign.budget) * 100;
-  const statusStyle = statusConfig[campaign.status];
   const performanceStyle = performanceConfig[campaign.performance];
+  const unspentAmount = campaign.budget - campaign.spent;
 
   return (
     <div className="border border-gray-200 dark:border-graphite-700 rounded-lg p-4 hover:shadow-sm transition-shadow">
@@ -44,9 +40,7 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
         <div className="flex-1">
           <h3 className="font-medium text-gray-900 dark:text-graphite-100 mb-1">{campaign.name}</h3>
           <div className="flex items-center gap-2">
-            <Badge className={statusStyle.color}>
-              {statusStyle.label}
-            </Badge>
+            <CampaignStateBadge state={campaign.state} />
             <span className={cn("text-xs px-2 py-1 rounded-full", performanceStyle.bg, performanceStyle.color)}>
               {campaign.performance}
             </span>
@@ -95,6 +89,30 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
         </div>
       </div>
 
+      {/* Claim Funds for Expired Campaigns */}
+      {campaign.state === 'expired' && unspentAmount > 0 && onClaimFunds && (
+        <div className="mb-4 p-3 bg-acid/5 border border-acid/20 rounded-lg">
+          <div className="flex items-center justify-between">
+            <div>
+              <div className="text-sm font-medium text-gray-900 dark:text-graphite-100">
+                Unclaimed Funds Available
+              </div>
+              <div className="text-xs text-gray-600 dark:text-graphite-500">
+                ${unspentAmount.toLocaleString()} remaining from budget
+              </div>
+            </div>
+            <Button
+              size="sm"
+              onClick={() => onClaimFunds(campaign.id)}
+              className="flex items-center gap-2"
+            >
+              <DollarSign className="w-4 h-4" />
+              Claim Funds
+            </Button>
+          </div>
+        </div>
+      )}
+
       <div className="flex items-center justify-between">
         <div className="text-xs text-gray-900 dark:text-graphite-300">
           Ends: {new Date(campaign.endDate).toLocaleDateString()}
@@ -103,13 +121,15 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
           <Button variant="ghost" size="sm" className="p-2">
             <BarChart3 className="w-4 h-4" />
           </Button>
-          <Button variant="ghost" size="sm" className="p-2">
-            {campaign.status === 'active' ? (
-              <Pause className="w-4 h-4" />
-            ) : (
-              <Play className="w-4 h-4" />
-            )}
-          </Button>
+          {campaign.state !== 'expired' && (
+            <Button variant="ghost" size="sm" className="p-2">
+              {campaign.status === 'active' ? (
+                <Pause className="w-4 h-4" />
+              ) : (
+                <Play className="w-4 h-4" />
+              )}
+            </Button>
+          )}
         </div>
       </div>
     </div>

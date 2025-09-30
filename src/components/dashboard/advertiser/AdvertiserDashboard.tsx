@@ -46,6 +46,7 @@ const campaigns = [
   {
     id: '1',
     name: 'Q4 Mobile App Install',
+    state: 'active' as const,
     status: 'active' as const,
     budget: 5000,
     spent: 3240,
@@ -57,6 +58,7 @@ const campaigns = [
   {
     id: '2',
     name: 'Black Friday Sale',
+    state: 'active' as const,
     status: 'active' as const,
     budget: 8000,
     spent: 7650,
@@ -68,6 +70,7 @@ const campaigns = [
   {
     id: '3',
     name: 'Brand Awareness - Gaming',
+    state: 'bidding' as const,
     status: 'paused' as const,
     budget: 3000,
     spent: 890,
@@ -79,7 +82,8 @@ const campaigns = [
   {
     id: '4',
     name: 'Holiday Email Signups',
-    status: 'active' as const,
+    state: 'expired' as const,
+    status: 'paused' as const,
     budget: 2500,
     spent: 1200,
     conversions: 680,

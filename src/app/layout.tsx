@@ -1,21 +1,20 @@
 import type { Metadata } from "next";
-import { Inter, Roboto } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-// Load Inter for headings
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
+// Load CoFoSans fonts
+const cofoSansRegular = localFont({
+  src: "../../public/fonts/CoFoSans-Regular.ttf",
+  variable: "--font-cofo-regular",
+  weight: "400",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
-// Load Roboto for body text
-const roboto = Roboto({
-  variable: "--font-roboto",
-  subsets: ["latin"],
+const cofoSansMedium = localFont({
+  src: "../../public/fonts/CoFoSans-Medium.ttf",
+  variable: "--font-cofo-medium",
+  weight: "500",
   display: "swap",
-  weight: ["400", "500", "700"],
 });
 
 export const metadata: Metadata = {
@@ -31,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${roboto.variable} antialiased`}
+        className={`${cofoSansRegular.variable} ${cofoSansMedium.variable} antialiased`}
       >
         {children}
       </body>

@@ -51,9 +51,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        heading: ['var(--font-inter)', tokens.fontFamilies.heading, 'system-ui', 'sans-serif'],
-        body: ['var(--font-roboto)', tokens.fontFamilies.body, 'system-ui', 'sans-serif'],
-        sans: ['var(--font-roboto)', tokens.fontFamilies.body, 'system-ui', 'sans-serif'],
+        heading: ['var(--font-cofo-medium)', 'system-ui', 'sans-serif'],
+        body: ['var(--font-cofo-regular)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-cofo-regular)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         xs: tokens.fontSizes.xs,

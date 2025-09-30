@@ -6,10 +6,13 @@ import { Button } from './Button';
 
 export function ThemeToggle() {
   const [darkMode, setDarkMode] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
-  // Initialize dark mode from localStorage
+  // Initialize dark mode from localStorage after mount
   useEffect(() => {
-    const isDark = localStorage.getItem('darkMode') === 'true';
+    setMounted(true);
+    const isDark = localStorage.getItem('darkMode') === 'true' ||
+                   document.documentElement.classList.contains('dark');
     setDarkMode(isDark);
     if (isDark) {
       document.documentElement.classList.add('dark');
@@ -28,6 +31,21 @@ export function ThemeToggle() {
       document.documentElement.classList.remove('dark');
     }
   };
+
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <Button
+        variant="ghost"
+        size="sm"
+        className="p-2"
+        aria-label="Toggle dark mode"
+        disabled
+      >
+        <Moon className="w-4 h-4" />
+      </Button>
+    );
+  }
 
   return (
     <Button

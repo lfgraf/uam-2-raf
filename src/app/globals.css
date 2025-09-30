@@ -4,8 +4,8 @@
 
 @layer base {
   :root {
-    --font-heading: var(--font-inter), system-ui, -apple-system, sans-serif;
-    --font-body: var(--font-roboto), system-ui, -apple-system, sans-serif;
+    --font-heading: var(--font-cofo-medium), system-ui, -apple-system, sans-serif;
+    --font-body: var(--font-cofo-regular), system-ui, -apple-system, sans-serif;
   }
 
   html {

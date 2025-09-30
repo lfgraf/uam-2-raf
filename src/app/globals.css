@@ -2,9 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'CoFo Sans';
+  src: url('/fonts/CoFoSans-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'CoFo Sans';
+  src: url('/fonts/CoFoSans-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
-    --font-sans: var(--font-cofo-regular), system-ui, -apple-system, sans-serif;
+    --font-sans: 'CoFo Sans', system-ui, -apple-system, sans-serif;
   }
 
   html {

@@ -51,7 +51,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['var(--font-cofo-regular)', 'system-ui', 'sans-serif'],
+        sans: ['CoFo Sans', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         xs: tokens.fontSizes.xs,

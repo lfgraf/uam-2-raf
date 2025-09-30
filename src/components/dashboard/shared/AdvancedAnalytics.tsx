@@ -94,7 +94,7 @@ function MetricCard({ metric }: { metric: MetricData }) {
   return (
     <Card className="p-6">
       <div className="flex items-center justify-between mb-2">
-        <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">{metric.name}</h3>
+        <h3 className="text-sm font-medium text-gray-900 dark:text-graphite-300">{metric.name}</h3>
         <div className={`flex items-center gap-1 text-xs ${
           isPositive ? 'text-green-600' : isNegative ? 'text-red-600' : 'text-gray-500'
         }`}>
@@ -106,7 +106,7 @@ function MetricCard({ metric }: { metric: MetricData }) {
           {Math.abs(metric.change).toFixed(1)}%
         </div>
       </div>
-      <div className="text-2xl font-medium text-gray-900 dark:text-white">
+      <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">
         {formatValue(metric.value, metric.format)}
       </div>
     </Card>
@@ -121,13 +121,13 @@ function SimpleBarChart({ data }: { data: ChartDataPoint[] }) {
       {data.map((point, index) => (
         <div key={index} className="flex-1 flex flex-col items-center gap-2">
           <div
-            className="w-full bg-brand rounded-t-sm min-h-2 transition-all duration-300 hover:opacity-100"
+            className="w-full bg-acid rounded-t-sm min-h-2 transition-all duration-300 hover:opacity-100"
             style={{
               height: `${(point.value / maxValue) * 200}px`,
               opacity: 0.8
             }}
           />
-          <div className="text-xs text-gray-900 dark:text-white/60 rotate-45 origin-left">
+          <div className="text-xs text-gray-900 dark:text-graphite-300 rotate-45 origin-left">
             {new Date(point.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
           </div>
         </div>
@@ -169,7 +169,7 @@ function SimpleLineChart({ data }: { data: ChartDataPoint[] }) {
             stroke="currentColor"
             strokeWidth="1"
             opacity="0.1"
-            className="text-gray-900 dark:text-white"
+            className="text-gray-900 dark:text-graphite-100"
           />
         ))}
 
@@ -188,7 +188,7 @@ function SimpleLineChart({ data }: { data: ChartDataPoint[] }) {
           strokeWidth="3"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="text-brand"
+          className="text-acid"
         />
 
         {/* Data points */}
@@ -204,14 +204,14 @@ function SimpleLineChart({ data }: { data: ChartDataPoint[] }) {
                 fill="white"
                 stroke="currentColor"
                 strokeWidth="3"
-                className="text-brand"
+                className="text-acid"
               />
               <circle
                 cx={x}
                 cy={y}
                 r="8"
                 fill="transparent"
-                className="cursor-pointer hover:fill-brand/10 transition-colors"
+                className="cursor-pointer hover:fill-acid/10 transition-colors"
               >
                 <title>{`${new Date(point.date).toLocaleDateString()}: ${point.value}`}</title>
               </circle>
@@ -222,8 +222,8 @@ function SimpleLineChart({ data }: { data: ChartDataPoint[] }) {
         {/* Gradient definition */}
         <defs>
           <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
-            <stop offset="0%" stopColor="currentColor" className="text-brand" />
-            <stop offset="100%" stopColor="currentColor" className="text-brand" stopOpacity="0" />
+            <stop offset="0%" stopColor="currentColor" className="text-acid" />
+            <stop offset="100%" stopColor="currentColor" className="text-acid" stopOpacity="0" />
           </linearGradient>
         </defs>
       </svg>
@@ -231,7 +231,7 @@ function SimpleLineChart({ data }: { data: ChartDataPoint[] }) {
       {/* X-axis labels */}
       <div className="flex justify-between mt-2">
         {data.map((point, index) => (
-          <div key={index} className="text-xs text-gray-900 dark:text-white/60">
+          <div key={index} className="text-xs text-gray-900 dark:text-graphite-300">
             {index % 2 === 0 ? new Date(point.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : ''}
           </div>
         ))}
@@ -252,8 +252,8 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
       {/* Header Controls */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-medium text-gray-900 dark:text-white">Advanced Analytics</h2>
-          <p className="text-gray-900 dark:text-white/60">
+          <h2 className="text-2xl font-medium text-gray-900 dark:text-graphite-100">Advanced Analytics</h2>
+          <p className="text-gray-900 dark:text-graphite-300">
             Deep insights into your {userRole} performance
           </p>
         </div>
@@ -262,7 +262,7 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-acid/50"
           >
             <option value="7d">Last 7 days</option>
             <option value="30d">Last 30 days</option>
@@ -294,7 +294,7 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
         {/* Main Chart */}
         <Card className="p-6 lg:col-span-2">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+            <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100">
               Performance Trend
             </h3>
             <div className="flex items-center gap-2">
@@ -325,7 +325,7 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
           {chartType === 'bar' && <SimpleBarChart data={chartData} />}
           {chartType === 'line' && <SimpleLineChart data={chartData} />}
           {chartType === 'pie' && (
-            <div className="h-64 flex items-center justify-center text-gray-900 dark:text-white/60">
+            <div className="h-64 flex items-center justify-center text-gray-900 dark:text-graphite-300">
               Pie chart view coming soon
             </div>
           )}
@@ -334,14 +334,14 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
 
       {/* Performance Insights */}
       <Card className="p-6">
-        <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
+        <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-4">
           AI-Powered Insights
         </h3>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="space-y-4">
-            <h4 className="font-medium text-gray-900 dark:text-white">📈 Opportunities</h4>
-            <ul className="space-y-2 text-sm text-gray-900 dark:text-white/70">
+            <h4 className="font-medium text-gray-900 dark:text-graphite-100">📈 Opportunities</h4>
+            <ul className="space-y-2 text-sm text-gray-900 dark:text-graphite-300">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
                 Your {userRole === 'advertiser' ? 'ROAS' : 'RPM'} has improved 12% this week
@@ -358,8 +358,8 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
           </div>
 
           <div className="space-y-4">
-            <h4 className="font-medium text-gray-900 dark:text-white">⚠️ Action Items</h4>
-            <ul className="space-y-2 text-sm text-gray-900 dark:text-white/70">
+            <h4 className="font-medium text-gray-900 dark:text-graphite-100">⚠️ Action Items</h4>
+            <ul className="space-y-2 text-sm text-gray-900 dark:text-graphite-300">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full mt-2 flex-shrink-0"></span>
                 Consider increasing budget for high-performing campaigns

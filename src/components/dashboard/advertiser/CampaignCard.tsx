@@ -24,7 +24,7 @@ interface CampaignCardProps {
 const statusConfig = {
   active: { label: 'Active', color: 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300' },
   paused: { label: 'Paused', color: 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300' },
-  completed: { label: 'Completed', color: 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300' }
+  completed: { label: 'Completed', color: 'bg-gray-100 text-gray-800 dark:bg-graphite-800 dark:text-gray-300' }
 };
 
 const performanceConfig = {
@@ -39,10 +39,10 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
   const performanceStyle = performanceConfig[campaign.performance];
 
   return (
-    <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:shadow-sm transition-shadow">
+    <div className="border border-gray-200 dark:border-graphite-700 rounded-lg p-4 hover:shadow-sm transition-shadow">
       <div className="flex items-start justify-between mb-3">
         <div className="flex-1">
-          <h3 className="font-medium text-gray-900 dark:text-white mb-1">{campaign.name}</h3>
+          <h3 className="font-medium text-gray-900 dark:text-graphite-100 mb-1">{campaign.name}</h3>
           <div className="flex items-center gap-2">
             <Badge className={statusStyle.color}>
               {statusStyle.label}
@@ -59,30 +59,30 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
         <div>
-          <div className="text-xs text-gray-900 dark:text-white/60 mb-1">Budget</div>
-          <div className="font-medium text-gray-900 dark:text-white">${campaign.budget.toLocaleString()}</div>
+          <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">Budget</div>
+          <div className="font-medium text-gray-900 dark:text-graphite-100">${campaign.budget.toLocaleString()}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-900 dark:text-white/60 mb-1">Spent</div>
-          <div className="font-medium text-gray-900 dark:text-white">${campaign.spent.toLocaleString()}</div>
+          <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">Spent</div>
+          <div className="font-medium text-gray-900 dark:text-graphite-100">${campaign.spent.toLocaleString()}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-900 dark:text-white/60 mb-1">Conversions</div>
-          <div className="font-medium text-gray-900 dark:text-white">{campaign.conversions.toLocaleString()}</div>
+          <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">Conversions</div>
+          <div className="font-medium text-gray-900 dark:text-graphite-100">{campaign.conversions.toLocaleString()}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-900 dark:text-white/60 mb-1">CPC</div>
-          <div className="font-medium text-gray-900 dark:text-white">${campaign.cpc}</div>
+          <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">CPC</div>
+          <div className="font-medium text-gray-900 dark:text-graphite-100">${campaign.cpc}</div>
         </div>
       </div>
 
       {/* Budget Progress */}
       <div className="mb-4">
-        <div className="flex justify-between text-xs text-gray-900 dark:text-white/60 mb-2">
+        <div className="flex justify-between text-xs text-gray-900 dark:text-graphite-300 mb-2">
           <span>Budget Progress</span>
           <span>{spendPercentage.toFixed(1)}%</span>
         </div>
-        <div className="w-full bg-gray-100 dark:bg-gray-800 rounded-full h-2">
+        <div className="w-full bg-gray-100 dark:bg-graphite-800 rounded-full h-2">
           <div
             className={cn(
               "h-2 rounded-full transition-all",
@@ -96,7 +96,7 @@ export function CampaignCard({ campaign }: CampaignCardProps) {
       </div>
 
       <div className="flex items-center justify-between">
-        <div className="text-xs text-gray-900 dark:text-white/60">
+        <div className="text-xs text-gray-900 dark:text-graphite-300">
           Ends: {new Date(campaign.endDate).toLocaleDateString()}
         </div>
         <div className="flex items-center gap-2">

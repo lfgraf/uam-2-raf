@@ -38,8 +38,8 @@ export function StatsCard({ title, value, change, trend, icon: Icon }: StatsCard
     <Card className="p-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-gray-900 dark:text-white/60 text-sm font-medium">{title}</p>
-          <p className="text-2xl font-medium text-gray-900 dark:text-white mt-1">
+          <p className="text-gray-600 dark:text-graphite-500 text-sm font-medium">{title}</p>
+          <p className="text-2xl font-medium text-gray-900 dark:text-graphite-100 mt-1">
             <AnimatedCounter value={numericValue} format={format} decimals={decimals} duration={1500} />
           </p>
           <div className="flex items-center mt-2">
@@ -56,8 +56,8 @@ export function StatsCard({ title, value, change, trend, icon: Icon }: StatsCard
             </span>
           </div>
         </div>
-        <div className="w-12 h-12 bg-brand/10 rounded-lg flex items-center justify-center">
-          <Icon className="w-6 h-6 text-brand" />
+        <div className="w-12 h-12 bg-acid/10 rounded-lg flex items-center justify-center">
+          <Icon className="w-6 h-6 text-acid" />
         </div>
       </div>
     </Card>

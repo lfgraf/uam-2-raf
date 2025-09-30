@@ -71,7 +71,7 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
   };
 
   return (
-    <header className="h-16 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between px-6">
+    <header className="h-16 bg-white dark:bg-graphite-900 border-b border-gray-200 dark:border-graphite-700 flex items-center justify-between px-6">
       {/* Left side */}
       <div className="flex items-center gap-4">
         <Button
@@ -85,11 +85,11 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
 
         {/* Search */}
         <div className="relative hidden md:block">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-900 dark:text-white/50" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 dark:text-graphite-300" />
           <input
             type="text"
             placeholder="Search campaigns, properties..."
-            className="w-80 pl-10 pr-4 py-2 bg-gray-100 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand/50 focus:border-brand"
+            className="w-80 pl-10 pr-4 py-2 bg-gray-100 dark:bg-graphite-800 border border-gray-200 dark:border-graphite-700 rounded-lg text-sm text-gray-900 dark:text-graphite-100 placeholder:text-gray-500 dark:placeholder:text-graphite-500 focus:outline-none focus:ring-2 focus:ring-acid/30 focus:border-acid"
           />
         </div>
       </div>
@@ -131,13 +131,13 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
               />
 
               {/* Dropdown */}
-              <div className="absolute right-0 top-12 w-96 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-40 max-h-[500px] overflow-hidden flex flex-col">
+              <div className="absolute right-0 top-12 w-96 bg-white dark:bg-graphite-900 border border-gray-200 dark:border-graphite-700 rounded-lg shadow-lg z-40 max-h-[500px] overflow-hidden flex flex-col">
                 {/* Header */}
-                <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="font-medium text-gray-900 dark:text-white">Notifications</h3>
+                <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-graphite-700">
+                  <h3 className="font-medium text-gray-900 dark:text-graphite-100">Notifications</h3>
                   <button
                     onClick={() => setNotificationsOpen(false)}
-                    className="text-gray-900 dark:text-white/60 hover:text-gray-900 dark:hover:text-white"
+                    className="text-gray-500 dark:text-graphite-300 hover:text-gray-900 dark:hover:text-graphite-100"
                   >
                     <X className="w-4 h-4" />
                   </button>
@@ -156,20 +156,20 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
                     return (
                       <div
                         key={notification.id}
-                        className="p-4 border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer transition-colors"
+                        className="p-4 border-b border-gray-200 dark:border-graphite-700 hover:bg-gray-50 dark:hover:bg-graphite-850 cursor-pointer transition-colors"
                       >
                         <div className="flex gap-3">
                           <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${typeColors[notification.type]}`}>
                             <Icon className="w-4 h-4" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <div className="font-medium text-gray-900 dark:text-white text-sm mb-1">
+                            <div className="font-medium text-gray-900 dark:text-graphite-100 text-sm mb-1">
                               {notification.title}
                             </div>
-                            <div className="text-sm text-gray-900 dark:text-white/70 mb-2">
+                            <div className="text-sm text-gray-600 dark:text-graphite-300 mb-2">
                               {notification.message}
                             </div>
-                            <div className="text-xs text-gray-900 dark:text-white/50">
+                            <div className="text-xs text-gray-500 dark:text-graphite-500">
                               {notification.time}
                             </div>
                           </div>
@@ -180,8 +180,8 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
                 </div>
 
                 {/* Footer */}
-                <div className="p-3 border-t border-gray-200 dark:border-gray-700">
-                  <button className="w-full text-center text-sm text-brand hover:text-brand-700 font-medium">
+                <div className="p-3 border-t border-gray-200 dark:border-graphite-700">
+                  <button className="w-full text-center text-sm text-acid hover:text-acid-400 font-medium">
                     View all notifications
                   </button>
                 </div>
@@ -191,13 +191,13 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
         </div>
 
         {/* User menu */}
-        <div className="flex items-center gap-2 pl-3 border-l border-gray-200 dark:border-gray-700">
-          <div className="w-8 h-8 bg-brand rounded-full flex items-center justify-center">
-            <span className="text-sm font-medium text-white">A</span>
+        <div className="flex items-center gap-2 pl-3 border-l border-gray-200 dark:border-graphite-700">
+          <div className="w-8 h-8 bg-acid rounded-full flex items-center justify-center">
+            <span className="text-sm font-medium text-graphite-950">A</span>
           </div>
           <div className="hidden sm:block">
-            <div className="text-sm font-medium text-gray-900 dark:text-white">Advertiser</div>
-            <div className="text-xs text-gray-900 dark:text-white/60">0x1234...5678</div>
+            <div className="text-sm font-medium text-gray-900 dark:text-graphite-100">Advertiser</div>
+            <div className="text-xs text-gray-500 dark:text-graphite-300">0x1234...5678</div>
           </div>
         </div>
       </div>

@@ -133,7 +133,7 @@ function UserDetailsModal({ user, onClose }: { user: User; onClose: () => void }
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <Card className="w-full max-w-2xl p-6 max-h-[80vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-medium text-gray-900 dark:text-white">User Details</h2>
+          <h2 className="text-xl font-medium text-gray-900 dark:text-graphite-100">User Details</h2>
           <Button variant="ghost" onClick={onClose}>×</Button>
         </div>
 
@@ -141,13 +141,13 @@ function UserDetailsModal({ user, onClose }: { user: User; onClose: () => void }
           {/* Basic Info */}
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <div className="text-sm text-gray-900 dark:text-white/60 mb-1">Wallet Address</div>
+              <div className="text-sm text-gray-900 dark:text-graphite-300 mb-1">Wallet Address</div>
               <div className="font-mono text-sm text-gray-900 dark:text-white break-all">
                 {user.walletAddress}
               </div>
             </div>
             <div>
-              <div className="text-sm text-gray-900 dark:text-white/60 mb-1">Status</div>
+              <div className="text-sm text-gray-900 dark:text-graphite-300 mb-1">Status</div>
               <div className="flex items-center gap-2">
                 <span className={`px-2 py-1 rounded-full border text-xs font-medium ${getStatusColor(user.status)} flex items-center gap-1`}>
                   {getStatusIcon(user.status)}
@@ -159,7 +159,7 @@ function UserDetailsModal({ user, onClose }: { user: User; onClose: () => void }
 
           {/* Roles */}
           <div>
-            <div className="text-sm text-gray-900 dark:text-white/60 mb-2">Roles</div>
+            <div className="text-sm text-gray-900 dark:text-graphite-300 mb-2">Roles</div>
             <div className="flex gap-2">
               {user.roles.map((role) => (
                 <Badge key={role} variant="secondary" className="capitalize">
@@ -172,33 +172,33 @@ function UserDetailsModal({ user, onClose }: { user: User; onClose: () => void }
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {user.totalSpend !== undefined && (
-              <div className="p-4 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-                <div className="text-xs text-gray-900 dark:text-white/60 mb-1">Total Spend</div>
-                <div className="text-lg font-medium text-gray-900 dark:text-white">
+              <div className="p-4 bg-gray-50 dark:bg-graphite-850 rounded-lg">
+                <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">Total Spend</div>
+                <div className="text-lg font-medium text-gray-900 dark:text-graphite-100">
                   ${user.totalSpend.toLocaleString()}
                 </div>
               </div>
             )}
             {user.totalEarned !== undefined && (
-              <div className="p-4 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-                <div className="text-xs text-gray-900 dark:text-white/60 mb-1">Total Earned</div>
-                <div className="text-lg font-medium text-gray-900 dark:text-white">
+              <div className="p-4 bg-gray-50 dark:bg-graphite-850 rounded-lg">
+                <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">Total Earned</div>
+                <div className="text-lg font-medium text-gray-900 dark:text-graphite-100">
                   ${user.totalEarned.toLocaleString()}
                 </div>
               </div>
             )}
             {user.activeCampaigns !== undefined && (
-              <div className="p-4 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-                <div className="text-xs text-gray-900 dark:text-white/60 mb-1">Campaigns</div>
-                <div className="text-lg font-medium text-gray-900 dark:text-white">
+              <div className="p-4 bg-gray-50 dark:bg-graphite-850 rounded-lg">
+                <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">Campaigns</div>
+                <div className="text-lg font-medium text-gray-900 dark:text-graphite-100">
                   {user.activeCampaigns}
                 </div>
               </div>
             )}
             {user.activeProperties !== undefined && (
-              <div className="p-4 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-                <div className="text-xs text-gray-900 dark:text-white/60 mb-1">Properties</div>
-                <div className="text-lg font-medium text-gray-900 dark:text-white">
+              <div className="p-4 bg-gray-50 dark:bg-graphite-850 rounded-lg">
+                <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">Properties</div>
+                <div className="text-lg font-medium text-gray-900 dark:text-graphite-100">
                   {user.activeProperties}
                 </div>
               </div>
@@ -207,18 +207,18 @@ function UserDetailsModal({ user, onClose }: { user: User; onClose: () => void }
 
           {/* Timeline Info */}
           <div className="grid grid-cols-2 gap-4 text-sm">
-            <div className="flex items-center gap-2 text-gray-900 dark:text-white/70">
+            <div className="flex items-center gap-2 text-gray-900 dark:text-graphite-300">
               <Calendar className="w-4 h-4" />
               Joined: {new Date(user.joinedDate).toLocaleDateString()}
             </div>
-            <div className="flex items-center gap-2 text-gray-900 dark:text-white/70">
+            <div className="flex items-center gap-2 text-gray-900 dark:text-graphite-300">
               <User className="w-4 h-4" />
               Last active: {user.lastActive}
             </div>
           </div>
 
           {/* Actions */}
-          <div className="flex gap-3 pt-4 border-t border-gray-200 dark:border-gray-700">
+          <div className="flex gap-3 pt-4 border-t border-gray-200 dark:border-graphite-700">
             {user.status === 'pending' && (
               <>
                 <Button className="flex-1">Approve User</Button>
@@ -261,8 +261,8 @@ export function UserManagement() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">User Management</h1>
-          <p className="text-gray-900 dark:text-white/60">
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-graphite-100">User Management</h1>
+          <p className="text-gray-900 dark:text-graphite-300">
             Manage platform users and their permissions
           </p>
         </div>
@@ -276,23 +276,23 @@ export function UserManagement() {
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         <Card className="p-4">
-          <div className="text-sm text-gray-900 dark:text-white/60 mb-1">Total Users</div>
-          <div className="text-2xl font-medium text-gray-900 dark:text-white">{mockUsers.length}</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300 mb-1">Total Users</div>
+          <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">{mockUsers.length}</div>
         </Card>
         <Card className="p-4">
-          <div className="text-sm text-gray-900 dark:text-white/60 mb-1">Active</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300 mb-1">Active</div>
           <div className="text-2xl font-medium text-green-600">
             {mockUsers.filter(u => u.status === 'active').length}
           </div>
         </Card>
         <Card className="p-4">
-          <div className="text-sm text-gray-900 dark:text-white/60 mb-1">Pending</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300 mb-1">Pending</div>
           <div className="text-2xl font-medium text-yellow-600">
             {mockUsers.filter(u => u.status === 'pending').length}
           </div>
         </Card>
         <Card className="p-4">
-          <div className="text-sm text-gray-900 dark:text-white/60 mb-1">Suspended</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300 mb-1">Suspended</div>
           <div className="text-2xl font-medium text-red-600">
             {mockUsers.filter(u => u.status === 'suspended').length}
           </div>
@@ -309,14 +309,14 @@ export function UserManagement() {
               placeholder="Search by wallet address or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
           </div>
 
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as 'all' | User['status'])}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
+            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
           >
             <option value="all">All Statuses</option>
             <option value="active">Active</option>
@@ -327,7 +327,7 @@ export function UserManagement() {
           <select
             value={roleFilter}
             onChange={(e) => setRoleFilter(e.target.value as 'all' | 'advertiser' | 'publisher' | 'admin')}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
+            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
           >
             <option value="all">All Roles</option>
             <option value="advertiser">Advertiser</option>
@@ -341,37 +341,37 @@ export function UserManagement() {
       <Card className="overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full">
-            <thead className="bg-gray-50 dark:bg-gray-800/30 border-b border-gray-200 dark:border-gray-700">
+            <thead className="bg-gray-50 dark:bg-graphite-850 border-b border-gray-200 dark:border-graphite-700">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-white/60 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-graphite-300 uppercase tracking-wider">
                   User
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-white/60 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-graphite-300 uppercase tracking-wider">
                   Roles
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-white/60 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-graphite-300 uppercase tracking-wider">
                   Status
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-white/60 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-graphite-300 uppercase tracking-wider">
                   Activity
                 </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-white/60 uppercase tracking-wider">
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-900 dark:text-graphite-300 uppercase tracking-wider">
                   Joined
                 </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-900 dark:text-white/60 uppercase tracking-wider">
+                <th className="px-6 py-3 text-right text-xs font-medium text-gray-900 dark:text-graphite-300 uppercase tracking-wider">
                   Actions
                 </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
               {filteredUsers.map((user) => (
-                <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-gray-800/30">
+                <tr key={user.id} className="hover:bg-gray-50 dark:hover:bg-graphite-850/30">
                   <td className="px-6 py-4">
                     <div>
                       <div className="font-medium text-gray-900 dark:text-white font-mono text-sm">
                         {user.walletAddress.slice(0, 10)}...{user.walletAddress.slice(-4)}
                       </div>
-                      <div className="text-xs text-gray-900 dark:text-white/60">{user.id}</div>
+                      <div className="text-xs text-gray-900 dark:text-graphite-300">{user.id}</div>
                     </div>
                   </td>
                   <td className="px-6 py-4">
@@ -390,10 +390,10 @@ export function UserManagement() {
                     </span>
                   </td>
                   <td className="px-6 py-4">
-                    <div className="text-sm text-gray-900 dark:text-white">{user.lastActive}</div>
+                    <div className="text-sm text-gray-900 dark:text-graphite-100">{user.lastActive}</div>
                   </td>
                   <td className="px-6 py-4">
-                    <div className="text-sm text-gray-900 dark:text-white/70">
+                    <div className="text-sm text-gray-900 dark:text-graphite-300">
                       {new Date(user.joinedDate).toLocaleDateString()}
                     </div>
                   </td>
@@ -413,14 +413,14 @@ export function UserManagement() {
         </div>
 
         {filteredUsers.length === 0 && (
-          <div className="text-center py-12 text-gray-900 dark:text-white/60">
+          <div className="text-center py-12 text-gray-900 dark:text-graphite-300">
             No users found matching your filters
           </div>
         )}
       </Card>
 
       {/* Results count */}
-      <div className="text-sm text-gray-900 dark:text-white/60">
+      <div className="text-sm text-gray-900 dark:text-graphite-300">
         Showing {filteredUsers.length} of {mockUsers.length} users
       </div>
 

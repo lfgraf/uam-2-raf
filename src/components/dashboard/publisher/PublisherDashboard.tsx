@@ -92,8 +92,8 @@ export function PublisherDashboard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Publisher Dashboard</h1>
-          <p className="text-gray-900 dark:text-white/60">Manage your properties and track revenue</p>
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-graphite-100">Publisher Dashboard</h1>
+          <p className="text-gray-900 dark:text-graphite-300">Manage your properties and track revenue</p>
         </div>
         <Button className="inline-flex items-center gap-2">
           <Plus className="w-4 h-4" />
@@ -114,7 +114,7 @@ export function PublisherDashboard() {
         <div className="lg:col-span-2">
           <Card className="p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-medium text-gray-900 dark:text-white">My Properties</h2>
+              <h2 className="text-lg font-medium text-gray-900 dark:text-graphite-100">My Properties</h2>
               <Link href="/dashboard/publisher/properties">
                 <Button variant="ghost" size="sm">
                   View All
@@ -133,7 +133,7 @@ export function PublisherDashboard() {
         <div className="space-y-6">
           {/* Quick Actions */}
           <Card className="p-6">
-            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Quick Actions</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-4">Quick Actions</h3>
             <div className="space-y-3">
               <Link href="/dashboard/publisher/marketplace">
                 <Button variant="outline" className="w-full justify-start">
@@ -156,21 +156,21 @@ export function PublisherDashboard() {
 
           {/* Available Campaigns */}
           <Card className="p-6">
-            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Available Campaigns</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-4">Available Campaigns</h3>
             <div className="space-y-3">
-              <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-3">
-                <div className="font-medium text-gray-900 dark:text-white text-sm">Mobile App Install</div>
-                <div className="text-gray-900 dark:text-white/60 text-xs mt-1">Gaming · $1.25 CPC</div>
-                <div className="text-brand text-xs mt-2">High Match Score</div>
+              <div className="border border-gray-200 dark:border-graphite-700 rounded-lg p-3">
+                <div className="font-medium text-gray-900 dark:text-graphite-100 text-sm">Mobile App Install</div>
+                <div className="text-gray-900 dark:text-graphite-300 text-xs mt-1">Gaming · $1.25 CPC</div>
+                <div className="text-acid text-xs mt-2">High Match Score</div>
               </div>
-              <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-3">
-                <div className="font-medium text-gray-900 dark:text-white text-sm">E-commerce Sale</div>
-                <div className="text-gray-900 dark:text-white/60 text-xs mt-1">Retail · $0.85 CPC</div>
+              <div className="border border-gray-200 dark:border-graphite-700 rounded-lg p-3">
+                <div className="font-medium text-gray-900 dark:text-graphite-100 text-sm">E-commerce Sale</div>
+                <div className="text-gray-900 dark:text-graphite-300 text-xs mt-1">Retail · $0.85 CPC</div>
                 <div className="text-green-600 text-xs mt-2">Good Match Score</div>
               </div>
-              <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-3">
-                <div className="font-medium text-gray-900 dark:text-white text-sm">Newsletter Signup</div>
-                <div className="text-gray-900 dark:text-white/60 text-xs mt-1">Tech · $0.45 CPC</div>
+              <div className="border border-gray-200 dark:border-graphite-700 rounded-lg p-3">
+                <div className="font-medium text-gray-900 dark:text-graphite-100 text-sm">Newsletter Signup</div>
+                <div className="text-gray-900 dark:text-graphite-300 text-xs mt-1">Tech · $0.45 CPC</div>
                 <div className="text-yellow-600 text-xs mt-2">Medium Match</div>
               </div>
             </div>
@@ -183,28 +183,28 @@ export function PublisherDashboard() {
 
           {/* Recent Activity */}
           <Card className="p-6">
-            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Recent Activity</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-4">Recent Activity</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-start">
                 <div>
-                  <div className="font-medium text-gray-900 dark:text-white">Payment Received</div>
-                  <div className="text-gray-900 dark:text-white/60">$1,240 for October</div>
+                  <div className="font-medium text-gray-900 dark:text-graphite-100">Payment Received</div>
+                  <div className="text-gray-900 dark:text-graphite-300">$1,240 for October</div>
                 </div>
-                <div className="text-xs text-gray-900 dark:text-white/50">2h ago</div>
+                <div className="text-xs text-gray-900 dark:text-graphite-500">2h ago</div>
               </div>
               <div className="flex justify-between items-start">
                 <div>
-                  <div className="font-medium text-gray-900 dark:text-white">New Campaign Match</div>
-                  <div className="text-gray-900 dark:text-white/60">Mobile App Install campaign</div>
+                  <div className="font-medium text-gray-900 dark:text-graphite-100">New Campaign Match</div>
+                  <div className="text-gray-900 dark:text-graphite-300">Mobile App Install campaign</div>
                 </div>
-                <div className="text-xs text-gray-900 dark:text-white/50">5h ago</div>
+                <div className="text-xs text-gray-900 dark:text-graphite-500">5h ago</div>
               </div>
               <div className="flex justify-between items-start">
                 <div>
-                  <div className="font-medium text-gray-900 dark:text-white">Property Verified</div>
-                  <div className="text-gray-900 dark:text-white/60">TechBlog Pro approved</div>
+                  <div className="font-medium text-gray-900 dark:text-graphite-100">Property Verified</div>
+                  <div className="text-gray-900 dark:text-graphite-300">TechBlog Pro approved</div>
                 </div>
-                <div className="text-xs text-gray-900 dark:text-white/50">1d ago</div>
+                <div className="text-xs text-gray-900 dark:text-graphite-500">1d ago</div>
               </div>
             </div>
           </Card>

@@ -9,9 +9,9 @@ interface BadgeProps {
 
 export function Badge({ children, className, variant = 'default' }: BadgeProps) {
   const variantStyles = {
-    default: 'bg-brand text-white',
-    secondary: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white',
-    outline: 'border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white'
+    default: 'bg-acid text-graphite-950',
+    secondary: 'bg-gray-100 dark:bg-graphite-850 text-gray-900 dark:text-graphite-100',
+    outline: 'border border-gray-200 dark:border-graphite-700 text-gray-900 dark:text-graphite-100'
   };
 
   return (

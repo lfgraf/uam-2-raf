@@ -197,22 +197,22 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <Card className="w-full max-w-2xl p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-medium text-gray-900 dark:text-white">
+          <h2 className="text-xl font-medium text-gray-900 dark:text-graphite-100">
             Submit Bid: {campaign.title}
           </h2>
           <Button variant="ghost" onClick={onClose}>×</Button>
         </div>
 
         <div className="space-y-6">
-          <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
+          <div className="grid grid-cols-2 gap-4 p-4 bg-gray-50 dark:bg-graphite-850 rounded-lg">
             <div>
-              <div className="text-sm text-gray-900 dark:text-white/60">Bid Range</div>
-              <div className="font-medium text-gray-900 dark:text-white">
+              <div className="text-sm text-gray-900 dark:text-graphite-300">Bid Range</div>
+              <div className="font-medium text-gray-900 dark:text-graphite-100">
                 ${campaign.bidRange.min.toFixed(2)} - ${campaign.bidRange.max.toFixed(2)} RPM
               </div>
             </div>
             <div>
-              <div className="text-sm text-gray-900 dark:text-white/60">Competition</div>
+              <div className="text-sm text-gray-900 dark:text-graphite-300">Competition</div>
               <div className={`font-medium capitalize ${getCompetitionColor(campaign.metrics.competition)}`}>
                 {campaign.metrics.competition}
               </div>
@@ -220,7 +220,7 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+            <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Proposed RPM: ${proposedRpm.toFixed(2)}
             </label>
             <input
@@ -232,14 +232,14 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
               onChange={(e) => setProposedRpm(parseFloat(e.target.value))}
               className="w-full"
             />
-            <div className="flex justify-between text-xs text-gray-900 dark:text-white/60 mt-1">
+            <div className="flex justify-between text-xs text-gray-900 dark:text-graphite-300 mt-1">
               <span>${campaign.bidRange.min.toFixed(2)}</span>
               <span>${campaign.bidRange.max.toFixed(2)}</span>
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+            <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Traffic Allocation: {trafficAllocation}%
             </label>
             <input
@@ -251,13 +251,13 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
               onChange={(e) => setTrafficAllocation(parseInt(e.target.value))}
               className="w-full"
             />
-            <div className="text-xs text-gray-900 dark:text-white/60 mt-1">
+            <div className="text-xs text-gray-900 dark:text-graphite-300 mt-1">
               Allocate {trafficAllocation}% of your traffic to this campaign
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+            <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Message to Advertiser (Optional)
             </label>
             <textarea
@@ -265,16 +265,16 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Tell the advertiser about your traffic quality, audience, or any questions..."
               rows={3}
-              className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+              className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
             />
           </div>
 
-          <div className="p-4 bg-brand/5 rounded-lg border border-brand/20">
-            <h4 className="font-medium text-gray-900 dark:text-white mb-2">Estimated Monthly Revenue</h4>
-            <div className="text-2xl font-medium text-brand">
+          <div className="p-4 bg-acid/5 rounded-lg border border-acid/20">
+            <h4 className="font-medium text-gray-900 dark:text-graphite-100 mb-2">Estimated Monthly Revenue</h4>
+            <div className="text-2xl font-medium text-acid">
               ${estimatedRevenue.toFixed(0)}
             </div>
-            <div className="text-sm text-gray-900 dark:text-white/60">
+            <div className="text-sm text-gray-900 dark:text-graphite-300">
               Based on ${proposedRpm.toFixed(2)} RPM and {trafficAllocation}% traffic allocation
             </div>
           </div>
@@ -326,10 +326,10 @@ export function AdvancedMarketplace() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-medium text-gray-900 dark:text-white mb-2">
+        <h1 className="text-2xl font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Campaign Marketplace
         </h1>
-        <p className="text-gray-900 dark:text-white/60">
+        <p className="text-gray-900 dark:text-graphite-300">
           Browse and bid on premium advertising campaigns
         </p>
       </div>
@@ -344,7 +344,7 @@ export function AdvancedMarketplace() {
               placeholder="Search campaigns..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
             {searchTerm && (
               <button
@@ -359,7 +359,7 @@ export function AdvancedMarketplace() {
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
+            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
           >
             <option value="all">All Categories</option>
             <option value="mobile apps">Mobile Apps</option>
@@ -371,7 +371,7 @@ export function AdvancedMarketplace() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
+            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
           >
             <option value="rpm">Sort by RPM</option>
             <option value="budget">Sort by Budget</option>
@@ -381,20 +381,20 @@ export function AdvancedMarketplace() {
 
         {/* Active Filters Display */}
         {(searchTerm || categoryFilter !== 'all' || sortBy !== 'rpm') && (
-          <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
-            <span className="text-sm text-gray-900 dark:text-white/60">Active filters:</span>
+          <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-200 dark:border-graphite-700">
+            <span className="text-sm text-gray-900 dark:text-graphite-300">Active filters:</span>
             {searchTerm && (
-              <span className="px-2 py-1 bg-brand/10 text-brand text-xs rounded-full">
+              <span className="px-2 py-1 bg-acid/10 text-acid text-xs rounded-full">
                 Search: &ldquo;{searchTerm}&rdquo;
               </span>
             )}
             {categoryFilter !== 'all' && (
-              <span className="px-2 py-1 bg-brand/10 text-brand text-xs rounded-full capitalize">
+              <span className="px-2 py-1 bg-acid/10 text-acid text-xs rounded-full capitalize">
                 {categoryFilter}
               </span>
             )}
             {sortBy !== 'rpm' && (
-              <span className="px-2 py-1 bg-brand/10 text-brand text-xs rounded-full">
+              <span className="px-2 py-1 bg-acid/10 text-acid text-xs rounded-full">
                 Sorted by {sortBy}
               </span>
             )}
@@ -404,7 +404,7 @@ export function AdvancedMarketplace() {
                 setCategoryFilter('all');
                 setSortBy('rpm');
               }}
-              className="text-xs text-gray-900 dark:text-white/60 hover:text-brand ml-2"
+              className="text-xs text-gray-900 dark:text-graphite-300 hover:text-acid ml-2"
             >
               Clear all
             </button>
@@ -414,7 +414,7 @@ export function AdvancedMarketplace() {
 
       {/* Results count */}
       <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-900 dark:text-white/60">
+        <p className="text-sm text-gray-900 dark:text-graphite-300">
           Showing {filteredCampaigns.length} of {campaigns.length} campaigns
         </p>
       </div>
@@ -426,7 +426,7 @@ export function AdvancedMarketplace() {
             <div className="flex items-start justify-between mb-4">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100">
                     {campaign.title}
                   </h3>
                   <span className={`px-2 py-1 text-xs rounded-full border ${getStatusColor(campaign.status)}`}>
@@ -434,15 +434,15 @@ export function AdvancedMarketplace() {
                      campaign.status === 'new' ? 'New' : 'Active'}
                   </span>
                 </div>
-                <p className="text-sm text-gray-900 dark:text-white/60">
+                <p className="text-sm text-gray-900 dark:text-graphite-300">
                   by {campaign.advertiser}
                 </p>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-medium text-brand">
+                <div className="text-2xl font-medium text-acid">
                   ${campaign.estimatedRpm.toFixed(2)}
                 </div>
-                <div className="text-xs text-gray-900 dark:text-white/60">Est. RPM</div>
+                <div className="text-xs text-gray-900 dark:text-graphite-300">Est. RPM</div>
               </div>
             </div>
 
@@ -450,40 +450,40 @@ export function AdvancedMarketplace() {
               {/* Key Metrics */}
               <div className="grid grid-cols-3 gap-4 text-center">
                 <div>
-                  <div className="text-sm font-medium text-gray-900 dark:text-white">
+                  <div className="text-sm font-medium text-gray-900 dark:text-graphite-100">
                     {campaign.metrics.fillRate}%
                   </div>
-                  <div className="text-xs text-gray-900 dark:text-white/60">Fill Rate</div>
+                  <div className="text-xs text-gray-900 dark:text-graphite-300">Fill Rate</div>
                 </div>
                 <div>
-                  <div className="text-sm font-medium text-gray-900 dark:text-white">
+                  <div className="text-sm font-medium text-gray-900 dark:text-graphite-100">
                     {campaign.metrics.avgCtr.toFixed(1)}%
                   </div>
-                  <div className="text-xs text-gray-900 dark:text-white/60">Avg CTR</div>
+                  <div className="text-xs text-gray-900 dark:text-graphite-300">Avg CTR</div>
                 </div>
                 <div>
                   <div className={`text-sm font-medium capitalize ${getCompetitionColor(campaign.metrics.competition)}`}>
                     {campaign.metrics.competition}
                   </div>
-                  <div className="text-xs text-gray-900 dark:text-white/60">Competition</div>
+                  <div className="text-xs text-gray-900 dark:text-graphite-300">Competition</div>
                 </div>
               </div>
 
               {/* Requirements */}
               <div className="space-y-2">
-                <div className="flex items-center gap-2 text-sm text-gray-900 dark:text-white/70">
+                <div className="flex items-center gap-2 text-sm text-gray-900 dark:text-graphite-300">
                   <Users className="w-4 h-4" />
                   Min. {campaign.requirements.minTraffic.toLocaleString()} monthly visitors
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-900 dark:text-white/70">
+                <div className="flex items-center gap-2 text-sm text-gray-900 dark:text-graphite-300">
                   <MapPin className="w-4 h-4" />
                   {campaign.requirements.geoTargets.join(', ')}
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-900 dark:text-white/70">
+                <div className="flex items-center gap-2 text-sm text-gray-900 dark:text-graphite-300">
                   <Star className="w-4 h-4" />
                   {campaign.requirements.quality}+ quality score required
                 </div>
-                <div className="flex items-center gap-2 text-sm text-gray-900 dark:text-white/70">
+                <div className="flex items-center gap-2 text-sm text-gray-900 dark:text-graphite-300">
                   <Calendar className="w-4 h-4" />
                   {campaign.timeline.duration}
                 </div>
@@ -492,14 +492,14 @@ export function AdvancedMarketplace() {
               {/* Budget Progress */}
               <div>
                 <div className="flex justify-between text-sm mb-2">
-                  <span className="text-gray-900 dark:text-white/60">Budget Remaining</span>
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="text-gray-900 dark:text-graphite-300">Budget Remaining</span>
+                  <span className="font-medium text-gray-900 dark:text-graphite-100">
                     ${campaign.budget.remaining.toLocaleString()}
                   </span>
                 </div>
                 <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                   <div
-                    className="bg-brand h-2 rounded-full"
+                    className="bg-acid h-2 rounded-full"
                     style={{
                       width: `${(campaign.budget.remaining / campaign.budget.total) * 100}%`
                     }}

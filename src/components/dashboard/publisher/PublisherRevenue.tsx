@@ -174,8 +174,8 @@ export function PublisherRevenue() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Revenue Dashboard</h1>
-          <p className="text-gray-900 dark:text-white/60">
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-graphite-100">Revenue Dashboard</h1>
+          <p className="text-gray-900 dark:text-graphite-300">
             Track your earnings across all properties and campaigns
           </p>
         </div>
@@ -184,7 +184,7 @@ export function PublisherRevenue() {
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-acid/50"
           >
             <option value="7d">Last 7 days</option>
             <option value="30d">Last 30 days</option>
@@ -215,10 +215,10 @@ export function PublisherRevenue() {
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">Total Revenue</h3>
+            <h3 className="text-sm font-medium text-gray-900 dark:text-graphite-300">Total Revenue</h3>
             <DollarSign className="w-5 h-5 text-green-500" />
           </div>
-          <div className="text-2xl font-medium text-gray-900 dark:text-white">
+          <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">
             ${totalRevenue.toLocaleString()}
           </div>
           <div className="flex items-center gap-1 text-sm text-green-600 mt-1">
@@ -229,23 +229,23 @@ export function PublisherRevenue() {
 
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">Pending Revenue</h3>
+            <h3 className="text-sm font-medium text-gray-900 dark:text-graphite-300">Pending Revenue</h3>
             <Clock className="w-5 h-5 text-yellow-500" />
           </div>
-          <div className="text-2xl font-medium text-gray-900 dark:text-white">
+          <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">
             ${pendingRevenue.toLocaleString()}
           </div>
-          <div className="text-sm text-gray-900 dark:text-white/60 mt-1">
+          <div className="text-sm text-gray-900 dark:text-graphite-300 mt-1">
             Awaiting confirmation
           </div>
         </Card>
 
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">Average RPM</h3>
-            <TrendingUp className="w-5 h-5 text-brand" />
+            <h3 className="text-sm font-medium text-gray-900 dark:text-graphite-300">Average RPM</h3>
+            <TrendingUp className="w-5 h-5 text-acid" />
           </div>
-          <div className="text-2xl font-medium text-gray-900 dark:text-white">
+          <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">
             ${averageRpm.toFixed(3)}
           </div>
           <div className="flex items-center gap-1 text-sm text-green-600 mt-1">
@@ -256,13 +256,13 @@ export function PublisherRevenue() {
 
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">Average CTR</h3>
+            <h3 className="text-sm font-medium text-gray-900 dark:text-graphite-300">Average CTR</h3>
             <Eye className="w-5 h-5 text-purple-500" />
           </div>
-          <div className="text-2xl font-medium text-gray-900 dark:text-white">
+          <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">
             {averageCtr.toFixed(2)}%
           </div>
-          <div className="text-sm text-gray-900 dark:text-white/60 mt-1">
+          <div className="text-sm text-gray-900 dark:text-graphite-300 mt-1">
             {totalClicks.toLocaleString()} clicks
           </div>
         </Card>
@@ -270,22 +270,22 @@ export function PublisherRevenue() {
 
       {/* Property Performance */}
       <Card className="p-6">
-        <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-6">Property Performance</h2>
+        <h2 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-6">Property Performance</h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {propertyRevenueData.map((property, index) => (
-            <div key={index} className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
-              <h3 className="font-medium text-gray-900 dark:text-white mb-3">{property.propertyName}</h3>
+            <div key={index} className="p-4 border border-gray-200 dark:border-graphite-700 rounded-lg">
+              <h3 className="font-medium text-gray-900 dark:text-graphite-100 mb-3">{property.propertyName}</h3>
 
               <div className="space-y-3">
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-900 dark:text-white/60">Revenue</span>
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="text-sm text-gray-900 dark:text-graphite-300">Revenue</span>
+                  <span className="font-medium text-gray-900 dark:text-graphite-100">
                     ${property.totalRevenue.toLocaleString()}
                   </span>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-900 dark:text-white/60">Growth</span>
+                  <span className="text-sm text-gray-900 dark:text-graphite-300">Growth</span>
                   <div className={`flex items-center gap-1 text-sm ${
                     property.growth > 0 ? 'text-green-600' : 'text-red-600'
                   }`}>
@@ -299,15 +299,15 @@ export function PublisherRevenue() {
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-900 dark:text-white/60">RPM</span>
-                  <span className="font-medium text-gray-900 dark:text-white">
+                  <span className="text-sm text-gray-900 dark:text-graphite-300">RPM</span>
+                  <span className="font-medium text-gray-900 dark:text-graphite-100">
                     ${property.rpm.toFixed(3)}
                   </span>
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-900 dark:text-white/60">Impressions</span>
-                  <span className="text-sm text-gray-900 dark:text-white/80">
+                  <span className="text-sm text-gray-900 dark:text-graphite-300">Impressions</span>
+                  <span className="text-sm text-gray-900 dark:text-graphite-300">
                     {property.impressions.toLocaleString()}
                   </span>
                 </div>
@@ -319,38 +319,38 @@ export function PublisherRevenue() {
 
       {/* Recent Revenue Entries */}
       <Card className="p-6">
-        <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-6">Recent Revenue Entries</h2>
+        <h2 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-6">Recent Revenue Entries</h2>
         <div className="space-y-4">
           {revenueEntries.map((entry) => (
             <div
               key={entry.id}
-              className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors"
+              className="flex items-center justify-between p-4 border border-gray-200 dark:border-graphite-700 rounded-lg hover:bg-gray-50 dark:hover:bg-graphite-850/30 transition-colors"
             >
               <div className="flex-1">
                 <div className="flex items-center gap-3 mb-2">
-                  <h4 className="font-medium text-gray-900 dark:text-white">{entry.propertyName}</h4>
+                  <h4 className="font-medium text-gray-900 dark:text-graphite-100">{entry.propertyName}</h4>
                   {getStatusIcon(entry.status)}
                   <span className={`px-2 py-1 text-xs rounded-full border capitalize ${getPaymentStatusColor(entry.paymentStatus)}`}>
                     {entry.paymentStatus}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-900 dark:text-white/60">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-900 dark:text-graphite-300">
                   <div>
                     <span className="block">Campaign</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{entry.campaignName}</span>
+                    <span className="font-medium text-gray-900 dark:text-graphite-100">{entry.campaignName}</span>
                   </div>
                   <div>
                     <span className="block">Advertiser</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{entry.advertiserName}</span>
+                    <span className="font-medium text-gray-900 dark:text-graphite-100">{entry.advertiserName}</span>
                   </div>
                   <div>
                     <span className="block">Impressions</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{entry.impressions.toLocaleString()}</span>
+                    <span className="font-medium text-gray-900 dark:text-graphite-100">{entry.impressions.toLocaleString()}</span>
                   </div>
                   <div>
                     <span className="block">CTR</span>
-                    <span className="font-medium text-gray-900 dark:text-white">{entry.ctr.toFixed(2)}%</span>
+                    <span className="font-medium text-gray-900 dark:text-graphite-100">{entry.ctr.toFixed(2)}%</span>
                   </div>
                 </div>
               </div>
@@ -359,11 +359,11 @@ export function PublisherRevenue() {
                 <div className="text-xl font-medium text-green-600 mb-1">
                   ${entry.revenue.toFixed(2)}
                 </div>
-                <div className="text-sm text-gray-900 dark:text-white/60">
+                <div className="text-sm text-gray-900 dark:text-graphite-300">
                   ${entry.rpm.toFixed(3)} RPM
                 </div>
                 {entry.transactionId && (
-                  <div className="flex items-center gap-1 text-xs text-gray-900 dark:text-white/50 mt-1">
+                  <div className="flex items-center gap-1 text-xs text-gray-900 dark:text-graphite-500 mt-1">
                     <span>TX: {entry.transactionId}</span>
                     <ExternalLink className="w-3 h-3" />
                   </div>
@@ -376,7 +376,7 @@ export function PublisherRevenue() {
 
       {/* Payment Information */}
       <Card className="p-6">
-        <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Payment Information</h2>
+        <h2 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-4">Payment Information</h2>
         <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />

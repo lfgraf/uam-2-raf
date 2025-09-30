@@ -115,8 +115,8 @@ export function CampaignWizard() {
           </Button>
         </Link>
         <div>
-          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Create New Campaign</h1>
-          <p className="text-gray-900 dark:text-white/60">Set up your advertising campaign step by step</p>
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-graphite-100">Create New Campaign</h1>
+          <p className="text-gray-900 dark:text-graphite-300">Set up your advertising campaign step by step</p>
         </div>
       </div>
 
@@ -127,9 +127,9 @@ export function CampaignWizard() {
             <div className="flex items-center">
               <div className={`
                 w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium
-                ${index < currentStep ? 'bg-brand text-white' :
-                  index === currentStep ? 'bg-brand text-white' :
-                  'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white/60'}
+                ${index < currentStep ? 'bg-acid text-graphite-950' :
+                  index === currentStep ? 'bg-acid text-graphite-950' :
+                  'bg-gray-100 dark:bg-graphite-800 text-gray-900 dark:text-graphite-300'}
               `}>
                 {index < currentStep ? (
                   <Check className="w-4 h-4" />
@@ -139,7 +139,7 @@ export function CampaignWizard() {
               </div>
               <div className="ml-3 hidden sm:block">
                 <div className={`text-sm font-medium ${
-                  index <= currentStep ? 'text-gray-900 dark:text-white' : 'text-gray-900 dark:text-white/60'
+                  index <= currentStep ? 'text-gray-900 dark:text-white' : 'text-gray-900 dark:text-graphite-300'
                 }`}>
                   {step.title}
                 </div>
@@ -147,7 +147,7 @@ export function CampaignWizard() {
             </div>
             {index < steps.length - 1 && (
               <div className={`flex-1 h-px mx-4 ${
-                index < currentStep ? 'bg-brand' : 'bg-border'
+                index < currentStep ? 'bg-acid' : 'bg-border'
               }`} />
             )}
           </div>
@@ -157,10 +157,10 @@ export function CampaignWizard() {
       {/* Step Content */}
       <Card className="p-8">
         <div className="mb-6">
-          <h2 className="text-xl font-medium text-gray-900 dark:text-white mb-2">
+          <h2 className="text-xl font-medium text-gray-900 dark:text-graphite-100 mb-2">
             {steps[currentStep].title}
           </h2>
-          <p className="text-gray-900 dark:text-white/60">
+          <p className="text-gray-900 dark:text-graphite-300">
             {steps[currentStep].description}
           </p>
         </div>
@@ -197,7 +197,7 @@ function BasicsStep({ formData, setFormData }: StepProps) {
   return (
     <div className="space-y-6">
       <div>
-        <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+        <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Campaign Name
         </label>
         <input
@@ -205,18 +205,18 @@ function BasicsStep({ formData, setFormData }: StepProps) {
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           placeholder="Enter campaign name..."
-          className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+          className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+        <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Campaign Objective
         </label>
         <select
           value={formData.objective}
           onChange={(e) => setFormData({ ...formData, objective: e.target.value })}
-          className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+          className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
         >
           <option value="">Select objective...</option>
           <option value="awareness">Brand Awareness</option>
@@ -227,7 +227,7 @@ function BasicsStep({ formData, setFormData }: StepProps) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+        <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Target Audience
         </label>
         <textarea
@@ -235,7 +235,7 @@ function BasicsStep({ formData, setFormData }: StepProps) {
           onChange={(e) => setFormData({ ...formData, audience: e.target.value })}
           placeholder="Describe your target audience..."
           rows={4}
-          className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+          className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
         />
       </div>
     </div>
@@ -247,7 +247,7 @@ function BudgetStep({ formData, setFormData }: StepProps) {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+          <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
             Total Budget ($)
           </label>
           <input
@@ -255,18 +255,18 @@ function BudgetStep({ formData, setFormData }: StepProps) {
             value={formData.budget}
             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
             placeholder="5000"
-            className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+          <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
             Bidding Strategy
           </label>
           <select
             value={formData.bidStrategy}
             onChange={(e) => setFormData({ ...formData, bidStrategy: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           >
             <option value="">Select strategy...</option>
             <option value="cpc">Cost Per Click (CPC)</option>
@@ -278,26 +278,26 @@ function BudgetStep({ formData, setFormData }: StepProps) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+          <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
             Start Date
           </label>
           <input
             type="date"
             value={formData.startDate}
             onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           />
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+          <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
             End Date
           </label>
           <input
             type="date"
             value={formData.endDate}
             onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           />
         </div>
       </div>
@@ -309,8 +309,8 @@ function CreativeStep({ formData, setFormData }: StepProps) {
   // Future: integrate file upload and form data handling
   return (
     <div className="space-y-6">
-      <div className="border-2 border-dashed border-gray-200 dark:border-gray-700 rounded-lg p-8 text-center">
-        <div className="text-gray-900 dark:text-white/60 mb-4">
+      <div className="border-2 border-dashed border-gray-200 dark:border-graphite-700 rounded-lg p-8 text-center">
+        <div className="text-gray-900 dark:text-graphite-300 mb-4">
           <svg className="w-12 h-12 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
           </svg>
@@ -319,13 +319,13 @@ function CreativeStep({ formData, setFormData }: StepProps) {
         <Button variant="outline">
           Choose Files
         </Button>
-        <p className="text-sm text-gray-900 dark:text-white/50 mt-2">
+        <p className="text-sm text-gray-900 dark:text-graphite-500 mt-2">
           Supported formats: JPG, PNG, MP4, GIF (max 10MB)
         </p>
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
+        <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Landing Page URL
         </label>
         <input
@@ -333,7 +333,7 @@ function CreativeStep({ formData, setFormData }: StepProps) {
           value={formData.landingUrl}
           onChange={(e) => setFormData({ ...formData, landingUrl: e.target.value })}
           placeholder="https://your-landing-page.com"
-          className="w-full px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+          className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
         />
       </div>
     </div>
@@ -345,54 +345,54 @@ function ReviewStep({ formData }: ReviewStepProps) {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-white">Campaign Details</h3>
+          <h3 className="font-medium text-gray-900 dark:text-graphite-100">Campaign Details</h3>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-900 dark:text-white/60">Name:</span>
-              <span className="text-gray-900 dark:text-white">{formData.name || 'Not set'}</span>
+              <span className="text-gray-900 dark:text-graphite-300">Name:</span>
+              <span className="text-gray-900 dark:text-graphite-100">{formData.name || 'Not set'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-900 dark:text-white/60">Objective:</span>
-              <span className="text-gray-900 dark:text-white">{formData.objective || 'Not set'}</span>
+              <span className="text-gray-900 dark:text-graphite-300">Objective:</span>
+              <span className="text-gray-900 dark:text-graphite-100">{formData.objective || 'Not set'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-900 dark:text-white/60">Budget:</span>
-              <span className="text-gray-900 dark:text-white">${formData.budget || '0'}</span>
+              <span className="text-gray-900 dark:text-graphite-300">Budget:</span>
+              <span className="text-gray-900 dark:text-graphite-100">${formData.budget || '0'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-900 dark:text-white/60">Bid Strategy:</span>
-              <span className="text-gray-900 dark:text-white">{formData.bidStrategy || 'Not set'}</span>
+              <span className="text-gray-900 dark:text-graphite-300">Bid Strategy:</span>
+              <span className="text-gray-900 dark:text-graphite-100">{formData.bidStrategy || 'Not set'}</span>
             </div>
           </div>
         </div>
 
         <div className="space-y-4">
-          <h3 className="font-medium text-gray-900 dark:text-white">Schedule</h3>
+          <h3 className="font-medium text-gray-900 dark:text-graphite-100">Schedule</h3>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
-              <span className="text-gray-900 dark:text-white/60">Start Date:</span>
-              <span className="text-gray-900 dark:text-white">{formData.startDate || 'Not set'}</span>
+              <span className="text-gray-900 dark:text-graphite-300">Start Date:</span>
+              <span className="text-gray-900 dark:text-graphite-100">{formData.startDate || 'Not set'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-900 dark:text-white/60">End Date:</span>
-              <span className="text-gray-900 dark:text-white">{formData.endDate || 'Not set'}</span>
+              <span className="text-gray-900 dark:text-graphite-300">End Date:</span>
+              <span className="text-gray-900 dark:text-graphite-100">{formData.endDate || 'Not set'}</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-gray-900 dark:text-white/60">Landing URL:</span>
-              <span className="text-gray-900 dark:text-white">{formData.landingUrl || 'Not set'}</span>
+              <span className="text-gray-900 dark:text-graphite-300">Landing URL:</span>
+              <span className="text-gray-900 dark:text-graphite-100">{formData.landingUrl || 'Not set'}</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-brand/5 border border-brand/20 rounded-lg p-4">
+      <div className="bg-acid/5 border border-acid/20 rounded-lg p-4">
         <div className="flex items-start gap-3">
-          <div className="w-5 h-5 bg-brand rounded-full flex items-center justify-center mt-0.5">
-            <Check className="w-3 h-3 text-white" />
+          <div className="w-5 h-5 bg-acid rounded-full flex items-center justify-center mt-0.5">
+            <Check className="w-3 h-3 text-graphite-950" />
           </div>
           <div>
-            <div className="font-medium text-gray-900 dark:text-white">Ready to Launch</div>
-            <div className="text-sm text-gray-900 dark:text-white/60 mt-1">
+            <div className="font-medium text-gray-900 dark:text-graphite-100">Ready to Launch</div>
+            <div className="text-sm text-gray-900 dark:text-graphite-300 mt-1">
               Your campaign will be submitted for review and should be live within 24 hours.
             </div>
           </div>

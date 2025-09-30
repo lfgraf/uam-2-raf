@@ -244,7 +244,7 @@ function getStatusColor(status: Dispute['status']) {
     case 'resolved':
       return 'bg-green-50 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-300 dark:border-green-800';
     case 'closed':
-      return 'bg-gray-50 text-gray-700 border-gray-200 dark:bg-gray-900/20 dark:text-gray-300 dark:border-gray-800';
+      return 'bg-gray-50 text-gray-700 border-gray-200 dark:bg-graphite-900/20 dark:text-gray-300 dark:border-gray-800';
   }
 }
 
@@ -283,14 +283,14 @@ function DisputeCard({ dispute, onViewDetails }: { dispute: Dispute; onViewDetai
     <Card className="p-6">
       <div className="flex items-start justify-between mb-4">
         <div className="flex items-start gap-3">
-          <div className="w-10 h-10 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+          <div className="w-10 h-10 bg-gray-100 dark:bg-graphite-800 rounded-lg flex items-center justify-center">
             {getTypeIcon(dispute.type)}
           </div>
           <div>
-            <h3 className="font-medium text-gray-900 dark:text-white mb-1">
+            <h3 className="font-medium text-gray-900 dark:text-graphite-100 mb-1">
               {dispute.title}
             </h3>
-            <div className="flex items-center gap-3 text-sm text-gray-900 dark:text-white/60">
+            <div className="flex items-center gap-3 text-sm text-gray-900 dark:text-graphite-300">
               <span>#{dispute.id.slice(-3)}</span>
               <span>•</span>
               <span className="capitalize">{dispute.type}</span>
@@ -318,18 +318,18 @@ function DisputeCard({ dispute, onViewDetails }: { dispute: Dispute; onViewDetai
 
       <div className="space-y-3 text-sm">
         {dispute.amount && (
-          <div className="flex items-center gap-2 text-gray-900 dark:text-white/70">
+          <div className="flex items-center gap-2 text-gray-900 dark:text-graphite-300">
             <DollarSign className="w-4 h-4" />
             <span>Disputed Amount: {dispute.amount.currency} {dispute.amount.disputed.toLocaleString()}</span>
           </div>
         )}
 
-        <div className="flex items-center gap-2 text-gray-900 dark:text-white/70">
+        <div className="flex items-center gap-2 text-gray-900 dark:text-graphite-300">
           <Calendar className="w-4 h-4" />
           <span>Created {new Date(dispute.createdAt).toLocaleDateString()}</span>
         </div>
 
-        <div className="grid grid-cols-2 gap-4 text-gray-900 dark:text-white/70">
+        <div className="grid grid-cols-2 gap-4 text-gray-900 dark:text-graphite-300">
           <div className="flex items-center gap-2">
             <User className="w-4 h-4" />
             <span>{dispute.parties.complainant.name} (Complainant)</span>
@@ -342,28 +342,28 @@ function DisputeCard({ dispute, onViewDetails }: { dispute: Dispute; onViewDetai
       </div>
 
       {isExpanded && (
-        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700 space-y-4">
+        <div className="mt-6 pt-6 border-t border-gray-200 dark:border-graphite-700 space-y-4">
           <div>
-            <h4 className="font-medium text-gray-900 dark:text-white mb-2">Description</h4>
-            <p className="text-sm text-gray-900 dark:text-white/70">
+            <h4 className="font-medium text-gray-900 dark:text-graphite-100 mb-2">Description</h4>
+            <p className="text-sm text-gray-900 dark:text-graphite-300">
               {dispute.description}
             </p>
           </div>
 
           <div>
-            <h4 className="font-medium text-gray-900 dark:text-white mb-2">Evidence</h4>
+            <h4 className="font-medium text-gray-900 dark:text-graphite-100 mb-2">Evidence</h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
               <div>
-                <span className="font-medium text-gray-900 dark:text-white/80">Documents:</span>
-                <ul className="mt-1 text-gray-900 dark:text-white/60">
+                <span className="font-medium text-gray-900 dark:text-graphite-300">Documents:</span>
+                <ul className="mt-1 text-gray-900 dark:text-graphite-300">
                   {dispute.evidence.documents.map((doc, i) => (
                     <li key={i}>• {doc}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <span className="font-medium text-gray-900 dark:text-white/80">Screenshots:</span>
-                <ul className="mt-1 text-gray-900 dark:text-white/60">
+                <span className="font-medium text-gray-900 dark:text-graphite-300">Screenshots:</span>
+                <ul className="mt-1 text-gray-900 dark:text-graphite-300">
                   {dispute.evidence.screenshots.length > 0 ? (
                     dispute.evidence.screenshots.map((shot, i) => (
                       <li key={i}>• {shot}</li>
@@ -374,8 +374,8 @@ function DisputeCard({ dispute, onViewDetails }: { dispute: Dispute; onViewDetai
                 </ul>
               </div>
               <div>
-                <span className="font-medium text-gray-900 dark:text-white/80">Logs:</span>
-                <ul className="mt-1 text-gray-900 dark:text-white/60">
+                <span className="font-medium text-gray-900 dark:text-graphite-300">Logs:</span>
+                <ul className="mt-1 text-gray-900 dark:text-graphite-300">
                   {dispute.evidence.logs.map((log, i) => (
                     <li key={i}>• {log}</li>
                   ))}
@@ -445,10 +445,10 @@ export function DisputeResolution() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-medium text-gray-900 dark:text-white mb-2">
+        <h1 className="text-2xl font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Dispute Resolution
         </h1>
-        <p className="text-gray-900 dark:text-white/60">
+        <p className="text-gray-900 dark:text-graphite-300">
           Manage and resolve platform disputes efficiently
         </p>
       </div>
@@ -456,24 +456,24 @@ export function DisputeResolution() {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <Card className="p-4 text-center">
-          <div className="text-2xl font-medium text-gray-900 dark:text-white">{stats.total}</div>
-          <div className="text-sm text-gray-900 dark:text-white/60">Total Disputes</div>
+          <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">{stats.total}</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300">Total Disputes</div>
         </Card>
         <Card className="p-4 text-center">
           <div className="text-2xl font-medium text-blue-600">{stats.open}</div>
-          <div className="text-sm text-gray-900 dark:text-white/60">Open</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300">Open</div>
         </Card>
         <Card className="p-4 text-center">
           <div className="text-2xl font-medium text-yellow-600">{stats.investigating}</div>
-          <div className="text-sm text-gray-900 dark:text-white/60">Investigating</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300">Investigating</div>
         </Card>
         <Card className="p-4 text-center">
           <div className="text-2xl font-medium text-green-600">{stats.resolved}</div>
-          <div className="text-sm text-gray-900 dark:text-white/60">Resolved</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300">Resolved</div>
         </Card>
         <Card className="p-4 text-center">
           <div className="text-2xl font-medium text-red-600">{stats.critical}</div>
-          <div className="text-sm text-gray-900 dark:text-white/60">Critical</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300">Critical</div>
         </Card>
       </div>
 
@@ -483,7 +483,7 @@ export function DisputeResolution() {
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           >
             <option value="all">All Status</option>
             <option value="open">Open</option>
@@ -495,7 +495,7 @@ export function DisputeResolution() {
           <select
             value={priorityFilter}
             onChange={(e) => setPriorityFilter(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           >
             <option value="all">All Priority</option>
             <option value="critical">Critical</option>

@@ -123,10 +123,10 @@ export function AttributionTracker({ campaignId, conversionId }: AttributionTrac
     <Card className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-2">
             Attribution Trail
           </h3>
-          <p className="text-sm text-gray-900 dark:text-white/60">
+          <p className="text-sm text-gray-900 dark:text-graphite-300">
             Blockchain-verified conversion path for transparency
           </p>
         </div>
@@ -142,33 +142,33 @@ export function AttributionTracker({ campaignId, conversionId }: AttributionTrac
 
       {/* Summary Stats */}
       <div className="grid grid-cols-3 gap-4 mb-6">
-        <div className="text-center p-4 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-          <div className="text-2xl font-medium text-gray-900 dark:text-white">{events.length}</div>
-          <div className="text-sm text-gray-900 dark:text-white/60">Total Events</div>
+        <div className="text-center p-4 bg-gray-50 dark:bg-graphite-850 rounded-lg">
+          <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">{events.length}</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300">Total Events</div>
         </div>
         <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
           <div className="text-2xl font-medium text-green-600">{confirmedEvents}</div>
-          <div className="text-sm text-gray-900 dark:text-white/60">Confirmed</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300">Confirmed</div>
         </div>
         <div className="text-center p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
           <div className="text-2xl font-medium text-yellow-600">{pendingEvents}</div>
-          <div className="text-sm text-gray-900 dark:text-white/60">Pending</div>
+          <div className="text-sm text-gray-900 dark:text-graphite-300">Pending</div>
         </div>
       </div>
 
       {/* Attribution Chain */}
       <div className="space-y-4">
-        <h4 className="font-medium text-gray-900 dark:text-white">Attribution Chain</h4>
+        <h4 className="font-medium text-gray-900 dark:text-graphite-100">Attribution Chain</h4>
         {events.map((event, index) => (
           <div key={event.id} className="relative">
             {/* Connection Line */}
             {index < events.length - 1 && (
-              <div className="absolute left-6 top-12 w-0.5 h-8 bg-gray-200 dark:bg-gray-700" />
+              <div className="absolute left-6 top-12 w-0.5 h-8 bg-gray-200 dark:bg-graphite-700" />
             )}
 
             <div className={`flex items-start gap-4 p-4 border rounded-lg ${getStatusColor(event.status)}`}>
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center text-xl border-2 border-current">
+                <div className="w-12 h-12 bg-white dark:bg-graphite-800 rounded-full flex items-center justify-center text-xl border-2 border-current">
                   {getEventIcon(event.type)}
                 </div>
               </div>

@@ -226,7 +226,7 @@ function BidCard({ bid }: { bid: Bid }) {
         <div className="flex items-start justify-between">
           <div>
             <div className="flex items-center gap-3 mb-2">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                 {bid.publisherName}
               </h3>
               <span className={`px-2 py-1 text-xs rounded-full border capitalize ${getStatusColor(bid.status)}`}>
@@ -240,7 +240,7 @@ function BidCard({ bid }: { bid: Bid }) {
           </div>
 
           <div className="text-right">
-            <div className="text-2xl font-bold text-brand">
+            <div className="text-2xl font-medium text-brand">
               ${bid.bidAmount.toFixed(2)}
             </div>
             <div className="text-xs text-gray-900 dark:text-white/60 uppercase">
@@ -252,25 +252,25 @@ function BidCard({ bid }: { bid: Bid }) {
         {/* Key Metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <div className="text-center p-3 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-            <div className="text-lg font-bold text-gray-900 dark:text-white">
+            <div className="text-lg font-medium text-gray-900 dark:text-white">
               {bid.performance.impressions.toLocaleString()}
             </div>
             <div className="text-xs text-gray-900 dark:text-white/60">Impressions</div>
           </div>
           <div className="text-center p-3 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-            <div className="text-lg font-bold text-gray-900 dark:text-white">
+            <div className="text-lg font-medium text-gray-900 dark:text-white">
               {bid.performance.clicks.toLocaleString()}
             </div>
             <div className="text-xs text-gray-900 dark:text-white/60">Clicks</div>
           </div>
           <div className="text-center p-3 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-            <div className="text-lg font-bold text-gray-900 dark:text-white">
+            <div className="text-lg font-medium text-gray-900 dark:text-white">
               {bid.performance.conversions}
             </div>
             <div className="text-xs text-gray-900 dark:text-white/60">Conversions</div>
           </div>
           <div className="text-center p-3 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-            <div className="text-lg font-bold text-gray-900 dark:text-white">
+            <div className="text-lg font-medium text-gray-900 dark:text-white">
               ${bid.performance.spend.toLocaleString()}
             </div>
             <div className="text-xs text-gray-900 dark:text-white/60">Spent</div>
@@ -408,7 +408,7 @@ export function AuctionBids() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Auction Bids</h1>
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Auction Bids</h1>
           <p className="text-gray-900 dark:text-white/60">
             Manage your bids across publisher auctions and marketplace opportunities
           </p>
@@ -429,23 +429,23 @@ export function AuctionBids() {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">{stats.total}</div>
+          <div className="text-2xl font-medium text-gray-900 dark:text-white">{stats.total}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Total Bids</div>
         </Card>
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-green-600">{stats.active}</div>
+          <div className="text-2xl font-medium text-green-600">{stats.active}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Active</div>
         </Card>
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-blue-600">{stats.pending}</div>
+          <div className="text-2xl font-medium text-blue-600">{stats.pending}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Pending</div>
         </Card>
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-brand">${stats.totalSpend.toLocaleString()}</div>
+          <div className="text-2xl font-medium text-brand">${stats.totalSpend.toLocaleString()}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Total Spend</div>
         </Card>
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-purple-600">{stats.totalConversions}</div>
+          <div className="text-2xl font-medium text-purple-600">{stats.totalConversions}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Conversions</div>
         </Card>
       </div>

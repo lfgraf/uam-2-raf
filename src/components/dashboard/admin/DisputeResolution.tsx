@@ -287,7 +287,7 @@ function DisputeCard({ dispute, onViewDetails }: { dispute: Dispute; onViewDetai
             {getTypeIcon(dispute.type)}
           </div>
           <div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+            <h3 className="font-medium text-gray-900 dark:text-white mb-1">
               {dispute.title}
             </h3>
             <div className="flex items-center gap-3 text-sm text-gray-900 dark:text-white/60">
@@ -445,7 +445,7 @@ export function DisputeResolution() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <h1 className="text-2xl font-medium text-gray-900 dark:text-white mb-2">
           Dispute Resolution
         </h1>
         <p className="text-gray-900 dark:text-white/60">
@@ -456,23 +456,23 @@ export function DisputeResolution() {
       {/* Stats */}
       <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">{stats.total}</div>
+          <div className="text-2xl font-medium text-gray-900 dark:text-white">{stats.total}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Total Disputes</div>
         </Card>
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-blue-600">{stats.open}</div>
+          <div className="text-2xl font-medium text-blue-600">{stats.open}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Open</div>
         </Card>
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-yellow-600">{stats.investigating}</div>
+          <div className="text-2xl font-medium text-yellow-600">{stats.investigating}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Investigating</div>
         </Card>
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-green-600">{stats.resolved}</div>
+          <div className="text-2xl font-medium text-green-600">{stats.resolved}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Resolved</div>
         </Card>
         <Card className="p-4 text-center">
-          <div className="text-2xl font-bold text-red-600">{stats.critical}</div>
+          <div className="text-2xl font-medium text-red-600">{stats.critical}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Critical</div>
         </Card>
       </div>

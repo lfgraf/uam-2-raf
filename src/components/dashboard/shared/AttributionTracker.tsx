@@ -123,7 +123,7 @@ export function AttributionTracker({ campaignId, conversionId }: AttributionTrac
     <Card className="p-6">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-2">
             Attribution Trail
           </h3>
           <p className="text-sm text-gray-900 dark:text-white/60">
@@ -143,15 +143,15 @@ export function AttributionTracker({ campaignId, conversionId }: AttributionTrac
       {/* Summary Stats */}
       <div className="grid grid-cols-3 gap-4 mb-6">
         <div className="text-center p-4 bg-gray-50 dark:bg-gray-800/30 rounded-lg">
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">{events.length}</div>
+          <div className="text-2xl font-medium text-gray-900 dark:text-white">{events.length}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Total Events</div>
         </div>
         <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
-          <div className="text-2xl font-bold text-green-600">{confirmedEvents}</div>
+          <div className="text-2xl font-medium text-green-600">{confirmedEvents}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Confirmed</div>
         </div>
         <div className="text-center p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
-          <div className="text-2xl font-bold text-yellow-600">{pendingEvents}</div>
+          <div className="text-2xl font-medium text-yellow-600">{pendingEvents}</div>
           <div className="text-sm text-gray-900 dark:text-white/60">Pending</div>
         </div>
       </div>

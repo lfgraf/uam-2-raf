@@ -160,7 +160,7 @@ export function EmptyState({
 
           {/* Content */}
           <div className="space-y-3">
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+            <h3 className="text-xl font-medium text-gray-900 dark:text-white">
               {title || config.title}
             </h3>
             <p className="text-gray-900 dark:text-white/70 leading-relaxed max-w-md mx-auto">

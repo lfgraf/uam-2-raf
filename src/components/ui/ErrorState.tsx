@@ -104,7 +104,7 @@ export function ErrorState({
 
         {/* Content */}
         <div className="space-y-3">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-xl font-medium text-gray-900 dark:text-white">
             {title || config.title}
           </h2>
           <p className="text-gray-900 dark:text-white/70 leading-relaxed">

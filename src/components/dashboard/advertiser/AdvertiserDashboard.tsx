@@ -97,7 +97,7 @@ export function AdvertiserDashboard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Campaign Dashboard</h1>
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Campaign Dashboard</h1>
           <p className="text-gray-900 dark:text-white/60">Monitor and manage your advertising campaigns</p>
         </div>
         <Link href="/dashboard/advertiser/create">
@@ -121,7 +121,7 @@ export function AdvertiserDashboard() {
         <div className="lg:col-span-2">
           <Card className="p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Active Campaigns</h2>
+              <h2 className="text-lg font-medium text-gray-900 dark:text-white">Active Campaigns</h2>
               <Link href="/dashboard/advertiser/campaigns">
                 <Button variant="ghost" size="sm">
                   View All
@@ -148,7 +148,7 @@ export function AdvertiserDashboard() {
         {/* Quick Actions */}
         <div className="space-y-6">
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Quick Actions</h3>
             <div className="space-y-3">
               <Link href="/dashboard/advertiser/create">
                 <Button variant="outline" className="w-full justify-start">
@@ -173,7 +173,7 @@ export function AdvertiserDashboard() {
 
           {/* Recent Activity */}
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Activity</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Recent Activity</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-start">
                 <div>

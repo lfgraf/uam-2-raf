@@ -96,7 +96,7 @@ export function BrandHero({
             </div>
           )}
 
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-gray-900 via-brand to-purple-600 dark:from-white dark:via-brand-200 dark:to-purple-400 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-4xl md:text-6xl font-medium bg-gradient-to-r from-gray-900 via-brand to-purple-600 dark:from-white dark:via-brand-200 dark:to-purple-400 bg-clip-text text-transparent leading-tight">
             {title}
           </h1>
 
@@ -174,7 +174,7 @@ export function FeatureHighlight({
         </div>
 
         <div className="space-y-2">
-          <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+          <h3 className="text-lg font-medium text-gray-900 dark:text-white">
             {title}
           </h3>
           <p className="text-gray-900 dark:text-white/70 leading-relaxed">
@@ -245,7 +245,7 @@ export function BrandCallout({
         </div>
 
         <div className="flex-1">
-          <h4 className={`font-bold mb-2 ${style.titleColor}`}>
+          <h4 className={`font-medium mb-2 ${style.titleColor}`}>
             {title}
           </h4>
           <p className={`${style.textColor} leading-relaxed`}>
@@ -278,7 +278,7 @@ export function StatsShowcase({
   return (
     <div className={`text-center py-12 ${className}`}>
       {title && (
-        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+        <h3 className="text-2xl font-medium text-gray-900 dark:text-white mb-8">
           {title}
         </h3>
       )}
@@ -286,7 +286,7 @@ export function StatsShowcase({
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
         {stats.map((stat, index) => (
           <div key={index} className="space-y-2">
-            <div className={`text-3xl md:text-4xl font-bold ${
+            <div className={`text-3xl md:text-4xl font-medium ${
               stat.highlight
                 ? 'bg-gradient-to-r from-brand to-purple-600 bg-clip-text text-transparent'
                 : 'text-gray-900 dark:text-white'

@@ -134,7 +134,7 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
               <div className="absolute right-0 top-12 w-96 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg z-40 max-h-[500px] overflow-hidden flex flex-col">
                 {/* Header */}
                 <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
-                  <h3 className="font-semibold text-gray-900 dark:text-white">Notifications</h3>
+                  <h3 className="font-medium text-gray-900 dark:text-white">Notifications</h3>
                   <button
                     onClick={() => setNotificationsOpen(false)}
                     className="text-gray-900 dark:text-white/60 hover:text-gray-900 dark:hover:text-white"

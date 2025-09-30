@@ -42,7 +42,7 @@ export function AdminDashboard() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">Admin Dashboard</h1>
+        <h1 className="text-2xl font-medium text-gray-900 dark:text-white mb-2">Admin Dashboard</h1>
         <p className="text-gray-900 dark:text-white/60">Monitor platform health and manage operations</p>
       </div>
 
@@ -58,7 +58,7 @@ export function AdminDashboard() {
         {/* Recent Activity */}
         <div className="lg:col-span-2">
           <Card className="p-6">
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Recent Platform Activity</h2>
+            <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-6">Recent Platform Activity</h2>
             <div className="space-y-4">
               <div className="flex items-center justify-between p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
                 <div>
@@ -88,7 +88,7 @@ export function AdminDashboard() {
         {/* Quick Actions & Alerts */}
         <div className="space-y-6">
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Quick Actions</h3>
             <div className="space-y-3">
               <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/dashboard/admin/users'}>
                 <Users className="w-4 h-4 mr-2" />
@@ -106,7 +106,7 @@ export function AdminDashboard() {
           </Card>
 
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">System Alerts</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">System Alerts</h3>
             <div className="space-y-3 text-sm">
               <div className="p-3 bg-yellow-50 dark:bg-yellow-900/20 border border-yellow-200 dark:border-yellow-800 rounded-lg">
                 <div className="font-medium text-yellow-800 dark:text-yellow-200">Server Load High</div>

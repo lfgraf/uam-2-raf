@@ -61,7 +61,7 @@ export function WalletConnect({ onConnect }: WalletConnectProps) {
         <Dialog.Overlay className="fixed inset-0 bg-black/50 z-50" />
         <Dialog.Content className="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-md bg-white dark:bg-gray-900 rounded-xl border p-6 z-50 shadow-lg">
           <div className="flex items-center justify-between mb-6">
-            <Dialog.Title className="text-xl font-bold text-gray-900 dark:text-white">
+            <Dialog.Title className="text-xl font-medium text-gray-900 dark:text-white">
               Connect Wallet
             </Dialog.Title>
             <Dialog.Close asChild>

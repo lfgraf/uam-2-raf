@@ -17,7 +17,7 @@ export function PlatformSettings() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Platform Settings</h1>
+        <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Platform Settings</h1>
         <p className="text-gray-900 dark:text-white/60">
           Configure platform-wide parameters and policies
         </p>
@@ -44,7 +44,7 @@ export function PlatformSettings() {
             <DollarSign className="w-5 h-5 text-brand" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Fee Structure</h2>
+            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Fee Structure</h2>
             <p className="text-sm text-gray-900 dark:text-white/60">Platform transaction fees</p>
           </div>
         </div>
@@ -125,7 +125,7 @@ export function PlatformSettings() {
             <Shield className="w-5 h-5 text-brand" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Security & Compliance</h2>
+            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Security & Compliance</h2>
             <p className="text-sm text-gray-900 dark:text-white/60">Platform security settings</p>
           </div>
         </div>
@@ -192,7 +192,7 @@ export function PlatformSettings() {
             <Bell className="w-5 h-5 text-brand" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">Notification Settings</h2>
+            <h2 className="text-lg font-medium text-gray-900 dark:text-white">Notification Settings</h2>
             <p className="text-sm text-gray-900 dark:text-white/60">Configure platform notifications</p>
           </div>
         </div>
@@ -246,7 +246,7 @@ export function PlatformSettings() {
             <Zap className="w-5 h-5 text-brand" />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-gray-900 dark:text-white">System Configuration</h2>
+            <h2 className="text-lg font-medium text-gray-900 dark:text-white">System Configuration</h2>
             <p className="text-sm text-gray-900 dark:text-white/60">Advanced platform settings</p>
           </div>
         </div>

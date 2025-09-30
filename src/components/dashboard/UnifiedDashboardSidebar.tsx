@@ -129,7 +129,7 @@ export function UnifiedDashboardSidebar({ isOpen, onClose }: UnifiedDashboardSid
                 <Sparkles className="w-5 h-5 text-white" />
               </div>
               <div>
-                <div className="font-semibold text-gray-900 dark:text-white text-sm">UAM Platform</div>
+                <div className="font-medium text-gray-900 dark:text-white text-sm">UAM Platform</div>
                 <div className="text-xs text-gray-900 dark:text-white/60">Unified Dashboard</div>
               </div>
             </div>

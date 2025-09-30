@@ -92,7 +92,7 @@ export function PublisherDashboard() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Publisher Dashboard</h1>
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Publisher Dashboard</h1>
           <p className="text-gray-900 dark:text-white/60">Manage your properties and track revenue</p>
         </div>
         <Button className="inline-flex items-center gap-2">
@@ -114,7 +114,7 @@ export function PublisherDashboard() {
         <div className="lg:col-span-2">
           <Card className="p-6">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-semibold text-gray-900 dark:text-white">My Properties</h2>
+              <h2 className="text-lg font-medium text-gray-900 dark:text-white">My Properties</h2>
               <Link href="/dashboard/publisher/properties">
                 <Button variant="ghost" size="sm">
                   View All
@@ -133,7 +133,7 @@ export function PublisherDashboard() {
         <div className="space-y-6">
           {/* Quick Actions */}
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Quick Actions</h3>
             <div className="space-y-3">
               <Link href="/dashboard/publisher/marketplace">
                 <Button variant="outline" className="w-full justify-start">
@@ -156,7 +156,7 @@ export function PublisherDashboard() {
 
           {/* Available Campaigns */}
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Available Campaigns</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Available Campaigns</h3>
             <div className="space-y-3">
               <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-3">
                 <div className="font-medium text-gray-900 dark:text-white text-sm">Mobile App Install</div>
@@ -183,7 +183,7 @@ export function PublisherDashboard() {
 
           {/* Recent Activity */}
           <Card className="p-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Recent Activity</h3>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Recent Activity</h3>
             <div className="space-y-3 text-sm">
               <div className="flex justify-between items-start">
                 <div>

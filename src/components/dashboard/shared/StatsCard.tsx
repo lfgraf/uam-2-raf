@@ -39,7 +39,7 @@ export function StatsCard({ title, value, change, trend, icon: Icon }: StatsCard
       <div className="flex items-center justify-between">
         <div>
           <p className="text-gray-900 dark:text-white/60 text-sm font-medium">{title}</p>
-          <p className="text-2xl font-bold text-gray-900 dark:text-white mt-1">
+          <p className="text-2xl font-medium text-gray-900 dark:text-white mt-1">
             <AnimatedCounter value={numericValue} format={format} decimals={decimals} duration={1500} />
           </p>
           <div className="flex items-center mt-2">

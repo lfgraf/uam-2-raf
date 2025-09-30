@@ -197,7 +197,7 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <Card className="w-full max-w-2xl p-6">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-xl font-medium text-gray-900 dark:text-white">
             Submit Bid: {campaign.title}
           </h2>
           <Button variant="ghost" onClick={onClose}>×</Button>
@@ -271,7 +271,7 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
 
           <div className="p-4 bg-brand/5 rounded-lg border border-brand/20">
             <h4 className="font-medium text-gray-900 dark:text-white mb-2">Estimated Monthly Revenue</h4>
-            <div className="text-2xl font-bold text-brand">
+            <div className="text-2xl font-medium text-brand">
               ${estimatedRevenue.toFixed(0)}
             </div>
             <div className="text-sm text-gray-900 dark:text-white/60">
@@ -326,7 +326,7 @@ export function AdvancedMarketplace() {
     <div className="space-y-6">
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+        <h1 className="text-2xl font-medium text-gray-900 dark:text-white mb-2">
           Campaign Marketplace
         </h1>
         <p className="text-gray-900 dark:text-white/60">
@@ -426,7 +426,7 @@ export function AdvancedMarketplace() {
             <div className="flex items-start justify-between mb-4">
               <div>
                 <div className="flex items-center gap-2 mb-2">
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white">
                     {campaign.title}
                   </h3>
                   <span className={`px-2 py-1 text-xs rounded-full border ${getStatusColor(campaign.status)}`}>
@@ -439,7 +439,7 @@ export function AdvancedMarketplace() {
                 </p>
               </div>
               <div className="text-right">
-                <div className="text-2xl font-bold text-brand">
+                <div className="text-2xl font-medium text-brand">
                   ${campaign.estimatedRpm.toFixed(2)}
                 </div>
                 <div className="text-xs text-gray-900 dark:text-white/60">Est. RPM</div>

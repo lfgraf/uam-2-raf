@@ -115,7 +115,7 @@ export function CampaignWizard() {
           </Button>
         </Link>
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Create New Campaign</h1>
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Create New Campaign</h1>
           <p className="text-gray-900 dark:text-white/60">Set up your advertising campaign step by step</p>
         </div>
       </div>
@@ -157,7 +157,7 @@ export function CampaignWizard() {
       {/* Step Content */}
       <Card className="p-8">
         <div className="mb-6">
-          <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+          <h2 className="text-xl font-medium text-gray-900 dark:text-white mb-2">
             {steps[currentStep].title}
           </h2>
           <p className="text-gray-900 dark:text-white/60">
@@ -345,7 +345,7 @@ function ReviewStep({ formData }: ReviewStepProps) {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-4">
-          <h3 className="font-semibold text-gray-900 dark:text-white">Campaign Details</h3>
+          <h3 className="font-medium text-gray-900 dark:text-white">Campaign Details</h3>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-900 dark:text-white/60">Name:</span>
@@ -367,7 +367,7 @@ function ReviewStep({ formData }: ReviewStepProps) {
         </div>
 
         <div className="space-y-4">
-          <h3 className="font-semibold text-gray-900 dark:text-white">Schedule</h3>
+          <h3 className="font-medium text-gray-900 dark:text-white">Schedule</h3>
           <div className="space-y-2 text-sm">
             <div className="flex justify-between">
               <span className="text-gray-900 dark:text-white/60">Start Date:</span>

@@ -63,7 +63,7 @@ export default function DualRoleDemoPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-3xl font-medium text-gray-900 dark:text-white mb-4">
             🔄 Dual-Role UX Demo
           </h1>
           <p className="text-lg text-gray-900 dark:text-white/70 max-w-2xl mx-auto">
@@ -74,7 +74,7 @@ export default function DualRoleDemoPage() {
         {/* Demo Guide */}
         <Card className="p-6 mb-8">
           <div className="text-center">
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">
+            <h3 className="font-medium text-gray-900 dark:text-white mb-2">
               ✅ Integrated Role Switcher
             </h3>
             <p className="text-sm text-gray-900 dark:text-white/70 mb-4">
@@ -116,8 +116,8 @@ export default function DualRoleDemoPage() {
             <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="w-6 h-6 text-blue-600" />
             </div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Current Role</h3>
-            <p className="text-2xl font-bold text-brand capitalize">{currentRole}</p>
+            <h3 className="font-medium text-gray-900 dark:text-white mb-2">Current Role</h3>
+            <p className="text-2xl font-medium text-brand capitalize">{currentRole}</p>
             <p className="text-sm text-gray-900 dark:text-white/60 mt-2">
               {currentRole === 'advertiser' ? 'Managing campaigns and tracking ROI' : 'Monetizing properties and inventory'}
             </p>
@@ -127,8 +127,8 @@ export default function DualRoleDemoPage() {
             <div className="w-12 h-12 bg-green-100 dark:bg-green-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <DollarSign className="w-6 h-6 text-green-600" />
             </div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Revenue Impact</h3>
-            <p className="text-2xl font-bold text-green-600">+67%</p>
+            <h3 className="font-medium text-gray-900 dark:text-white mb-2">Revenue Impact</h3>
+            <p className="text-2xl font-medium text-green-600">+67%</p>
             <p className="text-sm text-gray-900 dark:text-white/60 mt-2">
               Average increase for dual-role users
             </p>
@@ -138,8 +138,8 @@ export default function DualRoleDemoPage() {
             <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
               <Target className="w-6 h-6 text-purple-600" />
             </div>
-            <h3 className="font-semibold text-gray-900 dark:text-white mb-2">Efficiency Gain</h3>
-            <p className="text-2xl font-bold text-purple-600">-35%</p>
+            <h3 className="font-medium text-gray-900 dark:text-white mb-2">Efficiency Gain</h3>
+            <p className="text-2xl font-medium text-purple-600">-35%</p>
             <p className="text-sm text-gray-900 dark:text-white/60 mt-2">
               Reduction in acquisition costs
             </p>
@@ -154,7 +154,7 @@ export default function DualRoleDemoPage() {
             </div>
 
             <div className="flex-1">
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-2">
                 {currentInsight.opportunity}
               </h3>
               <p className="text-gray-900 dark:text-white/70 mb-6">
@@ -199,7 +199,7 @@ export default function DualRoleDemoPage() {
 
         {/* Implementation Benefits */}
         <Card className="p-8">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+          <h3 className="text-xl font-medium text-gray-900 dark:text-white mb-6 text-center">
             Why Dual-Role UX Matters
           </h3>
 
@@ -208,7 +208,7 @@ export default function DualRoleDemoPage() {
               <div className="w-12 h-12 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Users className="w-6 h-6 text-brand" />
               </div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">User Retention</h4>
+              <h4 className="font-medium text-gray-900 dark:text-white mb-2">User Retention</h4>
               <p className="text-sm text-gray-900 dark:text-white/70">
                 85% higher retention when users engage with multiple roles
               </p>
@@ -218,7 +218,7 @@ export default function DualRoleDemoPage() {
               <div className="w-12 h-12 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <DollarSign className="w-6 h-6 text-brand" />
               </div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Revenue Growth</h4>
+              <h4 className="font-medium text-gray-900 dark:text-white mb-2">Revenue Growth</h4>
               <p className="text-sm text-gray-900 dark:text-white/70">
                 Average 67% increase in platform revenue per user
               </p>
@@ -228,7 +228,7 @@ export default function DualRoleDemoPage() {
               <div className="w-12 h-12 bg-brand/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Target className="w-6 h-6 text-brand" />
               </div>
-              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">Efficiency</h4>
+              <h4 className="font-medium text-gray-900 dark:text-white mb-2">Efficiency</h4>
               <p className="text-sm text-gray-900 dark:text-white/70">
                 35% reduction in customer acquisition costs
               </p>

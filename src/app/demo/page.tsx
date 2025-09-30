@@ -16,7 +16,7 @@ export default function DemoPage() {
       <div className="container mx-auto px-4 py-8">
         {/* Demo Navigation */}
         <Card className="p-6 mb-8">
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-white mb-4">
             Phase 4: Polish & Enhancement Demo
           </h1>
           <div className="flex flex-wrap gap-3">
@@ -117,7 +117,7 @@ export default function DemoPage() {
 
         {currentDemo === 'error' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
+            <h2 className="text-2xl font-medium text-gray-900 dark:text-white text-center mb-8">
               Error State Showcase
             </h2>
 
@@ -159,7 +159,7 @@ export default function DemoPage() {
 
         {currentDemo === 'empty' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
+            <h2 className="text-2xl font-medium text-gray-900 dark:text-white text-center mb-8">
               Empty State Showcase
             </h2>
 
@@ -202,45 +202,45 @@ export default function DemoPage() {
 
         {currentDemo === 'loading' && (
           <div className="space-y-8">
-            <h2 className="text-2xl font-bold text-gray-900 dark:text-white text-center mb-8">
+            <h2 className="text-2xl font-medium text-gray-900 dark:text-white text-center mb-8">
               Loading State Showcase
             </h2>
 
             <div className="space-y-8">
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Dashboard Loading</h3>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Dashboard Loading</h3>
                 <LoadingState type="dashboard" showProgress={true} progressText="Loading dashboard..." />
               </div>
 
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Card Loading</h3>
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Card Loading</h3>
                   <LoadingState type="card" />
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Chart Loading</h3>
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Chart Loading</h3>
                   <LoadingState type="chart" />
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Table Loading</h3>
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Table Loading</h3>
                   <LoadingState type="table" />
                 </div>
 
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">List Loading</h3>
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">List Loading</h3>
                   <LoadingState type="list" count={3} />
                 </div>
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Form Loading</h3>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Form Loading</h3>
                 <LoadingState type="form" />
               </div>
 
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Minimal Loading</h3>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Minimal Loading</h3>
                 <LoadingState type="minimal" />
               </div>
             </div>

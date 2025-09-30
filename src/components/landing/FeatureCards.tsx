@@ -31,7 +31,7 @@ export function FeatureCards() {
     <section id="features" className="py-16">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white mb-4">
             Why Choose Our Platform?
           </h2>
           <p className="text-lg text-gray-900 dark:text-white/70 max-w-2xl mx-auto">
@@ -52,7 +52,7 @@ export function FeatureCards() {
                   <Icon className="w-6 h-6 text-brand" />
                 </div>
 
-                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
                   {feature.title}
                 </h3>
 
@@ -66,7 +66,7 @@ export function FeatureCards() {
 
         <div className="mt-16 text-center">
           <div className="bg-brand/5 rounded-2xl p-8 border border-brand/20">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+            <h3 className="text-2xl font-medium text-gray-900 dark:text-white mb-4">
               Ready to Get Started?
             </h3>
             <p className="text-gray-900 dark:text-white/70 mb-6 max-w-lg mx-auto">

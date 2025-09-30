@@ -106,7 +106,7 @@ function MetricCard({ metric }: { metric: MetricData }) {
           {Math.abs(metric.change).toFixed(1)}%
         </div>
       </div>
-      <div className="text-2xl font-bold text-gray-900 dark:text-white">
+      <div className="text-2xl font-medium text-gray-900 dark:text-white">
         {formatValue(metric.value, metric.format)}
       </div>
     </Card>
@@ -252,7 +252,7 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
       {/* Header Controls */}
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Advanced Analytics</h2>
+          <h2 className="text-2xl font-medium text-gray-900 dark:text-white">Advanced Analytics</h2>
           <p className="text-gray-900 dark:text-white/60">
             Deep insights into your {userRole} performance
           </p>
@@ -294,7 +294,7 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
         {/* Main Chart */}
         <Card className="p-6 lg:col-span-2">
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white">
               Performance Trend
             </h3>
             <div className="flex items-center gap-2">
@@ -334,7 +334,7 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
 
       {/* Performance Insights */}
       <Card className="p-6">
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+        <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
           AI-Powered Insights
         </h3>
 

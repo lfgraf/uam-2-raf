@@ -174,7 +174,7 @@ export function PublisherRevenue() {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Revenue Dashboard</h1>
+          <h1 className="text-2xl font-medium text-gray-900 dark:text-white">Revenue Dashboard</h1>
           <p className="text-gray-900 dark:text-white/60">
             Track your earnings across all properties and campaigns
           </p>
@@ -218,7 +218,7 @@ export function PublisherRevenue() {
             <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">Total Revenue</h3>
             <DollarSign className="w-5 h-5 text-green-500" />
           </div>
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+          <div className="text-2xl font-medium text-gray-900 dark:text-white">
             ${totalRevenue.toLocaleString()}
           </div>
           <div className="flex items-center gap-1 text-sm text-green-600 mt-1">
@@ -232,7 +232,7 @@ export function PublisherRevenue() {
             <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">Pending Revenue</h3>
             <Clock className="w-5 h-5 text-yellow-500" />
           </div>
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+          <div className="text-2xl font-medium text-gray-900 dark:text-white">
             ${pendingRevenue.toLocaleString()}
           </div>
           <div className="text-sm text-gray-900 dark:text-white/60 mt-1">
@@ -245,7 +245,7 @@ export function PublisherRevenue() {
             <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">Average RPM</h3>
             <TrendingUp className="w-5 h-5 text-brand" />
           </div>
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+          <div className="text-2xl font-medium text-gray-900 dark:text-white">
             ${averageRpm.toFixed(3)}
           </div>
           <div className="flex items-center gap-1 text-sm text-green-600 mt-1">
@@ -259,7 +259,7 @@ export function PublisherRevenue() {
             <h3 className="text-sm font-medium text-gray-900 dark:text-white/60">Average CTR</h3>
             <Eye className="w-5 h-5 text-purple-500" />
           </div>
-          <div className="text-2xl font-bold text-gray-900 dark:text-white">
+          <div className="text-2xl font-medium text-gray-900 dark:text-white">
             {averageCtr.toFixed(2)}%
           </div>
           <div className="text-sm text-gray-900 dark:text-white/60 mt-1">
@@ -270,7 +270,7 @@ export function PublisherRevenue() {
 
       {/* Property Performance */}
       <Card className="p-6">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Property Performance</h2>
+        <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-6">Property Performance</h2>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {propertyRevenueData.map((property, index) => (
             <div key={index} className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg">
@@ -319,7 +319,7 @@ export function PublisherRevenue() {
 
       {/* Recent Revenue Entries */}
       <Card className="p-6">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Recent Revenue Entries</h2>
+        <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-6">Recent Revenue Entries</h2>
         <div className="space-y-4">
           {revenueEntries.map((entry) => (
             <div
@@ -356,7 +356,7 @@ export function PublisherRevenue() {
               </div>
 
               <div className="text-right ml-6">
-                <div className="text-xl font-bold text-green-600 mb-1">
+                <div className="text-xl font-medium text-green-600 mb-1">
                   ${entry.revenue.toFixed(2)}
                 </div>
                 <div className="text-sm text-gray-900 dark:text-white/60">
@@ -376,7 +376,7 @@ export function PublisherRevenue() {
 
       {/* Payment Information */}
       <Card className="p-6">
-        <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Payment Information</h2>
+        <h2 className="text-lg font-medium text-gray-900 dark:text-white mb-4">Payment Information</h2>
         <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
           <div className="flex items-start gap-3">
             <CheckCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />

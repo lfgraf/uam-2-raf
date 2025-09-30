@@ -84,6 +84,15 @@ export function DashboardSidebar({ isOpen, onClose, isCollapsed, onToggleCollaps
 
   const availableRoles = userRoles.filter(role => role !== userRole);
 
+  // Mock wallet addresses per role
+  const roleWallets = {
+    advertiser: '0x742d...bEb0',
+    publisher: '0x5A0b...9c4c',
+    admin: '0x89Ab...45CD'
+  };
+
+  const currentWallet = roleWallets[userRole];
+
   const handleRoleSwitch = (newRole: 'advertiser' | 'publisher' | 'admin') => {
     const roleRoutes = {
       advertiser: '/dashboard/advertiser',
@@ -290,7 +299,7 @@ export function DashboardSidebar({ isOpen, onClose, isCollapsed, onToggleCollaps
                   )}
                 </div>
                 <div className="text-xs text-gray-600 dark:text-graphite-300 truncate">
-                  {userRoles.length > 1 ? 'Multi-role • 0x1234...5678' : '0x1234...5678'}
+                  {userRoles.length > 1 ? `Multi-role • ${currentWallet}` : currentWallet}
                 </div>
               </div>
               {availableRoles.length > 0 && (

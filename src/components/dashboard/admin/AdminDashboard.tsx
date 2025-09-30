@@ -90,15 +90,15 @@ export function AdminDashboard() {
           <Card className="p-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Quick Actions</h3>
             <div className="space-y-3">
-              <Button variant="outline" className="w-full justify-start">
+              <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/dashboard/admin/users'}>
                 <Users className="w-4 h-4 mr-2" />
                 Manage Users
               </Button>
-              <Button variant="outline" className="w-full justify-start">
+              <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/dashboard/admin/disputes'}>
                 <AlertTriangle className="w-4 h-4 mr-2" />
                 Review Disputes
               </Button>
-              <Button variant="outline" className="w-full justify-start">
+              <Button variant="outline" className="w-full justify-start" onClick={() => window.location.href = '/dashboard/admin/settings'}>
                 <Activity className="w-4 h-4 mr-2" />
                 System Settings
               </Button>

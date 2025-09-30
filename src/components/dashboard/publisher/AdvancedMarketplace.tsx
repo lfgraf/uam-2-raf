@@ -344,14 +344,22 @@ export function AdvancedMarketplace() {
               placeholder="Search campaigns..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
             />
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm('')}
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+              >
+                ×
+              </button>
+            )}
           </div>
 
           <select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
           >
             <option value="all">All Categories</option>
             <option value="mobile apps">Mobile Apps</option>
@@ -363,14 +371,53 @@ export function AdvancedMarketplace() {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50"
+            className="px-3 py-2 border border-gray-200 dark:border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-brand/50 bg-white dark:bg-gray-800"
           >
             <option value="rpm">Sort by RPM</option>
             <option value="budget">Sort by Budget</option>
             <option value="competition">Sort by Competition</option>
           </select>
         </div>
+
+        {/* Active Filters Display */}
+        {(searchTerm || categoryFilter !== 'all' || sortBy !== 'rpm') && (
+          <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-200 dark:border-gray-700">
+            <span className="text-sm text-gray-900 dark:text-white/60">Active filters:</span>
+            {searchTerm && (
+              <span className="px-2 py-1 bg-brand/10 text-brand text-xs rounded-full">
+                Search: &ldquo;{searchTerm}&rdquo;
+              </span>
+            )}
+            {categoryFilter !== 'all' && (
+              <span className="px-2 py-1 bg-brand/10 text-brand text-xs rounded-full capitalize">
+                {categoryFilter}
+              </span>
+            )}
+            {sortBy !== 'rpm' && (
+              <span className="px-2 py-1 bg-brand/10 text-brand text-xs rounded-full">
+                Sorted by {sortBy}
+              </span>
+            )}
+            <button
+              onClick={() => {
+                setSearchTerm('');
+                setCategoryFilter('all');
+                setSortBy('rpm');
+              }}
+              className="text-xs text-gray-900 dark:text-white/60 hover:text-brand ml-2"
+            >
+              Clear all
+            </button>
+          </div>
+        )}
       </Card>
+
+      {/* Results count */}
+      <div className="flex items-center justify-between">
+        <p className="text-sm text-gray-900 dark:text-white/60">
+          Showing {filteredCampaigns.length} of {campaigns.length} campaigns
+        </p>
+      </div>
 
       {/* Campaign Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

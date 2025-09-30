@@ -113,7 +113,7 @@ function MetricCard({ metric }: { metric: MetricData }) {
   );
 }
 
-function SimpleChart({ data }: { data: ChartDataPoint[] }) {
+function SimpleBarChart({ data }: { data: ChartDataPoint[] }) {
   const maxValue = Math.max(...data.map(d => d.value));
 
   return (
@@ -121,7 +121,7 @@ function SimpleChart({ data }: { data: ChartDataPoint[] }) {
       {data.map((point, index) => (
         <div key={index} className="flex-1 flex flex-col items-center gap-2">
           <div
-            className="w-full bg-brand rounded-t-sm min-h-2"
+            className="w-full bg-brand rounded-t-sm min-h-2 transition-all duration-300 hover:opacity-100"
             style={{
               height: `${(point.value / maxValue) * 200}px`,
               opacity: 0.8
@@ -132,6 +132,110 @@ function SimpleChart({ data }: { data: ChartDataPoint[] }) {
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+function SimpleLineChart({ data }: { data: ChartDataPoint[] }) {
+  const maxValue = Math.max(...data.map(d => d.value));
+  const minValue = Math.min(...data.map(d => d.value));
+  const range = maxValue - minValue;
+  const padding = 30;
+  const height = 200;
+  const width = 800;
+  const stepX = width / (data.length - 1);
+
+  // Create SVG path for the line
+  const linePath = data.map((point, index) => {
+    const x = index * stepX;
+    const y = height - ((point.value - minValue) / range) * height + padding;
+    return `${index === 0 ? 'M' : 'L'} ${x},${y}`;
+  }).join(' ');
+
+  // Create area path (filled area under line)
+  const areaPath = `${linePath} L ${width},${height + padding} L 0,${height + padding} Z`;
+
+  return (
+    <div className="h-64 p-4">
+      <svg width="100%" height="100%" viewBox={`0 0 ${width} ${height + padding * 2}`} className="overflow-visible">
+        {/* Grid lines */}
+        {[0, 0.25, 0.5, 0.75, 1].map((ratio, i) => (
+          <line
+            key={i}
+            x1="0"
+            y1={height * ratio + padding}
+            x2={width}
+            y2={height * ratio + padding}
+            stroke="currentColor"
+            strokeWidth="1"
+            opacity="0.1"
+            className="text-gray-900 dark:text-white"
+          />
+        ))}
+
+        {/* Area under line */}
+        <path
+          d={areaPath}
+          fill="url(#gradient)"
+          opacity="0.2"
+        />
+
+        {/* Line */}
+        <path
+          d={linePath}
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="text-brand"
+        />
+
+        {/* Data points */}
+        {data.map((point, index) => {
+          const x = index * stepX;
+          const y = height - ((point.value - minValue) / range) * height + padding;
+          return (
+            <g key={index}>
+              <circle
+                cx={x}
+                cy={y}
+                r="5"
+                fill="white"
+                stroke="currentColor"
+                strokeWidth="3"
+                className="text-brand"
+              />
+              <circle
+                cx={x}
+                cy={y}
+                r="8"
+                fill="transparent"
+                className="cursor-pointer hover:fill-brand/10 transition-colors"
+              >
+                <title>{`${new Date(point.date).toLocaleDateString()}: ${point.value}`}</title>
+              </circle>
+            </g>
+          );
+        })}
+
+        {/* Gradient definition */}
+        <defs>
+          <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stopColor="currentColor" className="text-brand" />
+            <stop offset="100%" stopColor="currentColor" className="text-brand" stopOpacity="0" />
+          </linearGradient>
+        </defs>
+      </svg>
+
+      {/* X-axis labels */}
+      <div className="flex justify-between mt-2">
+        {data.map((point, index) => (
+          <div key={index} className="text-xs text-gray-900 dark:text-white/60">
+            {index % 2 === 0 ? new Date(point.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : ''}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
@@ -218,7 +322,13 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
             </div>
           </div>
 
-          <SimpleChart data={chartData} />
+          {chartType === 'bar' && <SimpleBarChart data={chartData} />}
+          {chartType === 'line' && <SimpleLineChart data={chartData} />}
+          {chartType === 'pie' && (
+            <div className="h-64 flex items-center justify-center text-gray-900 dark:text-white/60">
+              Pie chart view coming soon
+            </div>
+          )}
         </Card>
       </div>
 

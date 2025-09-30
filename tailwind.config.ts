@@ -11,44 +11,60 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // Brand colors
+        // FREEQ Graphite Neutrals
+        graphite: {
+          950: tokens.colors.graphite[950],
+          900: tokens.colors.graphite[900],
+          850: tokens.colors.graphite[850],
+          800: tokens.colors.graphite[800],
+          700: tokens.colors.graphite[700],
+          650: tokens.colors.graphite[650],
+          500: tokens.colors.graphite[500],
+          300: tokens.colors.graphite[300],
+          100: tokens.colors.graphite[100],
+        },
+        // Acid Accent Band
+        acid: {
+          400: tokens.colors.acid[400],
+          500: tokens.colors.acid[500],
+          600: tokens.colors.acid[600],
+          DEFAULT: tokens.colors.acid[500],
+        },
+        // Heat Accents
+        heat: {
+          500: tokens.colors.heat[500],
+          700: tokens.colors.heat[700],
+          DEFAULT: tokens.colors.heat[500],
+        },
+        // Auxiliary colors
+        blue: {
+          500: tokens.colors.blue[500],
+        },
+        // Gray scale (Light theme)
+        gray: {
+          100: tokens.colors.gray[100],
+          200: tokens.colors.gray[200],
+          300: tokens.colors.gray[300],
+          400: tokens.colors.gray[400],
+          500: tokens.colors.gray[500],
+          600: tokens.colors.gray[600],
+          700: tokens.colors.gray[700],
+          800: tokens.colors.gray[800],
+          900: tokens.colors.gray[900],
+        },
+        // Indigo (Light theme accent)
+        indigo: {
+          400: tokens.colors.indigo[400],
+          600: tokens.colors.indigo[600],
+        },
+        // Brand colors (legacy compatibility)
         brand: {
-          50: tokens.colors.indigo[100],
-          100: tokens.colors.indigo[200],
-          200: tokens.colors.indigo[300],
-          300: tokens.colors.indigo[400],
-          400: tokens.colors.indigo[500],
-          500: tokens.colors.indigo[600],
-          600: tokens.colors.indigo[700],
-          700: tokens.colors.indigo[800],
-          800: tokens.colors.indigo[900],
-          DEFAULT: tokens.colors.indigo[600],
+          DEFAULT: tokens.colors.acid[500], // Map to acid for CTAs
         },
         // Semantic colors
         success: tokens.colors.green[500],
         warning: tokens.colors.yellow[500],
         error: tokens.colors.red[500],
-        // Theme colors - using concrete values instead of CSS vars
-        foreground: {
-          DEFAULT: tokens.colors.gray[900],
-          dark: tokens.colors.gray[100],
-        },
-        background: {
-          DEFAULT: tokens.colors.white,
-          dark: tokens.colors.gray[900],
-        },
-        muted: {
-          DEFAULT: tokens.colors.gray[100],
-          dark: tokens.colors.gray[800],
-        },
-        accent: {
-          DEFAULT: tokens.colors.indigo[50],
-          dark: tokens.colors.indigo[900],
-        },
-        border: {
-          DEFAULT: tokens.colors.gray[200],
-          dark: tokens.colors.gray[700],
-        },
       },
       fontFamily: {
         sans: ['CoFo Sans', 'system-ui', 'sans-serif'],

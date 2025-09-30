@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { StatsCard } from '../shared/StatsCard';
-import { Users, AlertTriangle, DollarSign, Activity } from 'lucide-react';
+import { WalletSetup } from './WalletSetup';
+import { Users, AlertTriangle, DollarSign, Activity, Store, Wallet } from 'lucide-react';
 
 // Mock data
 const stats = [
@@ -37,7 +39,39 @@ const stats = [
   }
 ];
 
+// Mock properties data
+const properties = [
+  {
+    id: '1',
+    name: 'Gaming Blog',
+    owner: 'publisher@example.com',
+    url: 'https://gamingblog.com',
+    walletAddress: '0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb0',
+    hasWallet: true,
+    status: 'active' as const
+  },
+  {
+    id: '2',
+    name: 'Tech News Portal',
+    owner: 'tech@example.com',
+    url: 'https://technews.com',
+    walletAddress: '',
+    hasWallet: false,
+    status: 'pending' as const
+  },
+  {
+    id: '3',
+    name: 'E-commerce Magazine',
+    owner: 'shop@example.com',
+    url: 'https://shopmag.com',
+    walletAddress: '0x5A0b54D5dc17e0AadC383d2db43B0a0D3E029c4c',
+    hasWallet: true,
+    status: 'active' as const
+  }
+];
+
 export function AdminDashboard() {
+  const [selectedProperty, setSelectedProperty] = useState<typeof properties[0] | null>(null);
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -52,6 +86,58 @@ export function AdminDashboard() {
           <StatsCard key={stat.title} {...stat} />
         ))}
       </div>
+
+      {/* Property Management Section */}
+      <Card className="p-6">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-lg font-medium text-gray-900 dark:text-graphite-100">Property Management</h2>
+          <Button variant="outline" size="sm">
+            <Store className="w-4 h-4 mr-2" />
+            View All Properties
+          </Button>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {properties.map((property) => (
+            <div
+              key={property.id}
+              className="border border-gray-200 dark:border-graphite-700 rounded-lg p-4 hover:shadow-sm transition-shadow"
+            >
+              <div className="flex items-start justify-between mb-3">
+                <div>
+                  <h3 className="font-medium text-gray-900 dark:text-graphite-100">{property.name}</h3>
+                  <p className="text-xs text-gray-600 dark:text-graphite-400 mt-1">{property.owner}</p>
+                </div>
+                {property.hasWallet ? (
+                  <div className="flex items-center gap-1 text-xs px-2 py-1 bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400 rounded-full">
+                    <Wallet className="w-3 h-3" />
+                    Configured
+                  </div>
+                ) : (
+                  <div className="flex items-center gap-1 text-xs px-2 py-1 bg-yellow-50 dark:bg-yellow-900/20 text-yellow-700 dark:text-yellow-400 rounded-full">
+                    <AlertTriangle className="w-3 h-3" />
+                    Pending
+                  </div>
+                )}
+              </div>
+
+              <div className="text-xs text-gray-600 dark:text-graphite-500 mb-3">
+                {property.url}
+              </div>
+
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full"
+                onClick={() => setSelectedProperty(property)}
+              >
+                <Wallet className="w-4 h-4 mr-2" />
+                {property.hasWallet ? 'Update Wallet' : 'Setup Wallet'}
+              </Button>
+            </div>
+          ))}
+        </div>
+      </Card>
 
       {/* Main Content */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -120,6 +206,17 @@ export function AdminDashboard() {
           </Card>
         </div>
       </div>
+
+      {/* Wallet Setup Modal */}
+      {selectedProperty && (
+        <WalletSetup
+          isOpen={!!selectedProperty}
+          onClose={() => setSelectedProperty(null)}
+          propertyId={selectedProperty.id}
+          propertyName={selectedProperty.name}
+          initialWalletAddress={selectedProperty.walletAddress}
+        />
+      )}
     </div>
   );
 }

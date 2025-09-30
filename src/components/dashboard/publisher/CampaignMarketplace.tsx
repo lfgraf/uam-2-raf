@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { CreativeAssetViewer } from '@/components/dashboard/shared/CreativeAssetViewer';
 import { Search, Target, Calendar } from 'lucide-react';
 
 // Mock campaign data
@@ -19,7 +20,11 @@ const campaigns = [
     endDate: '2024-12-31',
     requirements: ['Gaming content', 'Mobile traffic', '10K+ monthly views'],
     matchScore: 95,
-    status: 'open'
+    status: 'open',
+    creativeAssets: [
+      { id: '1', type: 'image' as const, url: 'https://placehold.co/600x400?text=Gaming+App+Banner', name: 'Banner Ad' },
+      { id: '2', type: 'video' as const, url: 'https://example.com/video.mp4', name: 'Video Ad' }
+    ]
   },
   {
     id: '2',
@@ -32,7 +37,10 @@ const campaigns = [
     endDate: '2024-11-30',
     requirements: ['Shopping content', 'US traffic', '5K+ monthly views'],
     matchScore: 88,
-    status: 'open'
+    status: 'open',
+    creativeAssets: [
+      { id: '1', type: 'image' as const, url: 'https://placehold.co/600x400?text=Holiday+Sale', name: 'Sale Banner' }
+    ]
   },
   {
     id: '3',
@@ -45,7 +53,10 @@ const campaigns = [
     endDate: '2025-01-15',
     requirements: ['Health/Fitness content', 'Global traffic'],
     matchScore: 92,
-    status: 'open'
+    status: 'open',
+    creativeAssets: [
+      { id: '1', type: 'text' as const, content: 'Transform your body. Download FitLife today!', name: 'Text Ad' }
+    ]
   },
   {
     id: '4',
@@ -58,7 +69,8 @@ const campaigns = [
     endDate: '2024-12-20',
     requirements: ['Finance content', '18+ audience', 'High-value traffic'],
     matchScore: 76,
-    status: 'open'
+    status: 'open',
+    creativeAssets: []
   },
   {
     id: '5',
@@ -71,7 +83,10 @@ const campaigns = [
     endDate: '2024-11-25',
     requirements: ['Technology content', 'Professional audience'],
     matchScore: 85,
-    status: 'open'
+    status: 'open',
+    creativeAssets: [
+      { id: '1', type: 'image' as const, url: 'https://placehold.co/600x400?text=Tech+Newsletter', name: 'Newsletter Ad' }
+    ]
   }
 ];
 
@@ -200,6 +215,14 @@ export function CampaignMarketplace() {
                 ))}
               </div>
             </div>
+
+            {/* Creative Assets */}
+            {campaign.creativeAssets && campaign.creativeAssets.length > 0 && (
+              <div className="mb-4">
+                <div className="text-xs text-gray-900 dark:text-graphite-300 mb-2">Creative Assets</div>
+                <CreativeAssetViewer assets={campaign.creativeAssets} />
+              </div>
+            )}
 
             {/* Footer */}
             <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-graphite-700">

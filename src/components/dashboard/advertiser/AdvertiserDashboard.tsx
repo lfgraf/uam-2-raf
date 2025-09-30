@@ -7,6 +7,7 @@ import { EmptyState } from '@/components/ui/EmptyState';
 import { CampaignCard } from './CampaignCard';
 import { StatsCard } from '../shared/StatsCard';
 import { BidReviewModal } from '../shared/BidReviewModal';
+import { ClaimFundsModal } from '../shared/ClaimFundsModal';
 import { PlusCircle, TrendingUp, Target, DollarSign, Users } from 'lucide-react';
 import Link from 'next/link';
 
@@ -132,6 +133,19 @@ export function AdvertiserDashboard() {
   const displayCampaigns = showEmptyState ? [] : campaigns;
 
   const [selectedBid, setSelectedBid] = useState<typeof recentActivity[0]['bidData'] | null>(null);
+  const [claimFundsCampaign, setClaimFundsCampaign] = useState<{ id: string; name: string; amount: number } | null>(null);
+
+  const handleClaimFunds = (campaignId: string) => {
+    const campaign = campaigns.find(c => c.id === campaignId);
+    if (campaign) {
+      const unspentAmount = campaign.budget - campaign.spent;
+      setClaimFundsCampaign({
+        id: campaign.id,
+        name: campaign.name,
+        amount: unspentAmount
+      });
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -172,7 +186,11 @@ export function AdvertiserDashboard() {
             <div className="space-y-4">
               {displayCampaigns.length > 0 ? (
                 displayCampaigns.slice(0, 3).map((campaign) => (
-                  <CampaignCard key={campaign.id} campaign={campaign} />
+                  <CampaignCard
+                    key={campaign.id}
+                    campaign={campaign}
+                    onClaimFunds={handleClaimFunds}
+                  />
                 ))
               ) : (
                 <EmptyState
@@ -253,6 +271,17 @@ export function AdvertiserDashboard() {
           )}
         </div>
       </div>
+
+      {/* Claim Funds Modal */}
+      {claimFundsCampaign && (
+        <ClaimFundsModal
+          isOpen={!!claimFundsCampaign}
+          onClose={() => setClaimFundsCampaign(null)}
+          campaignName={claimFundsCampaign.name}
+          claimableAmount={`$${claimFundsCampaign.amount.toLocaleString()}`}
+          walletAddress="0x1234...5678"
+        />
+      )}
     </div>
   );
 }

@@ -71,7 +71,7 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
   };
 
   return (
-    <header className="h-16 bg-white dark:bg-graphite-900 border-b border-gray-200 dark:border-graphite-700 flex items-center justify-between px-6">
+    <header className="h-16 bg-white dark:bg-graphite-900 border-b border-gray-200 dark:border-graphite-700 flex items-center justify-between pl-6 pr-6">
       {/* Left side */}
       <div className="flex items-center gap-4">
         <Button

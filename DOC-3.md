@@ -4,124 +4,62 @@ We have been doing good work. Right now, we need to focus on the design because 
 
 ## Design System Checklist
 
-### 🎨 FREEQ Color System Migration
+### 🎨 Theme System
 
-- [ ] **Replace current color tokens with FREEQ palette**
-  - [ ] Add Graphite neutrals (950, 900, 850, 800, 700, 650, 500, 300, 100)
-  - [ ] Add Acid accent band (400, 500, 600)
-  - [ ] Add Heat accents (500, 700)
-  - [ ] Keep auxiliary Blue/Indigo for light theme
-  - [ ] Remove old gray/indigo tokens
-- [ ] **Update Tailwind config with new color utilities**
-  - [ ] `bg-graphite-*` classes
-  - [ ] `text-graphite-*` classes
-  - [ ] `border-graphite-*` classes
-  - [ ] `bg-acid-*` and `text-acid-*` classes
-  - [ ] `bg-heat-*` and `text-heat-*` classes
-- [ ] **Apply FREEQ color pairings**
-  - [ ] Graphite 950/900 backgrounds with Graphite 100 text
-  - [ ] Graphite 850 surfaces with Graphite 300 copy
-  - [ ] Acid 500 for focus rings and key CTAs (<5% usage)
-  - [ ] Heat 500 for warnings/alerts with 20% opacity overlays
-- [ ] **Update dark theme as canonical palette**
-  - [ ] Ensure dark mode uses Graphite scale properly
-  - [ ] Light theme should use Gray 100-900 for scaffold
+- [ ] Review and improve theme toggle implementation
+- [ ] Evaluate different theme modes (light/dark and potential variants)
+- [ ] Ensure theme consistency across all pages and components
+- [ ] Test dark mode with all UI states (hover, active, disabled, etc.)
 
-### 🎯 Token Architecture Alignment
+### 🎯 Tokens Review & Accuracy
 
-- [ ] **Create dimensional tokens**
-  - [ ] `dimension.*` tokens (4px base)
-  - [ ] Cascade into `spacing.*` (xs: 4px, sm: 8px, md: 16px, lg: 32px, xl: 64px)
-  - [ ] Expose as `space-token-*` utilities in globals.css
-- [ ] **Border radius token utilities**
-  - [ ] Create `rounded-token-sm`, `rounded-token-lg`, `rounded-token-xl`
-  - [ ] Map to existing borderRadius tokens
-- [ ] **Semantic token structure**
-  - [ ] `fg.*` tokens (default, muted, subtle)
-  - [ ] `bg.*` tokens (default, muted, subtle)
-  - [ ] `accent.*` tokens per theme
-- [ ] **Verify 4px baseline grid**
-  - [ ] All spacing follows 4px multiples
-  - [ ] No odd pixel values (3px, 5px, 7px, etc.)
+- [ ] Audit `tokens.ts` for accuracy
+  - [ ] Color system (grays, brand colors, semantic colors)
+  - [ ] Font sizes and responsive scaling
+  - [ ] Spacing system (xs, sm, md, lg, xl)
+  - [ ] Border radius values
+  - [ ] Line heights
+- [ ] Ensure tokens align with design vision
+- [ ] Check if any tokens are unused or redundant
+- [ ] Verify tokens are being applied consistently
 
-### ✍️ Typography Refinement
+### ✍️ Typography System
 
 - [x] Replace Inter/Roboto with CoFoSans
 - [x] Load fonts properly via @font-face
 - [x] Remove bold/semibold, use only regular (400) and medium (500)
-- [ ] **Add font-weight 600 for hierarchy** (currently missing)
-- [ ] **Update letter spacing**
-  - [ ] Headings: `-0.05em` (currently `-0.01em`)
-  - [ ] Microcopy/labels: `0.18em` to `0.28em` + uppercase
-- [ ] **Verify font size scale**
-  - [ ] H1: 49px, H2: 39px, H3: 31px, H4: 25px, H5: 20px, H6: 16px, Body: 16px
-- [ ] **Quiet hierarchy approach**
-  - [ ] Use weight shifts (500 → 600) + color steps (Graphite 100 → 300)
-  - [ ] Avoid dramatic size jumps
+- [ ] Review font sizes across all breakpoints
+- [ ] Check line heights for readability
+- [ ] Verify letter spacing is appropriate
 
-### 🧩 Surface & Layout Transformation
+### 🧩 UX Review
 
-- [ ] **Remove heavy card shells**
-  - [ ] Replace boxed cards with open grids
-  - [ ] Use hairline separators (`border-b border-graphite-800`)
-  - [ ] Apply translucent background tints (`bg-graphite-900/60`)
-  - [ ] Add subtle inset shadows for depth
-- [ ] **Implement 12-column grid system**
-  - [ ] Containers cap at `max-w-6xl` (1152px)
-  - [ ] Use `span-3` (25%) modules for dashboard widgets
-  - [ ] Breakpoints: ≤640px (fluid), 641-1024px (8-col), ≥1025px (12-col)
-- [ ] **Stack gap standards**
-  - [ ] Dense content: `space-token-sm` (8px)
-  - [ ] Standard rhythm: `space-token-md` (16px)
-  - [ ] Section breathing: `space-token-lg` (32px)
-  - [ ] Sections: `space-y-10` (40px) large, `space-y-6` (24px) compact
-- [ ] **Layering with opacity**
-  - [ ] Graphite-on-graphite with opacity tints before new hues
-  - [ ] Soft radial glows (`bg-acid-500/15 blur-3xl`) for focus
+- [ ] Navigation flow audit
+  - [ ] Landing page → Dashboard transitions
+  - [ ] Between dashboard sections (Advertiser/Publisher/Admin)
+  - [ ] Role switching experience
+- [ ] Component consistency check
+  - [ ] Button states and variants
+  - [ ] Card styles and interactions
+  - [ ] Form inputs and validation
+  - [ ] Modal/dialog patterns
+- [ ] Interaction patterns
+  - [ ] Hover effects
+  - [ ] Loading states
+  - [ ] Empty states
+  - [ ] Error handling
+- [ ] Spacing and layout
+  - [ ] Consistent padding/margins
+  - [ ] Responsive behavior
+  - [ ] Visual hierarchy
 
-### 🎨 Interaction & Focus States
+### 🔄 Global Changes & Iterations
 
-- [ ] **Implement acid focus rings**
-  - [ ] `focus:ring-2 focus:ring-acid-500 focus:ring-offset-graphite-850`
-  - [ ] Ensure 2px offset (not chunky halos)
-  - [ ] Apply to all interactive elements
-- [ ] **Hover treatments**
-  - [ ] Lighten graphite substrate (`hover:bg-graphite-850`)
-  - [ ] Elevate text to Graphite 100
-  - [ ] No scaling or bolding on hover
-- [ ] **Disabled states**
-  - [ ] 50% opacity
-  - [ ] Preserve layout space (no collapse)
-- [ ] **Remove scaling/transform effects**
-  - [ ] Cards currently have `hover:scale-[1.01]` - remove this
-  - [ ] Use subtle background shifts instead
-
-### 🔄 Global Implementation Strategy
-
-- [ ] **Update globals.css with @theme inline block**
-  - [ ] Define all Graphite, Acid, Heat tokens
-  - [ ] Create utility helper classes
-  - [ ] Map to Tailwind aliases
-- [ ] **Audit for color balance**
-  - [ ] Max 2 non-graphite hues per screen
-  - [ ] Acid usage <5% of screen real estate
-  - [ ] Heat reserved for rare highlights
-- [ ] **Test theme consistency**
-  - [ ] Dark mode (canonical) with Graphite scale
-  - [ ] Light mode with Gray 100-900 scaffold
-  - [ ] All UI states (hover, active, disabled, focus)
-- [ ] **Document pattern library**
-  - [ ] Approved color pairings
-  - [ ] Spacing standards
-  - [ ] Typography hierarchy examples
-  - [ ] Component showcase
-
-### ✅ Completed (Typography Foundation)
-
-- [x] Simplified font system to CoFoSans only
-- [x] Implemented functional dark mode toggle
-- [x] Removed all bold/semibold weights
-- [x] Fixed font loading issues
+- [ ] Document all global design decisions
+- [ ] Create pattern library/component showcase
+- [ ] Ensure changes propagate across all pages
+- [ ] Test on different screen sizes
+- [ ] Test with real content (not just mocks)
 
 ---
 

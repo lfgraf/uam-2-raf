@@ -44,7 +44,7 @@ const advertiserMetrics: MetricData[] = [
 
 const publisherMetrics: MetricData[] = [
   { name: 'Revenue', value: 2890, change: 18.5, trend: 'up', format: 'currency' },
-  { name: 'RPM', value: 4.50, change: 12.3, trend: 'up', format: 'currency' },
+  { name: 'CPU', value: 4.50, change: 12.3, trend: 'up', format: 'currency' },
   { name: 'Fill Rate', value: 87.5, change: 3.2, trend: 'up', format: 'percentage' },
   { name: 'Page Views', value: 145000, change: 22.1, trend: 'up', format: 'number' },
   { name: 'CTR', value: 1.9, change: 0.8, trend: 'up', format: 'percentage' },
@@ -344,7 +344,7 @@ export function AdvancedAnalytics({ userRole }: AdvancedAnalyticsProps) {
             <ul className="space-y-2 text-sm text-gray-900 dark:text-graphite-300">
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
-                Your {userRole === 'advertiser' ? 'ROAS' : 'RPM'} has improved 12% this week
+                Your {userRole === 'advertiser' ? 'ROAS' : 'CPU'} has improved 12% this week
               </li>
               <li className="flex items-start gap-2">
                 <span className="w-1.5 h-1.5 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>

@@ -93,7 +93,7 @@ const emptyStateConfig = {
     illustration: '🏪',
     tips: [
       'New campaigns are added regularly',
-      'Lower your minimum RPM requirements',
+      'Lower your minimum CPU requirements',
       'Expand your geo-targeting options'
     ]
   },

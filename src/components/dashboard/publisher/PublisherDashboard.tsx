@@ -1,9 +1,11 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { PropertyCard } from './PropertyCard';
 import { StatsCard } from '../shared/StatsCard';
+import { BidReviewModal } from '../shared/BidReviewModal';
 import { Plus, DollarSign, BarChart3, Target, Eye } from 'lucide-react';
 import Link from 'next/link';
 
@@ -31,7 +33,7 @@ const stats = [
     icon: Eye
   },
   {
-    title: 'Avg. RPM',
+    title: 'Avg. CPU',
     value: '$2.45',
     change: '+8.7%',
     trend: 'up' as const,
@@ -47,7 +49,7 @@ const properties = [
     category: 'Technology',
     monthlyViews: 245000,
     revenue: 2450,
-    rpm: 2.89,
+    cpu: 2.89,
     status: 'active' as const,
     performance: 'excellent' as const
   },
@@ -58,7 +60,7 @@ const properties = [
     category: 'Gaming',
     monthlyViews: 180000,
     revenue: 1890,
-    rpm: 2.15,
+    cpu: 2.15,
     status: 'active' as const,
     performance: 'good' as const
   },
@@ -69,7 +71,7 @@ const properties = [
     category: 'Health & Fitness',
     monthlyViews: 95000,
     revenue: 1240,
-    rpm: 3.45,
+    cpu: 3.45,
     status: 'active' as const,
     performance: 'excellent' as const
   },
@@ -80,13 +82,47 @@ const properties = [
     category: 'Finance',
     monthlyViews: 75000,
     revenue: 580,
-    rpm: 1.85,
+    cpu: 1.85,
     status: 'paused' as const,
     performance: 'poor' as const
   }
 ];
 
+// Mock recent activity with bid data
+const recentActivity = [
+  {
+    id: '1',
+    type: 'bid' as const,
+    title: 'New Campaign Opportunity',
+    description: 'Fashion retailer wants to run ads on TechBlog',
+    time: '1h ago',
+    bidData: {
+      id: 'bid-002',
+      campaignName: 'Fall Fashion Collection 2024',
+      advertiser: 'FashionCo Inc.',
+      bidAmount: '$3,200',
+      cpu: '$6.40',
+      impressions: '500K'
+    }
+  },
+  {
+    id: '2',
+    type: 'payment' as const,
+    title: 'Payment Received',
+    description: '$1,240 for October',
+    time: '2h ago'
+  },
+  {
+    id: '3',
+    type: 'alert' as const,
+    title: 'Traffic Spike',
+    description: 'TechBlog +45% impressions today',
+    time: '5h ago'
+  }
+];
+
 export function PublisherDashboard() {
+  const [selectedBid, setSelectedBid] = useState<typeof recentActivity[0]['bidData'] | null>(null);
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -95,10 +131,6 @@ export function PublisherDashboard() {
           <h1 className="text-2xl font-medium text-gray-900 dark:text-graphite-100">Publisher Dashboard</h1>
           <p className="text-gray-900 dark:text-graphite-300">Manage your properties and track revenue</p>
         </div>
-        <Button className="inline-flex items-center gap-2">
-          <Plus className="w-4 h-4" />
-          Add Property
-        </Button>
       </div>
 
       {/* Stats Grid */}
@@ -141,10 +173,6 @@ export function PublisherDashboard() {
                   Browse Campaigns
                 </Button>
               </Link>
-              <Button variant="outline" className="w-full justify-start">
-                <Plus className="w-4 h-4 mr-2" />
-                Add New Property
-              </Button>
               <Link href="/dashboard/publisher/revenue">
                 <Button variant="outline" className="w-full justify-start">
                   <DollarSign className="w-4 h-4 mr-2" />
@@ -185,31 +213,43 @@ export function PublisherDashboard() {
           <Card className="p-6">
             <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-4">Recent Activity</h3>
             <div className="space-y-3 text-sm">
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="font-medium text-gray-900 dark:text-graphite-100">Payment Received</div>
-                  <div className="text-gray-900 dark:text-graphite-300">$1,240 for October</div>
+              {recentActivity.map((activity) => (
+                <div
+                  key={activity.id}
+                  className={activity.type === 'bid' ? 'flex justify-between items-start p-2 -m-2 rounded-lg hover:bg-gray-50 dark:hover:bg-graphite-850 cursor-pointer transition-colors' : 'flex justify-between items-start'}
+                  onClick={() => {
+                    if (activity.type === 'bid' && activity.bidData) {
+                      setSelectedBid(activity.bidData);
+                    }
+                  }}
+                >
+                  <div>
+                    <div className="font-medium text-gray-900 dark:text-graphite-100">
+                      {activity.title}
+                      {activity.type === 'bid' && (
+                        <span className="ml-2 text-xs px-2 py-0.5 bg-acid/10 text-acid rounded-full">
+                          Action Required
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-gray-900 dark:text-graphite-300">{activity.description}</div>
+                  </div>
+                  <div className="text-xs text-gray-900 dark:text-graphite-500 flex-shrink-0 ml-2">{activity.time}</div>
                 </div>
-                <div className="text-xs text-gray-900 dark:text-graphite-500">2h ago</div>
-              </div>
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="font-medium text-gray-900 dark:text-graphite-100">New Campaign Match</div>
-                  <div className="text-gray-900 dark:text-graphite-300">Mobile App Install campaign</div>
-                </div>
-                <div className="text-xs text-gray-900 dark:text-graphite-500">5h ago</div>
-              </div>
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="font-medium text-gray-900 dark:text-graphite-100">Property Verified</div>
-                  <div className="text-gray-900 dark:text-graphite-300">TechBlog Pro approved</div>
-                </div>
-                <div className="text-xs text-gray-900 dark:text-graphite-500">1d ago</div>
-              </div>
+              ))}
             </div>
           </Card>
         </div>
       </div>
+
+      {/* Bid Review Modal */}
+      {selectedBid && (
+        <BidReviewModal
+          isOpen={!!selectedBid}
+          onClose={() => setSelectedBid(null)}
+          bid={selectedBid}
+        />
+      )}
     </div>
   );
 }

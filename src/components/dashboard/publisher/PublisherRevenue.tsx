@@ -28,7 +28,7 @@ interface RevenueEntry {
   impressions: number;
   clicks: number;
   revenue: number;
-  rpm: number;
+  cpu: number;
   ctr: number;
   status: 'confirmed' | 'pending' | 'disputed';
   paymentStatus: 'paid' | 'pending' | 'processing';
@@ -39,7 +39,7 @@ interface PropertyRevenue {
   propertyName: string;
   totalRevenue: number;
   growth: number;
-  rpm: number;
+  cpu: number;
   impressions: number;
   clicks: number;
 }
@@ -55,7 +55,7 @@ const revenueEntries: RevenueEntry[] = [
     impressions: 15000,
     clicks: 420,
     revenue: 1050.00,
-    rpm: 0.07,
+    cpu: 0.07,
     ctr: 2.8,
     status: 'confirmed',
     paymentStatus: 'paid',
@@ -70,7 +70,7 @@ const revenueEntries: RevenueEntry[] = [
     impressions: 28000,
     clicks: 532,
     revenue: 798.00,
-    rpm: 0.029,
+    cpu: 0.029,
     ctr: 1.9,
     status: 'confirmed',
     paymentStatus: 'processing',
@@ -84,7 +84,7 @@ const revenueEntries: RevenueEntry[] = [
     impressions: 8500,
     clicks: 272,
     revenue: 2312.00,
-    rpm: 0.272,
+    cpu: 0.272,
     ctr: 3.2,
     status: 'pending',
     paymentStatus: 'pending',
@@ -96,7 +96,7 @@ const propertyRevenueData: PropertyRevenue[] = [
     propertyName: 'TechBlog.com',
     totalRevenue: 4250.00,
     growth: 18.5,
-    rpm: 0.082,
+    cpu: 0.082,
     impressions: 125000,
     clicks: 3200
   },
@@ -104,7 +104,7 @@ const propertyRevenueData: PropertyRevenue[] = [
     propertyName: 'NewsPortal.net',
     totalRevenue: 2890.00,
     growth: -5.2,
-    rpm: 0.031,
+    cpu: 0.031,
     impressions: 187000,
     clicks: 4100
   },
@@ -112,7 +112,7 @@ const propertyRevenueData: PropertyRevenue[] = [
     propertyName: 'FinanceTracker App',
     totalRevenue: 8920.00,
     growth: 45.8,
-    rpm: 0.285,
+    cpu: 0.285,
     impressions: 89000,
     clicks: 2850
   }
@@ -148,7 +148,7 @@ export function PublisherRevenue() {
   const totalRevenue = revenueEntries.reduce((sum, entry) => sum + entry.revenue, 0);
   const totalImpressions = revenueEntries.reduce((sum, entry) => sum + entry.impressions, 0);
   const totalClicks = revenueEntries.reduce((sum, entry) => sum + entry.clicks, 0);
-  const averageRpm = totalRevenue / totalImpressions;
+  const averageCpu = totalRevenue / totalImpressions;
   const averageCtr = (totalClicks / totalImpressions) * 100;
 
   const pendingRevenue = revenueEntries
@@ -242,11 +242,11 @@ export function PublisherRevenue() {
 
         <Card className="p-6">
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-sm font-medium text-gray-900 dark:text-graphite-300">Average RPM</h3>
+            <h3 className="text-sm font-medium text-gray-900 dark:text-graphite-300">Average CPU</h3>
             <TrendingUp className="w-5 h-5 text-acid" />
           </div>
           <div className="text-2xl font-medium text-gray-900 dark:text-graphite-100">
-            ${averageRpm.toFixed(3)}
+            ${averageCpu.toFixed(3)}
           </div>
           <div className="flex items-center gap-1 text-sm text-green-600 mt-1">
             <TrendingUp className="w-3 h-3" />
@@ -299,9 +299,9 @@ export function PublisherRevenue() {
                 </div>
 
                 <div className="flex justify-between items-center">
-                  <span className="text-sm text-gray-900 dark:text-graphite-300">RPM</span>
+                  <span className="text-sm text-gray-900 dark:text-graphite-300">CPU</span>
                   <span className="font-medium text-gray-900 dark:text-graphite-100">
-                    ${property.rpm.toFixed(3)}
+                    ${property.cpu.toFixed(3)}
                   </span>
                 </div>
 
@@ -360,7 +360,7 @@ export function PublisherRevenue() {
                   ${entry.revenue.toFixed(2)}
                 </div>
                 <div className="text-sm text-gray-900 dark:text-graphite-300">
-                  ${entry.rpm.toFixed(3)} RPM
+                  ${entry.cpu.toFixed(3)} CPU
                 </div>
                 {entry.transactionId && (
                   <div className="flex items-center gap-1 text-xs text-gray-900 dark:text-graphite-500 mt-1">

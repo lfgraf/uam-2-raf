@@ -28,7 +28,7 @@ interface Campaign {
     min: number;
     max: number;
   };
-  estimatedRpm: number;
+  estimatedCpu: number;
   requirements: {
     minTraffic: number;
     geoTargets: string[];
@@ -54,7 +54,7 @@ interface Campaign {
 
 interface BidSubmission {
   campaignId: string;
-  proposedRpm: number;
+  proposedCpu: number;
   trafficAllocation: number; // percentage
   message?: string;
 }
@@ -67,7 +67,7 @@ const campaigns: Campaign[] = [
     advertiser: 'GameStudio Pro',
     category: 'Mobile Apps',
     bidRange: { min: 2.50, max: 8.00 },
-    estimatedRpm: 5.25,
+    estimatedCpu: 5.25,
     requirements: {
       minTraffic: 50000,
       geoTargets: ['US', 'CA', 'UK', 'AU'],
@@ -96,7 +96,7 @@ const campaigns: Campaign[] = [
     advertiser: 'StyleHub Inc.',
     category: 'Fashion',
     bidRange: { min: 1.20, max: 4.50 },
-    estimatedRpm: 2.80,
+    estimatedCpu: 2.80,
     requirements: {
       minTraffic: 25000,
       geoTargets: ['US', 'CA'],
@@ -125,7 +125,7 @@ const campaigns: Campaign[] = [
     advertiser: 'CryptoTrade Labs',
     category: 'Finance',
     bidRange: { min: 5.00, max: 15.00 },
-    estimatedRpm: 8.50,
+    estimatedCpu: 8.50,
     requirements: {
       minTraffic: 100000,
       geoTargets: ['US', 'UK', 'DE', 'SG'],
@@ -177,21 +177,21 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
   onClose: () => void;
   onSubmit: (bid: BidSubmission) => void;
 }) {
-  const [proposedRpm, setProposedRpm] = useState(campaign.estimatedRpm);
+  const [proposedCpu, setProposedCpu] = useState(campaign.estimatedCpu);
   const [trafficAllocation, setTrafficAllocation] = useState(50);
   const [message, setMessage] = useState('');
 
   const handleSubmit = () => {
     onSubmit({
       campaignId: campaign.id,
-      proposedRpm,
+      proposedCpu,
       trafficAllocation,
       message
     });
     onClose();
   };
 
-  const estimatedRevenue = (proposedRpm * trafficAllocation * 1000) / 100;
+  const estimatedRevenue = (proposedCpu * trafficAllocation * 1000) / 100;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
@@ -208,7 +208,7 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
             <div>
               <div className="text-sm text-gray-900 dark:text-graphite-300">Bid Range</div>
               <div className="font-medium text-gray-900 dark:text-graphite-100">
-                ${campaign.bidRange.min.toFixed(2)} - ${campaign.bidRange.max.toFixed(2)} RPM
+                ${campaign.bidRange.min.toFixed(2)} - ${campaign.bidRange.max.toFixed(2)} CPU
               </div>
             </div>
             <div>
@@ -221,15 +221,15 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
 
           <div>
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
-              Proposed RPM: ${proposedRpm.toFixed(2)}
+              Proposed CPU: ${proposedCpu.toFixed(2)}
             </label>
             <input
               type="range"
               min={campaign.bidRange.min}
               max={campaign.bidRange.max}
               step={0.25}
-              value={proposedRpm}
-              onChange={(e) => setProposedRpm(parseFloat(e.target.value))}
+              value={proposedCpu}
+              onChange={(e) => setProposedCpu(parseFloat(e.target.value))}
               className="w-full"
             />
             <div className="flex justify-between text-xs text-gray-900 dark:text-graphite-300 mt-1">
@@ -275,7 +275,7 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
               ${estimatedRevenue.toFixed(0)}
             </div>
             <div className="text-sm text-gray-900 dark:text-graphite-300">
-              Based on ${proposedRpm.toFixed(2)} RPM and {trafficAllocation}% traffic allocation
+              Based on ${proposedCpu.toFixed(2)} CPU and {trafficAllocation}% traffic allocation
             </div>
           </div>
 
@@ -296,7 +296,7 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
 export function AdvancedMarketplace() {
   const [searchTerm, setSearchTerm] = useState('');
   const [categoryFilter, setCategoryFilter] = useState('all');
-  const [sortBy, setSortBy] = useState('rpm');
+  const [sortBy, setSortBy] = useState('cpu');
   const [selectedCampaign, setSelectedCampaign] = useState<Campaign | null>(null);
 
   const filteredCampaigns = campaigns
@@ -306,8 +306,8 @@ export function AdvancedMarketplace() {
     )
     .sort((a, b) => {
       switch (sortBy) {
-        case 'rpm':
-          return b.estimatedRpm - a.estimatedRpm;
+        case 'cpu':
+          return b.estimatedCpu - a.estimatedCpu;
         case 'budget':
           return b.budget.remaining - a.budget.remaining;
         case 'competition':
@@ -373,14 +373,14 @@ export function AdvancedMarketplace() {
             onChange={(e) => setSortBy(e.target.value)}
             className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
           >
-            <option value="rpm">Sort by RPM</option>
+            <option value="cpu">Sort by CPU</option>
             <option value="budget">Sort by Budget</option>
             <option value="competition">Sort by Competition</option>
           </select>
         </div>
 
         {/* Active Filters Display */}
-        {(searchTerm || categoryFilter !== 'all' || sortBy !== 'rpm') && (
+        {(searchTerm || categoryFilter !== 'all' || sortBy !== 'cpu') && (
           <div className="flex items-center gap-2 mt-3 pt-3 border-t border-gray-200 dark:border-graphite-700">
             <span className="text-sm text-gray-900 dark:text-graphite-300">Active filters:</span>
             {searchTerm && (
@@ -393,7 +393,7 @@ export function AdvancedMarketplace() {
                 {categoryFilter}
               </span>
             )}
-            {sortBy !== 'rpm' && (
+            {sortBy !== 'cpu' && (
               <span className="px-2 py-1 bg-acid/10 text-acid text-xs rounded-full">
                 Sorted by {sortBy}
               </span>
@@ -402,7 +402,7 @@ export function AdvancedMarketplace() {
               onClick={() => {
                 setSearchTerm('');
                 setCategoryFilter('all');
-                setSortBy('rpm');
+                setSortBy('cpu');
               }}
               className="text-xs text-gray-900 dark:text-graphite-300 hover:text-acid ml-2"
             >
@@ -440,9 +440,9 @@ export function AdvancedMarketplace() {
               </div>
               <div className="text-right">
                 <div className="text-2xl font-medium text-acid">
-                  ${campaign.estimatedRpm.toFixed(2)}
+                  ${campaign.estimatedCpu.toFixed(2)}
                 </div>
-                <div className="text-xs text-gray-900 dark:text-graphite-300">Est. RPM</div>
+                <div className="text-xs text-gray-900 dark:text-graphite-300">Est. CPU</div>
               </div>
             </div>
 

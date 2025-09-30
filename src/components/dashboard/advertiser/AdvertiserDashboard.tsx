@@ -1,10 +1,12 @@
 'use client';
 
+import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { CampaignCard } from './CampaignCard';
 import { StatsCard } from '../shared/StatsCard';
+import { BidReviewModal } from '../shared/BidReviewModal';
 import { PlusCircle, TrendingUp, Target, DollarSign, Users } from 'lucide-react';
 import Link from 'next/link';
 
@@ -87,10 +89,45 @@ const campaigns = [
   }
 ];
 
+// Mock recent activity with bid data
+const recentActivity = [
+  {
+    id: '1',
+    type: 'bid' as const,
+    title: 'New Bid Received',
+    description: 'Premium Publisher wants to feature your campaign',
+    time: '2h ago',
+    bidData: {
+      id: 'bid-001',
+      campaignName: 'Q4 Mobile App Install',
+      advertiser: 'Premium Publisher Network',
+      bidAmount: '$2,500',
+      cpu: '$5.25',
+      impressions: '500K'
+    }
+  },
+  {
+    id: '2',
+    type: 'alert' as const,
+    title: 'Budget Alert',
+    description: 'Black Friday Sale 95% spent',
+    time: '4h ago'
+  },
+  {
+    id: '3',
+    type: 'milestone' as const,
+    title: 'Conversion Goal Met',
+    description: 'Holiday Email Signups',
+    time: '1d ago'
+  }
+];
+
 export function AdvertiserDashboard() {
   // Toggle this to show empty state demo
   const showEmptyState = false; // Set to true to see empty state
   const displayCampaigns = showEmptyState ? [] : campaigns;
+
+  const [selectedBid, setSelectedBid] = useState<typeof recentActivity[0]['bidData'] | null>(null);
 
   return (
     <div className="space-y-6">
@@ -175,29 +212,41 @@ export function AdvertiserDashboard() {
           <Card className="p-6">
             <h3 className="text-lg font-medium text-gray-900 dark:text-graphite-100 mb-4">Recent Activity</h3>
             <div className="space-y-3 text-sm">
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="font-medium text-gray-900 dark:text-graphite-100">Campaign Approved</div>
-                  <div className="text-gray-900 dark:text-graphite-300">Q4 Mobile App Install</div>
+              {recentActivity.map((activity) => (
+                <div
+                  key={activity.id}
+                  className={activity.type === 'bid' ? 'flex justify-between items-start p-2 -m-2 rounded-lg hover:bg-gray-50 dark:hover:bg-graphite-850 cursor-pointer transition-colors' : 'flex justify-between items-start'}
+                  onClick={() => {
+                    if (activity.type === 'bid' && activity.bidData) {
+                      setSelectedBid(activity.bidData);
+                    }
+                  }}
+                >
+                  <div>
+                    <div className="font-medium text-gray-900 dark:text-graphite-100">
+                      {activity.title}
+                      {activity.type === 'bid' && (
+                        <span className="ml-2 text-xs px-2 py-0.5 bg-acid/10 text-acid rounded-full">
+                          Action Required
+                        </span>
+                      )}
+                    </div>
+                    <div className="text-gray-900 dark:text-graphite-300">{activity.description}</div>
+                  </div>
+                  <div className="text-xs text-gray-900 dark:text-graphite-500 flex-shrink-0 ml-2">{activity.time}</div>
                 </div>
-                <div className="text-xs text-gray-900 dark:text-graphite-500">2h ago</div>
-              </div>
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="font-medium text-gray-900 dark:text-graphite-100">Budget Alert</div>
-                  <div className="text-gray-900 dark:text-graphite-300">Black Friday Sale 95% spent</div>
-                </div>
-                <div className="text-xs text-gray-900 dark:text-graphite-500">4h ago</div>
-              </div>
-              <div className="flex justify-between items-start">
-                <div>
-                  <div className="font-medium text-gray-900 dark:text-graphite-100">Conversion Goal Met</div>
-                  <div className="text-gray-900 dark:text-graphite-300">Holiday Email Signups</div>
-                </div>
-                <div className="text-xs text-gray-900 dark:text-graphite-500">1d ago</div>
-              </div>
+              ))}
             </div>
           </Card>
+
+          {/* Bid Review Modal */}
+          {selectedBid && (
+            <BidReviewModal
+              isOpen={!!selectedBid}
+              onClose={() => setSelectedBid(null)}
+              bid={selectedBid}
+            />
+          )}
         </div>
       </div>
     </div>

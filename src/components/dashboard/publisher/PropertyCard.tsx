@@ -12,7 +12,7 @@ interface Property {
   category: string;
   monthlyViews: number;
   revenue: number;
-  rpm: number;
+  cpu: number;
   status: 'active' | 'paused' | 'pending';
   performance: 'excellent' | 'good' | 'poor';
 }
@@ -81,8 +81,8 @@ export function PropertyCard({ property }: PropertyCardProps) {
           <div className="font-medium text-gray-900 dark:text-graphite-100">${property.revenue.toLocaleString()}</div>
         </div>
         <div>
-          <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">RPM</div>
-          <div className="font-medium text-gray-900 dark:text-graphite-100">${property.rpm}</div>
+          <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">CPU</div>
+          <div className="font-medium text-gray-900 dark:text-graphite-100">${property.cpu}</div>
         </div>
         <div>
           <div className="text-xs text-gray-900 dark:text-graphite-300 mb-1">CTR</div>

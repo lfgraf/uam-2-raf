@@ -8,14 +8,14 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const buttonVariants = {
-  primary: 'bg-brand text-white hover:bg-brand/90 focus:ring-brand/50',
-  secondary: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-100 dark:bg-gray-800/80 focus:ring-brand/50',
-  outline: 'border border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white hover:bg-gray-100 dark:bg-gray-800/50 focus:ring-brand/50',
-  ghost: 'text-gray-900 dark:text-white hover:bg-gray-100 dark:bg-gray-800/50 focus:ring-brand/50'
+  primary: 'bg-brand text-white hover:bg-brand-700 active:bg-brand-800 focus:ring-brand/30 shadow-sm hover:shadow-md',
+  secondary: 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white hover:bg-gray-200 dark:hover:bg-gray-700 active:bg-gray-300 dark:active:bg-gray-600 focus:ring-gray-300 dark:focus:ring-gray-600',
+  outline: 'border-2 border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-800/50 active:bg-gray-100 dark:active:bg-gray-800 focus:ring-gray-300 dark:focus:ring-gray-600',
+  ghost: 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-white active:bg-gray-200 dark:active:bg-gray-700 focus:ring-gray-300 dark:focus:ring-gray-600'
 };
 
 const buttonSizes = {
-  sm: 'px-3 py-2 text-sm',
+  sm: 'px-3 py-1.5 text-sm',
   md: 'px-4 py-2 text-base',
   lg: 'px-6 py-3 text-lg'
 };
@@ -25,18 +25,22 @@ export function Button({
   size = 'md',
   className,
   children,
+  disabled,
   ...props
 }: ButtonProps) {
   return (
     <button
       className={cn(
-        'inline-flex items-center justify-center rounded-md font-medium transition-colors',
-        'focus:outline-none focus:ring-2 focus:ring-offset-2',
-        'disabled:opacity-50 disabled:cursor-not-allowed',
+        'inline-flex items-center justify-center rounded-lg font-medium',
+        'transition-all duration-200 ease-in-out',
+        'focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white dark:focus:ring-offset-gray-900',
+        'disabled:opacity-50 disabled:cursor-not-allowed disabled:shadow-none',
+        'font-heading',
         buttonVariants[variant],
         buttonSizes[size],
         className
       )}
+      disabled={disabled}
       {...props}
     >
       {children}

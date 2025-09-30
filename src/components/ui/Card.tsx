@@ -13,24 +13,26 @@ export function Card({ title, description, children, className, onClick }: CardP
   return (
     <div
       className={cn(
-        'bg-white dark:bg-gray-900 rounded-lg shadow-md hover:shadow-lg transition-shadow p-6',
+        'bg-white dark:bg-gray-900 rounded-xl p-6',
         'border border-gray-200 dark:border-gray-700',
-        onClick && 'cursor-pointer',
+        'shadow-sm hover:shadow-md',
+        'transition-all duration-200 ease-in-out',
+        onClick && 'cursor-pointer hover:scale-[1.01] active:scale-[0.99]',
         className
       )}
       onClick={onClick}
     >
       {title && (
-        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+        <h3 className="text-lg font-heading font-semibold text-gray-900 dark:text-white mb-2">
           {title}
         </h3>
       )}
       {description && (
-        <p className="text-gray-900 dark:text-white/60 text-sm leading-relaxed">
+        <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-body">
           {description}
         </p>
       )}
-      {children && <div className="mt-4">{children}</div>}
+      {children && <div className={title || description ? "mt-4" : ""}>{children}</div>}
     </div>
   );
 }

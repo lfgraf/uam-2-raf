@@ -5,6 +5,8 @@ import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
+import { Textarea } from '@/components/ui/Textarea';
+import { Slider } from '@/components/ui/Slider';
 import {
   Search,
   Filter,
@@ -225,14 +227,12 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Proposed CPU: ${proposedCpu.toFixed(2)}
             </label>
-            <input
-              type="range"
+            <Slider
               min={campaign.bidRange.min}
               max={campaign.bidRange.max}
               step={0.25}
               value={proposedCpu}
               onChange={(e) => setProposedCpu(parseFloat(e.target.value))}
-              className="w-full"
             />
             <div className="flex justify-between text-xs text-gray-900 dark:text-graphite-300 mt-1">
               <span>${campaign.bidRange.min.toFixed(2)}</span>
@@ -244,14 +244,12 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Traffic Allocation: {trafficAllocation}%
             </label>
-            <input
-              type="range"
+            <Slider
               min={10}
               max={100}
               step={10}
               value={trafficAllocation}
               onChange={(e) => setTrafficAllocation(parseInt(e.target.value))}
-              className="w-full"
             />
             <div className="text-xs text-gray-900 dark:text-graphite-300 mt-1">
               Allocate {trafficAllocation}% of your traffic to this campaign
@@ -262,12 +260,11 @@ function BiddingModal({ campaign, onClose, onSubmit }: {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Message to Advertiser (Optional)
             </label>
-            <textarea
+            <Textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               placeholder="Tell the advertiser about your traffic quality, audience, or any questions..."
               rows={3}
-              className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
             />
           </div>
 

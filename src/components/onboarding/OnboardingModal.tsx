@@ -34,7 +34,7 @@ export function OnboardingModal() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-acid rounded-2xl mb-4">
             <Sparkles className="w-8 h-8 text-graphite-950" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-graphite-100 mb-2">
+          <h1 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-graphite-100 mb-2">
             Welcome to UAM Platform
           </h1>
           <p className="text-gray-600 dark:text-graphite-300 text-lg">

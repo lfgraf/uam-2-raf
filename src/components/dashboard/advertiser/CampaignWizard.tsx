@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Input } from '@/components/ui/Input';
 import { Select } from '@/components/ui/Select';
+import { Textarea } from '@/components/ui/Textarea';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
 
@@ -230,12 +231,11 @@ function BasicsStep({ formData, setFormData }: StepProps) {
         <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Target Audience
         </label>
-        <textarea
+        <Textarea
           value={formData.audience}
           onChange={(e) => setFormData({ ...formData, audience: e.target.value })}
           placeholder="Describe your target audience..."
           rows={4}
-          className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
         />
       </div>
     </div>

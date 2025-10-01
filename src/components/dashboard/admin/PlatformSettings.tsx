@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
 import { Settings, DollarSign, Shield, Bell, Zap, CheckCircle } from 'lucide-react';
 
 export function PlatformSettings() {
@@ -54,13 +55,12 @@ export function PlatformSettings() {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Platform Fee (%)
             </label>
-            <input
+            <Input
               type="number"
               defaultValue="2.5"
               step="0.1"
               min="0"
               max="10"
-              className="w-full px-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
             <p className="mt-1 text-xs text-gray-900 dark:text-graphite-300">
               Fee taken from each transaction
@@ -71,12 +71,11 @@ export function PlatformSettings() {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Minimum Campaign Budget ($)
             </label>
-            <input
+            <Input
               type="number"
               defaultValue="100"
               step="10"
               min="0"
-              className="w-full px-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
             <p className="mt-1 text-xs text-gray-900 dark:text-graphite-300">
               Minimum budget required for campaigns
@@ -87,12 +86,11 @@ export function PlatformSettings() {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Publisher Payout Threshold ($)
             </label>
-            <input
+            <Input
               type="number"
               defaultValue="50"
               step="10"
               min="0"
-              className="w-full px-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
             <p className="mt-1 text-xs text-gray-900 dark:text-graphite-300">
               Minimum earnings for payout eligibility
@@ -103,13 +101,12 @@ export function PlatformSettings() {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Attribution Window (hours)
             </label>
-            <input
+            <Input
               type="number"
               defaultValue="24"
               step="1"
               min="1"
               max="168"
-              className="w-full px-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
             <p className="mt-1 text-xs text-gray-900 dark:text-graphite-300">
               Time window for conversion attribution
@@ -256,12 +253,11 @@ export function PlatformSettings() {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Max Concurrent Campaigns per User
             </label>
-            <input
+            <Input
               type="number"
               defaultValue="25"
               step="5"
               min="1"
-              className="w-full px-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
           </div>
 
@@ -269,13 +265,12 @@ export function PlatformSettings() {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Auction Duration (hours)
             </label>
-            <input
+            <Input
               type="number"
               defaultValue="72"
               step="12"
               min="12"
               max="168"
-              className="w-full px-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
           </div>
 
@@ -283,12 +278,11 @@ export function PlatformSettings() {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               Data Retention Period (days)
             </label>
-            <input
+            <Input
               type="number"
               defaultValue="365"
               step="30"
               min="90"
-              className="w-full px-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
           </div>
 
@@ -296,12 +290,11 @@ export function PlatformSettings() {
             <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
               API Rate Limit (requests/min)
             </label>
-            <input
+            <Input
               type="number"
               defaultValue="60"
               step="10"
               min="10"
-              className="w-full px-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
             />
           </div>
         </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
 import { Bell, Menu, Search, Sun, Moon, CheckCircle, AlertCircle, TrendingUp, DollarSign, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -86,10 +87,10 @@ export function DashboardHeader({ onMenuClick }: DashboardHeaderProps) {
         {/* Search */}
         <div className="relative hidden md:block">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-500 dark:text-graphite-300" />
-          <input
+          <Input
             type="text"
             placeholder="Search campaigns, properties..."
-            className="w-80 pl-10 pr-4 py-2 bg-gray-100 dark:bg-graphite-800 border border-gray-200 dark:border-graphite-700 rounded-lg text-sm text-gray-900 dark:text-graphite-100 placeholder:text-gray-500 dark:placeholder:text-graphite-500 focus:outline-none focus:ring-2 focus:ring-acid/30 focus:border-acid"
+            className="w-80 pl-10 text-sm bg-gray-100 dark:bg-graphite-800"
           />
         </div>
       </div>

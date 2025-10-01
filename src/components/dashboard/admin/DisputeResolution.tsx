@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { Select } from '@/components/ui/Select';
 import {
   AlertTriangle,
   XCircle,
@@ -480,29 +481,29 @@ export function DisputeResolution() {
       {/* Filters */}
       <Card className="p-4">
         <div className="flex flex-col sm:flex-row gap-4">
-          <select
+          <Select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
+            className="text-sm w-auto"
           >
             <option value="all">All Status</option>
             <option value="open">Open</option>
             <option value="investigating">Investigating</option>
             <option value="resolved">Resolved</option>
             <option value="closed">Closed</option>
-          </select>
+          </Select>
 
-          <select
+          <Select
             value={priorityFilter}
             onChange={(e) => setPriorityFilter(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
+            className="text-sm w-auto"
           >
             <option value="all">All Priority</option>
             <option value="critical">Critical</option>
             <option value="high">High</option>
             <option value="medium">Medium</option>
             <option value="low">Low</option>
-          </select>
+          </Select>
         </div>
       </Card>
 

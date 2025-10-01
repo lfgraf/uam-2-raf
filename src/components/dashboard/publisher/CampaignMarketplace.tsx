@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { Badge } from '@/components/ui/Badge';
+import { Input } from '@/components/ui/Input';
+import { Select } from '@/components/ui/Select';
 import { CreativeAssetViewer } from '@/components/dashboard/shared/CreativeAssetViewer';
 import { Search, Target, Calendar } from 'lucide-react';
 
@@ -137,35 +139,35 @@ export function CampaignMarketplace() {
       <div className="flex flex-col sm:flex-row gap-4">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-900 dark:text-graphite-500" />
-          <input
+          <Input
             type="text"
             placeholder="Search campaigns..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 bg-white dark:bg-graphite-900 border border-gray-200 dark:border-graphite-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-acid/50 focus:border-acid"
+            className="pl-10 text-sm"
           />
         </div>
 
         <div className="flex gap-2">
-          <select
+          <Select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value)}
-            className="px-3 py-2 bg-white dark:bg-graphite-900 border border-gray-200 dark:border-graphite-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-acid/50"
+            className="text-sm w-auto"
           >
             {categories.map(category => (
               <option key={category} value={category}>{category}</option>
             ))}
-          </select>
+          </Select>
 
-          <select
+          <Select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="px-3 py-2 bg-white dark:bg-graphite-900 border border-gray-200 dark:border-graphite-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-acid/50"
+            className="text-sm w-auto"
           >
             <option value="match">Sort by Match Score</option>
             <option value="cpc">Sort by CPC</option>
             <option value="budget">Sort by Budget</option>
-          </select>
+          </Select>
         </div>
       </div>
 

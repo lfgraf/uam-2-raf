@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { Select } from '@/components/ui/Select';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { LoadingState } from '@/components/ui/LoadingState';
 import {
@@ -181,15 +182,15 @@ export function PublisherRevenue() {
         </div>
 
         <div className="flex items-center gap-3">
-          <select
+          <Select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-acid/50"
+            className="text-sm w-auto"
           >
             <option value="7d">Last 7 days</option>
             <option value="30d">Last 30 days</option>
             <option value="90d">Last 90 days</option>
-          </select>
+          </Select>
 
           <Button variant="outline" size="sm">
             <Filter className="w-4 h-4 mr-2" />

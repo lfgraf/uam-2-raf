@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { Input } from '@/components/ui/Input';
+import { Select } from '@/components/ui/Select';
 import { ArrowLeft, ArrowRight, Check } from 'lucide-react';
 import Link from 'next/link';
 
@@ -200,12 +202,11 @@ function BasicsStep({ formData, setFormData }: StepProps) {
         <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Campaign Name
         </label>
-        <input
+        <Input
           type="text"
           value={formData.name}
           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
           placeholder="Enter campaign name..."
-          className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
         />
       </div>
 
@@ -213,17 +214,16 @@ function BasicsStep({ formData, setFormData }: StepProps) {
         <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Campaign Objective
         </label>
-        <select
+        <Select
           value={formData.objective}
           onChange={(e) => setFormData({ ...formData, objective: e.target.value })}
-          className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
         >
           <option value="">Select objective...</option>
           <option value="awareness">Brand Awareness</option>
           <option value="traffic">Website Traffic</option>
           <option value="conversions">Conversions</option>
           <option value="app-installs">App Installs</option>
-        </select>
+        </Select>
       </div>
 
       <div>
@@ -250,12 +250,11 @@ function BudgetStep({ formData, setFormData }: StepProps) {
           <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
             Total Budget ($)
           </label>
-          <input
+          <Input
             type="number"
             value={formData.budget}
             onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
             placeholder="5000"
-            className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           />
         </div>
 
@@ -263,16 +262,15 @@ function BudgetStep({ formData, setFormData }: StepProps) {
           <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
             Bidding Strategy
           </label>
-          <select
+          <Select
             value={formData.bidStrategy}
             onChange={(e) => setFormData({ ...formData, bidStrategy: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           >
             <option value="">Select strategy...</option>
             <option value="cpc">Cost Per Click (CPC)</option>
             <option value="cpm">Cost Per Mille (CPM)</option>
             <option value="cpa">Cost Per Acquisition (CPA)</option>
-          </select>
+          </Select>
         </div>
       </div>
 
@@ -281,11 +279,10 @@ function BudgetStep({ formData, setFormData }: StepProps) {
           <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
             Start Date
           </label>
-          <input
+          <Input
             type="date"
             value={formData.startDate}
             onChange={(e) => setFormData({ ...formData, startDate: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           />
         </div>
 
@@ -293,11 +290,10 @@ function BudgetStep({ formData, setFormData }: StepProps) {
           <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
             End Date
           </label>
-          <input
+          <Input
             type="date"
             value={formData.endDate}
             onChange={(e) => setFormData({ ...formData, endDate: e.target.value })}
-            className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
           />
         </div>
       </div>
@@ -328,12 +324,11 @@ function CreativeStep({ formData, setFormData }: StepProps) {
         <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
           Landing Page URL
         </label>
-        <input
+        <Input
           type="url"
           value={formData.landingUrl}
           onChange={(e) => setFormData({ ...formData, landingUrl: e.target.value })}
           placeholder="https://your-landing-page.com"
-          className="w-full px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50"
         />
       </div>
     </div>

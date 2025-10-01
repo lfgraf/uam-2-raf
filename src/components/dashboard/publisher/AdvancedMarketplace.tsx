@@ -3,6 +3,8 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
+import { Select } from '@/components/ui/Select';
 import {
   Search,
   Filter,
@@ -339,12 +341,12 @@ export function AdvancedMarketplace() {
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-            <input
+            <Input
               type="text"
               placeholder="Search campaigns..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
+              className="pl-10 pr-10"
             />
             {searchTerm && (
               <button
@@ -356,27 +358,27 @@ export function AdvancedMarketplace() {
             )}
           </div>
 
-          <select
+          <Select
             value={categoryFilter}
             onChange={(e) => setCategoryFilter(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
+            className="text-sm w-auto"
           >
             <option value="all">All Categories</option>
             <option value="mobile apps">Mobile Apps</option>
             <option value="fashion">Fashion</option>
             <option value="finance">Finance</option>
             <option value="tech">Tech</option>
-          </select>
+          </Select>
 
-          <select
+          <Select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
+            className="text-sm w-auto"
           >
             <option value="cpu">Sort by CPU</option>
             <option value="budget">Sort by Budget</option>
             <option value="competition">Sort by Competition</option>
-          </select>
+          </Select>
         </div>
 
         {/* Active Filters Display */}

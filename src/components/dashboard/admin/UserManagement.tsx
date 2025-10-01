@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
+import { Input } from '@/components/ui/Input';
+import { Select } from '@/components/ui/Select';
 import {
   Search,
   Filter,
@@ -304,36 +306,36 @@ export function UserManagement() {
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="flex-1 relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
-            <input
+            <Input
               type="text"
               placeholder="Search by wallet address or ID..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
+              className="pl-10"
             />
           </div>
 
-          <select
+          <Select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value as 'all' | User['status'])}
-            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
+            className="text-sm w-auto"
           >
             <option value="all">All Statuses</option>
             <option value="active">Active</option>
             <option value="pending">Pending</option>
             <option value="suspended">Suspended</option>
-          </select>
+          </Select>
 
-          <select
+          <Select
             value={roleFilter}
             onChange={(e) => setRoleFilter(e.target.value as 'all' | 'advertiser' | 'publisher' | 'admin')}
-            className="px-3 py-2 border border-gray-200 dark:border-graphite-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-acid/50 bg-white dark:bg-graphite-800"
+            className="text-sm w-auto"
           >
             <option value="all">All Roles</option>
             <option value="advertiser">Advertiser</option>
             <option value="publisher">Publisher</option>
             <option value="admin">Admin</option>
-          </select>
+          </Select>
         </div>
       </Card>
 

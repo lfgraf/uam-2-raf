@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
 import { Wallet, CheckCircle, AlertCircle, X } from 'lucide-react';
 
 interface WalletSetupProps {
@@ -83,12 +84,11 @@ export function WalletSetup({
               <label className="block text-sm font-medium text-gray-900 dark:text-graphite-100 mb-2">
                 Wallet Address
               </label>
-              <input
+              <Input
                 type="text"
                 value={walletAddress}
                 onChange={(e) => setWalletAddress(e.target.value)}
                 placeholder="0x..."
-                className="w-full px-4 py-2 bg-gray-100 dark:bg-graphite-800 border border-gray-200 dark:border-graphite-700 rounded-lg text-gray-900 dark:text-graphite-100 placeholder:text-gray-500 dark:placeholder:text-graphite-500 focus:outline-none focus:ring-2 focus:ring-acid/30 focus:border-acid"
               />
               <p className="text-xs text-gray-600 dark:text-graphite-500 mt-1">
                 Enter the Ethereum wallet address for this property&apos;s revenue payments

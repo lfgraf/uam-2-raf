@@ -136,11 +136,11 @@ export function OnboardingTour({ role, onComplete, onSkip }: OnboardingTourProps
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-graphite-950/80 backdrop-blur-sm animate-in fade-in">
-      <Card className="w-full max-w-lg mx-4 p-8 relative bg-graphite-900 border-graphite-700">
+      <Card className="w-full max-w-lg mx-4 p-8 relative">
         {/* Close Button */}
         <button
           onClick={onSkip}
-          className="absolute top-4 right-4 p-2 text-graphite-400 hover:text-graphite-100 transition-colors"
+          className="absolute top-4 right-4 p-2 text-fg-subtle hover:text-fg-default transition-colors"
           aria-label="Skip tour"
         >
           <X className="w-5 h-5" />
@@ -148,17 +148,17 @@ export function OnboardingTour({ role, onComplete, onSkip }: OnboardingTourProps
 
         {/* Icon */}
         <div className="flex justify-center mb-6">
-          <div className="w-16 h-16 bg-acid rounded-2xl flex items-center justify-center">
-            <Icon className="w-8 h-8 text-graphite-950" />
+          <div className="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center">
+            <Icon className="w-8 h-8 text-accent-on" />
           </div>
         </div>
 
         {/* Content */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-medium text-graphite-100 mb-3">
+          <h2 className="text-2xl font-medium text-fg-default mb-3">
             {step.title}
           </h2>
-          <p className="text-graphite-300 leading-relaxed">
+          <p className="text-fg-muted leading-relaxed">
             {step.description}
           </p>
         </div>
@@ -170,9 +170,9 @@ export function OnboardingTour({ role, onComplete, onSkip }: OnboardingTourProps
               key={index}
               className={`h-2 rounded-full transition-all ${
                 index === currentStep
-                  ? 'w-8 bg-acid'
+                  ? 'w-8 bg-accent'
                   : index < currentStep
-                  ? 'w-2 bg-acid/50'
+                  ? 'w-2 bg-accent/50'
                   : 'w-2 bg-graphite-700'
               }`}
             />
@@ -184,7 +184,7 @@ export function OnboardingTour({ role, onComplete, onSkip }: OnboardingTourProps
           <Button
             variant="ghost"
             onClick={onSkip}
-            className="text-graphite-300 hover:text-graphite-100"
+            className="text-fg-muted hover:text-fg-default"
           >
             Skip Tour
           </Button>

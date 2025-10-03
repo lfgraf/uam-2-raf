@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { tokens } from './src/lib/tokens'
+import { tokens, semanticColors } from './src/lib/tokens'
 
 const config: Config = {
   content: [
@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // FREEQ Graphite Neutrals
+        // FREEQ Graphite Neutrals (raw tokens - use sparingly)
         graphite: {
           950: tokens.colors.graphite[950],
           900: tokens.colors.graphite[900],
@@ -40,8 +40,9 @@ const config: Config = {
         blue: {
           500: tokens.colors.blue[500],
         },
-        // Gray scale (Light theme)
+        // Gray scale (Light theme - use sparingly)
         gray: {
+          50: tokens.colors.gray[100],
           100: tokens.colors.gray[100],
           200: tokens.colors.gray[200],
           300: tokens.colors.gray[300],
@@ -57,7 +58,33 @@ const config: Config = {
           400: tokens.colors.indigo[400],
           600: tokens.colors.indigo[600],
         },
-        // Brand colors (legacy compatibility)
+
+        // ===== SEMANTIC TOKENS (Preferred - theme-aware) =====
+        // These automatically switch between light/dark themes via CSS variables
+
+        // Foreground (text) tokens
+        'fg-default': semanticColors['fg-default'],      // Primary text
+        'fg-muted': semanticColors['fg-muted'],          // Supporting copy
+        'fg-subtle': semanticColors['fg-subtle'],        // Secondary text
+
+        // Background tokens
+        'bg-default': semanticColors['bg-default'],      // Primary background
+        'bg-canvas': semanticColors['bg-canvas'],        // Full-bleed backdrop
+        'bg-elevated': semanticColors['bg-elevated'],    // Elevated rows, cards
+        'bg-muted': semanticColors['bg-muted'],          // Input fills, subdued panels
+        'bg-subtle': semanticColors['bg-subtle'],        // Very subtle backgrounds
+
+        // Border tokens
+        'border-default': semanticColors['border-default'], // Borders, separators
+        'border-subtle': semanticColors['border-subtle'],   // Subdued borders
+
+        // Accent tokens
+        'accent': semanticColors['accent-default'],      // Primary CTAs
+        'accent-hover': semanticColors['accent-hover'],  // Hover states
+        'accent-active': semanticColors['accent-active'], // Active states
+        'accent-fg': semanticColors['accent-fg'],        // Text on accent backgrounds
+
+        // Legacy/compatibility
         brand: {
           DEFAULT: tokens.colors.acid[500], // Map to acid for CTAs
         },

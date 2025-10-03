@@ -27,8 +27,56 @@
 }
 
 @layer base {
+  /* Light theme (default) */
   :root {
     --font-sans: 'CoFo Sans', system-ui, -apple-system, sans-serif;
+
+    /* Foreground tokens */
+    --color-fg-default: theme('colors.gray.900');
+    --color-fg-muted: theme('colors.gray.600');
+    --color-fg-subtle: theme('colors.gray.500');
+
+    /* Background tokens */
+    --color-bg-default: theme('colors.white');
+    --color-bg-canvas: theme('colors.gray.50');
+    --color-bg-elevated: theme('colors.white');
+    --color-bg-muted: theme('colors.gray.100');
+    --color-bg-subtle: theme('colors.gray.200');
+
+    /* Border tokens */
+    --color-border-default: theme('colors.gray.200');
+    --color-border-subtle: theme('colors.gray.300');
+
+    /* Accent tokens */
+    --color-accent-default: theme('colors.indigo.600');
+    --color-accent-hover: theme('colors.indigo.400');
+    --color-accent-active: theme('colors.indigo.600');
+    --color-accent-fg: theme('colors.white');
+  }
+
+  /* Dark theme (FREEQ canonical) */
+  .dark {
+    /* Foreground tokens */
+    --color-fg-default: theme('colors.graphite.100');
+    --color-fg-muted: theme('colors.graphite.300');
+    --color-fg-subtle: theme('colors.graphite.500');
+
+    /* Background tokens */
+    --color-bg-default: theme('colors.graphite.900');
+    --color-bg-canvas: theme('colors.graphite.950');
+    --color-bg-elevated: theme('colors.graphite.850');
+    --color-bg-muted: theme('colors.graphite.800');
+    --color-bg-subtle: theme('colors.graphite.700');
+
+    /* Border tokens */
+    --color-border-default: theme('colors.graphite.700');
+    --color-border-subtle: theme('colors.graphite.800');
+
+    /* Accent tokens */
+    --color-accent-default: theme('colors.acid.500');
+    --color-accent-hover: theme('colors.acid.400');
+    --color-accent-active: theme('colors.acid.600');
+    --color-accent-fg: theme('colors.graphite.950');
   }
 
   html {
@@ -36,7 +84,8 @@
   }
 
   body {
-    @apply bg-white text-gray-900 dark:bg-graphite-900 dark:text-graphite-100;
+    background-color: var(--color-bg-default);
+    color: var(--color-fg-default);
     font-family: var(--font-sans);
     line-height: 1.5;
     -webkit-font-smoothing: antialiased;

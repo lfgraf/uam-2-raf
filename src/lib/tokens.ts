@@ -135,18 +135,22 @@ export const darkTheme = {
     active: tokens.colors.acid[600],      // Active states
     onAccent: tokens.colors.graphite[950], // Text on acid
   },
+  border: {
+    default: tokens.colors.graphite[700], // Borders, separators
+    subtle: tokens.colors.graphite[800],  // Subdued borders
+  },
 }
 
 export const lightTheme = {
   // Light theme uses Gray scale
   fg: {
-    default: tokens.colors.black,
-    muted: tokens.colors.gray[700],
+    default: tokens.colors.gray[900],
+    muted: tokens.colors.gray[600],
     subtle: tokens.colors.gray[500],
   },
   bg: {
     default: tokens.colors.white,
-    canvas: tokens.colors.gray[100],
+    canvas: tokens.colors.gray[50],
     elevated: tokens.colors.white,
     muted: tokens.colors.gray[100],
     subtle: tokens.colors.gray[200],
@@ -157,4 +161,34 @@ export const lightTheme = {
     active: tokens.colors.indigo[600],
     onAccent: tokens.colors.white,
   },
+  border: {
+    default: tokens.colors.gray[200],
+    subtle: tokens.colors.gray[300],
+  },
+}
+
+// Semantic color aliases for Tailwind
+// These create theme-aware tokens that automatically switch between light/dark
+export const semanticColors = {
+  // Foreground (Text) tokens
+  'fg-default': 'var(--color-fg-default)',      // Primary text
+  'fg-muted': 'var(--color-fg-muted)',          // Supporting copy
+  'fg-subtle': 'var(--color-fg-subtle)',        // Secondary text
+
+  // Background tokens
+  'bg-default': 'var(--color-bg-default)',      // Primary background
+  'bg-canvas': 'var(--color-bg-canvas)',        // Full-bleed backdrop
+  'bg-elevated': 'var(--color-bg-elevated)',    // Elevated rows, cards
+  'bg-muted': 'var(--color-bg-muted)',          // Input fills, subdued panels
+  'bg-subtle': 'var(--color-bg-subtle)',        // Very subtle backgrounds
+
+  // Border tokens
+  'border-default': 'var(--color-border-default)', // Borders, separators
+  'border-subtle': 'var(--color-border-subtle)',   // Subdued borders
+
+  // Accent tokens
+  'accent-default': 'var(--color-accent-default)', // Primary CTAs
+  'accent-hover': 'var(--color-accent-hover)',     // Hover states
+  'accent-active': 'var(--color-accent-active)',   // Active states
+  'accent-fg': 'var(--color-accent-fg)',           // Text on accent backgrounds
 }

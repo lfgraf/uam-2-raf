@@ -28,16 +28,16 @@ export function OnboardingModal() {
         }} />
       </div>
 
-      <Card className="w-full max-w-4xl p-8 md:p-12 relative bg-white dark:bg-graphite-900 border-graphite-700">
+      <Card className="w-full max-w-4xl p-8 md:p-12 relative bg-graphite-900 border-graphite-700">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-acid rounded-2xl mb-4">
             <Sparkles className="w-8 h-8 text-graphite-950" />
           </div>
-          <h1 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-graphite-100 mb-2">
+          <h1 className="text-3xl md:text-4xl font-medium text-graphite-100 mb-2">
             Welcome to UAM Platform
           </h1>
-          <p className="text-gray-600 dark:text-graphite-300 text-lg">
+          <p className="text-graphite-300 text-lg">
             Choose your role to get started
           </p>
         </div>
@@ -51,13 +51,13 @@ export function OnboardingModal() {
               p-6 rounded-xl border-2 text-left transition-all
               ${selectedRole === 'advertiser'
                 ? 'border-acid bg-acid/5'
-                : 'border-gray-200 dark:border-graphite-700 hover:border-acid/50'
+                : 'border-graphite-700 hover:border-acid/50 hover:bg-graphite-800/50'
               }
             `}
           >
             <div className="flex items-start justify-between mb-4">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/20 rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <div className="w-12 h-12 bg-graphite-800 rounded-xl flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-acid" />
               </div>
               {selectedRole === 'advertiser' && (
                 <div className="w-6 h-6 bg-acid rounded-full flex items-center justify-center">
@@ -65,20 +65,20 @@ export function OnboardingModal() {
                 </div>
               )}
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-graphite-100 mb-2">
+            <h3 className="text-xl font-medium text-graphite-100 mb-2">
               Advertiser
             </h3>
-            <p className="text-gray-600 dark:text-graphite-300 text-sm mb-4">
+            <p className="text-graphite-300 text-sm mb-4">
               Create campaigns, manage bids, and track conversions across premium publisher inventory.
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-graphite-800 text-gray-700 dark:text-graphite-300 rounded">
+              <span className="text-xs px-2 py-1 bg-graphite-800 text-graphite-300 rounded">
                 Campaign Management
               </span>
-              <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-graphite-800 text-gray-700 dark:text-graphite-300 rounded">
+              <span className="text-xs px-2 py-1 bg-graphite-800 text-graphite-300 rounded">
                 Analytics
               </span>
-              <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-graphite-800 text-gray-700 dark:text-graphite-300 rounded">
+              <span className="text-xs px-2 py-1 bg-graphite-800 text-graphite-300 rounded">
                 Bidding
               </span>
             </div>
@@ -91,13 +91,13 @@ export function OnboardingModal() {
               p-6 rounded-xl border-2 text-left transition-all
               ${selectedRole === 'publisher'
                 ? 'border-acid bg-acid/5'
-                : 'border-gray-200 dark:border-graphite-700 hover:border-acid/50'
+                : 'border-graphite-700 hover:border-acid/50 hover:bg-graphite-800/50'
               }
             `}
           >
             <div className="flex items-start justify-between mb-4">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/20 rounded-xl flex items-center justify-center">
-                <Globe className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <div className="w-12 h-12 bg-graphite-800 rounded-xl flex items-center justify-center">
+                <Globe className="w-6 h-6 text-acid" />
               </div>
               {selectedRole === 'publisher' && (
                 <div className="w-6 h-6 bg-acid rounded-full flex items-center justify-center">
@@ -105,20 +105,20 @@ export function OnboardingModal() {
                 </div>
               )}
             </div>
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-graphite-100 mb-2">
+            <h3 className="text-xl font-medium text-graphite-100 mb-2">
               Publisher
             </h3>
-            <p className="text-gray-600 dark:text-graphite-300 text-sm mb-4">
+            <p className="text-graphite-300 text-sm mb-4">
               Monetize your properties, browse campaigns, and maximize revenue with targeted advertising.
             </p>
             <div className="flex flex-wrap gap-2">
-              <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-graphite-800 text-gray-700 dark:text-graphite-300 rounded">
+              <span className="text-xs px-2 py-1 bg-graphite-800 text-graphite-300 rounded">
                 Property Management
               </span>
-              <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-graphite-800 text-gray-700 dark:text-graphite-300 rounded">
+              <span className="text-xs px-2 py-1 bg-graphite-800 text-graphite-300 rounded">
                 Revenue Tracking
               </span>
-              <span className="text-xs px-2 py-1 bg-gray-100 dark:bg-graphite-800 text-gray-700 dark:text-graphite-300 rounded">
+              <span className="text-xs px-2 py-1 bg-graphite-800 text-graphite-300 rounded">
                 Marketplace
               </span>
             </div>
@@ -139,7 +139,7 @@ export function OnboardingModal() {
         </div>
 
         {/* Footer Note */}
-        <p className="text-center text-xs text-gray-500 dark:text-graphite-500 mt-6">
+        <p className="text-center text-xs text-graphite-500 mt-6">
           You can add additional roles later from your dashboard
         </p>
       </Card>

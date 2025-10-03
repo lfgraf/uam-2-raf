@@ -135,12 +135,12 @@ export function OnboardingTour({ role, onComplete, onSkip }: OnboardingTourProps
   const Icon = step.icon;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-graphite-950/50 backdrop-blur-sm animate-in fade-in">
-      <Card className="w-full max-w-lg mx-4 p-8 relative bg-white dark:bg-graphite-900 border-graphite-700">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-graphite-950/80 backdrop-blur-sm animate-in fade-in">
+      <Card className="w-full max-w-lg mx-4 p-8 relative bg-graphite-900 border-graphite-700">
         {/* Close Button */}
         <button
           onClick={onSkip}
-          className="absolute top-4 right-4 p-2 text-gray-900 dark:text-graphite-300 hover:text-gray-900 dark:hover:text-graphite-100 transition-colors"
+          className="absolute top-4 right-4 p-2 text-graphite-400 hover:text-graphite-100 transition-colors"
           aria-label="Skip tour"
         >
           <X className="w-5 h-5" />
@@ -155,10 +155,10 @@ export function OnboardingTour({ role, onComplete, onSkip }: OnboardingTourProps
 
         {/* Content */}
         <div className="text-center mb-8">
-          <h2 className="text-2xl font-medium text-gray-900 dark:text-graphite-100 mb-3">
+          <h2 className="text-2xl font-medium text-graphite-100 mb-3">
             {step.title}
           </h2>
-          <p className="text-gray-900 dark:text-graphite-300 leading-relaxed">
+          <p className="text-graphite-300 leading-relaxed">
             {step.description}
           </p>
         </div>
@@ -173,7 +173,7 @@ export function OnboardingTour({ role, onComplete, onSkip }: OnboardingTourProps
                   ? 'w-8 bg-acid'
                   : index < currentStep
                   ? 'w-2 bg-acid/50'
-                  : 'w-2 bg-gray-200 dark:bg-graphite-700'
+                  : 'w-2 bg-graphite-700'
               }`}
             />
           ))}
@@ -184,7 +184,7 @@ export function OnboardingTour({ role, onComplete, onSkip }: OnboardingTourProps
           <Button
             variant="ghost"
             onClick={onSkip}
-            className="text-gray-900 dark:text-graphite-300"
+            className="text-graphite-300 hover:text-graphite-100"
           >
             Skip Tour
           </Button>

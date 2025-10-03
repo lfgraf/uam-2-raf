@@ -28,11 +28,11 @@ export function OnboardingModal() {
         }} />
       </div>
 
-      <Card className="w-full max-w-4xl p-8 md:p-12 relative bg-bg-default border-border-default">
+      <Card className="w-full max-w-4xl p-8 md:p-12 relative bg-bg-default border-graphite-700">
         {/* Header */}
         <div className="text-center mb-8">
           <div className="inline-flex items-center justify-center w-16 h-16 bg-accent rounded-2xl mb-4">
-            <Sparkles className="w-8 h-8 text-accent-fg" />
+            <Sparkles className="w-8 h-8 text-accent-on" />
           </div>
           <h1 className="text-3xl md:text-4xl font-medium text-fg-default mb-2">
             Welcome to UAM Platform
@@ -51,7 +51,7 @@ export function OnboardingModal() {
               p-6 rounded-xl border-2 text-left transition-all
               ${selectedRole === 'advertiser'
                 ? 'border-accent bg-accent/5'
-                : 'border-border-default hover:border-accent/50 hover:bg-bg-muted'
+                : 'border-graphite-700 hover:border-accent/50 hover:bg-bg-muted'
               }
             `}
           >
@@ -61,7 +61,7 @@ export function OnboardingModal() {
               </div>
               {selectedRole === 'advertiser' && (
                 <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-accent-fg rounded-full" />
+                  <div className="w-2 h-2 bg-accent-on rounded-full" />
                 </div>
               )}
             </div>
@@ -91,7 +91,7 @@ export function OnboardingModal() {
               p-6 rounded-xl border-2 text-left transition-all
               ${selectedRole === 'publisher'
                 ? 'border-accent bg-accent/5'
-                : 'border-border-default hover:border-accent/50 hover:bg-bg-muted'
+                : 'border-graphite-700 hover:border-accent/50 hover:bg-bg-muted'
               }
             `}
           >
@@ -101,7 +101,7 @@ export function OnboardingModal() {
               </div>
               {selectedRole === 'publisher' && (
                 <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center">
-                  <div className="w-2 h-2 bg-accent-fg rounded-full" />
+                  <div className="w-2 h-2 bg-accent-on rounded-full" />
                 </div>
               )}
             </div>

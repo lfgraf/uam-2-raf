@@ -27,7 +27,7 @@
 }
 
 @layer base {
-  /* Light theme (default) */
+  /* Light theme (default) - based on tokens-2.json structure */
   :root {
     --font-sans: 'CoFo Sans', system-ui, -apple-system, sans-serif;
 
@@ -38,23 +38,19 @@
 
     /* Background tokens */
     --color-bg-default: theme('colors.white');
-    --color-bg-canvas: theme('colors.gray.50');
-    --color-bg-elevated: theme('colors.white');
     --color-bg-muted: theme('colors.gray.100');
     --color-bg-subtle: theme('colors.gray.200');
 
-    /* Border tokens */
-    --color-border-default: theme('colors.gray.200');
-    --color-border-subtle: theme('colors.gray.300');
-
     /* Accent tokens */
     --color-accent-default: theme('colors.indigo.600');
-    --color-accent-hover: theme('colors.indigo.400');
-    --color-accent-active: theme('colors.indigo.600');
-    --color-accent-fg: theme('colors.white');
+    --color-accent-on: theme('colors.white');
+    --color-accent-bg: theme('colors.indigo.400');
+
+    /* Shadow tokens */
+    --color-shadow-default: theme('colors.gray.900');
   }
 
-  /* Dark theme (FREEQ canonical) */
+  /* Dark theme (FREEQ canonical) - uses Graphite/Acid */
   .dark {
     /* Foreground tokens */
     --color-fg-default: theme('colors.graphite.100');
@@ -63,20 +59,16 @@
 
     /* Background tokens */
     --color-bg-default: theme('colors.graphite.900');
-    --color-bg-canvas: theme('colors.graphite.950');
-    --color-bg-elevated: theme('colors.graphite.850');
     --color-bg-muted: theme('colors.graphite.800');
     --color-bg-subtle: theme('colors.graphite.700');
 
-    /* Border tokens */
-    --color-border-default: theme('colors.graphite.700');
-    --color-border-subtle: theme('colors.graphite.800');
-
     /* Accent tokens */
     --color-accent-default: theme('colors.acid.500');
-    --color-accent-hover: theme('colors.acid.400');
-    --color-accent-active: theme('colors.acid.600');
-    --color-accent-fg: theme('colors.graphite.950');
+    --color-accent-on: theme('colors.graphite.950');
+    --color-accent-bg: theme('colors.acid.400');
+
+    /* Shadow tokens */
+    --color-shadow-default: rgba(0, 0, 0, 0.3);
   }
 
   html {

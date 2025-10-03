@@ -61,28 +61,25 @@ const config: Config = {
 
         // ===== SEMANTIC TOKENS (Preferred - theme-aware) =====
         // These automatically switch between light/dark themes via CSS variables
+        // Based on tokens-2.json structure with FREEQ Graphite/Acid values
 
         // Foreground (text) tokens
-        'fg-default': semanticColors['fg-default'],      // Primary text
-        'fg-muted': semanticColors['fg-muted'],          // Supporting copy
-        'fg-subtle': semanticColors['fg-subtle'],        // Secondary text
+        'fg-default': semanticColors['fg-default'],   // Primary text
+        'fg-muted': semanticColors['fg-muted'],       // Supporting copy
+        'fg-subtle': semanticColors['fg-subtle'],     // Secondary text
 
         // Background tokens
-        'bg-default': semanticColors['bg-default'],      // Primary background
-        'bg-canvas': semanticColors['bg-canvas'],        // Full-bleed backdrop
-        'bg-elevated': semanticColors['bg-elevated'],    // Elevated rows, cards
-        'bg-muted': semanticColors['bg-muted'],          // Input fills, subdued panels
-        'bg-subtle': semanticColors['bg-subtle'],        // Very subtle backgrounds
-
-        // Border tokens
-        'border-default': semanticColors['border-default'], // Borders, separators
-        'border-subtle': semanticColors['border-subtle'],   // Subdued borders
+        'bg-default': semanticColors['bg-default'],   // Primary background
+        'bg-muted': semanticColors['bg-muted'],       // Subdued backgrounds
+        'bg-subtle': semanticColors['bg-subtle'],     // Very subtle backgrounds
 
         // Accent tokens
-        'accent': semanticColors['accent-default'],      // Primary CTAs
-        'accent-hover': semanticColors['accent-hover'],  // Hover states
-        'accent-active': semanticColors['accent-active'], // Active states
-        'accent-fg': semanticColors['accent-fg'],        // Text on accent backgrounds
+        'accent': semanticColors['accent-default'],   // Primary CTAs
+        'accent-on': semanticColors['accent-on'],     // Text on accent backgrounds
+        'accent-bg': semanticColors['accent-bg'],     // Accent background variant
+
+        // Shadow tokens
+        'shadow': semanticColors['shadow-default'],   // Shadow color
 
         // Legacy/compatibility
         brand: {

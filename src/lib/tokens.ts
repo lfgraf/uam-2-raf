@@ -1,7 +1,8 @@
-// Design tokens extracted from tokens-2.json
+// Design tokens based on tokens-2.json with FREEQ color values
 export const tokens = {
+  // Core primitive colors
   colors: {
-    // Core colors
+    // Base colors
     black: '#000000',
     white: '#ffffff',
 
@@ -72,6 +73,7 @@ export const tokens = {
     },
   },
 
+  // Spacing scale (from tokens-2.json)
   spacing: {
     xs: '4px',
     sm: '8px',
@@ -80,115 +82,111 @@ export const tokens = {
     xl: '64px',
   },
 
+  // Border radius scale (from tokens-2.json)
   borderRadius: {
     sm: '4px',
     lg: '8px',
     xl: '16px',
   },
 
+  // Typography scales (from tokens-2.json)
   fontSizes: {
-    xs: '10px',
-    sm: '14px',
-    body: '16px',
-    h6: '16px',
-    h5: '20px',
-    h4: '25px',
-    h3: '31px',
-    h2: '39px',
-    h1: '49px',
+    xs: '10px',      // body * 0.65
+    sm: '14px',      // body * 0.85
+    body: '16px',    // base size
+    h6: '16px',      // body * 1.25^0
+    h5: '20px',      // body * 1.25^1
+    h4: '25px',      // body * 1.25^2
+    h3: '31px',      // body * 1.25^3
+    h2: '39px',      // body * 1.25^4
+    h1: '49px',      // body * 1.25^5
   },
 
   fontFamilies: {
     default: 'CoFo Sans',
+    heading: 'CoFo Sans',
+    body: 'CoFo Sans',
   },
 
   fontWeights: {
     normal: '400',
     medium: '500',
-    semibold: '600', // For hierarchy shifts
+    semibold: '600',
   },
 
   lineHeights: {
     heading: '110%',
     body: '140%',
   },
+
+  letterSpacing: {
+    default: '0',
+    decreased: '-0.05em', // FREEQ refined density for headings
+  },
 }
 
-// FREEQ Theme-specific tokens
-export const darkTheme = {
-  // Dark theme is canonical - uses Graphite scale
+// Light theme semantic tokens (from tokens-2.json structure with FREEQ values)
+export const lightTheme = {
   fg: {
-    default: tokens.colors.graphite[100], // Primary text
+    default: tokens.colors.gray[900],    // Primary text (not pure black - easier on eyes)
+    muted: tokens.colors.gray[600],      // Supporting copy
+    subtle: tokens.colors.gray[500],     // Secondary text
+  },
+  bg: {
+    default: tokens.colors.white,        // Primary background
+    muted: tokens.colors.gray[100],      // Subdued backgrounds
+    subtle: tokens.colors.gray[200],     // Very subtle backgrounds
+  },
+  accent: {
+    default: tokens.colors.indigo[600],  // Light theme uses indigo (not acid)
+    onAccent: tokens.colors.white,       // Text on accent
+    bg: tokens.colors.indigo[400],       // Accent background variant
+  },
+  shadows: {
+    default: tokens.colors.gray[900],    // Shadow color
+  },
+}
+
+// Dark theme semantic tokens (FREEQ canonical - uses Graphite/Acid)
+export const darkTheme = {
+  fg: {
+    default: tokens.colors.graphite[100], // Primary text (#E7ECF2 - not pure white)
     muted: tokens.colors.graphite[300],   // Supporting copy
     subtle: tokens.colors.graphite[500],  // Secondary text
   },
   bg: {
-    default: tokens.colors.graphite[900], // Primary background
-    canvas: tokens.colors.graphite[950],  // Full-bleed backdrop
-    elevated: tokens.colors.graphite[850], // Elevated rows
-    muted: tokens.colors.graphite[800],   // Input fills
-    subtle: tokens.colors.graphite[700],  // Borders
+    default: tokens.colors.graphite[900], // Primary background (#151820)
+    muted: tokens.colors.graphite[800],   // Subdued backgrounds (input fills)
+    subtle: tokens.colors.graphite[700],  // Very subtle backgrounds
   },
   accent: {
-    default: tokens.colors.acid[500],     // Primary interaction
-    hover: tokens.colors.acid[400],       // Hover states
-    active: tokens.colors.acid[600],      // Active states
-    onAccent: tokens.colors.graphite[950], // Text on acid
+    default: tokens.colors.acid[500],     // FREEQ Acid accent (#C9FF00)
+    onAccent: tokens.colors.graphite[950], // Text on acid (dark for contrast)
+    bg: tokens.colors.acid[400],          // Accent background variant (hover)
   },
-  border: {
-    default: tokens.colors.graphite[700], // Borders, separators
-    subtle: tokens.colors.graphite[800],  // Subdued borders
+  shadows: {
+    default: 'rgba(0, 0, 0, 0.3)',        // Shadow color for dark mode
   },
 }
 
-export const lightTheme = {
-  // Light theme uses Gray scale
-  fg: {
-    default: tokens.colors.gray[900],
-    muted: tokens.colors.gray[600],
-    subtle: tokens.colors.gray[500],
-  },
-  bg: {
-    default: tokens.colors.white,
-    canvas: tokens.colors.gray[50],
-    elevated: tokens.colors.white,
-    muted: tokens.colors.gray[100],
-    subtle: tokens.colors.gray[200],
-  },
-  accent: {
-    default: tokens.colors.indigo[600],
-    hover: tokens.colors.indigo[400],
-    active: tokens.colors.indigo[600],
-    onAccent: tokens.colors.white,
-  },
-  border: {
-    default: tokens.colors.gray[200],
-    subtle: tokens.colors.gray[300],
-  },
-}
-
-// Semantic color aliases for Tailwind
-// These create theme-aware tokens that automatically switch between light/dark
+// Semantic color CSS variable references (theme-aware)
+// These automatically switch between light/dark based on .dark class
 export const semanticColors = {
   // Foreground (Text) tokens
-  'fg-default': 'var(--color-fg-default)',      // Primary text
-  'fg-muted': 'var(--color-fg-muted)',          // Supporting copy
-  'fg-subtle': 'var(--color-fg-subtle)',        // Secondary text
+  'fg-default': 'var(--color-fg-default)',
+  'fg-muted': 'var(--color-fg-muted)',
+  'fg-subtle': 'var(--color-fg-subtle)',
 
   // Background tokens
-  'bg-default': 'var(--color-bg-default)',      // Primary background
-  'bg-canvas': 'var(--color-bg-canvas)',        // Full-bleed backdrop
-  'bg-elevated': 'var(--color-bg-elevated)',    // Elevated rows, cards
-  'bg-muted': 'var(--color-bg-muted)',          // Input fills, subdued panels
-  'bg-subtle': 'var(--color-bg-subtle)',        // Very subtle backgrounds
-
-  // Border tokens
-  'border-default': 'var(--color-border-default)', // Borders, separators
-  'border-subtle': 'var(--color-border-subtle)',   // Subdued borders
+  'bg-default': 'var(--color-bg-default)',
+  'bg-muted': 'var(--color-bg-muted)',
+  'bg-subtle': 'var(--color-bg-subtle)',
 
   // Accent tokens
-  'accent-default': 'var(--color-accent-default)', // Primary CTAs
-  'accent-hover': 'var(--color-accent-hover)',     // Hover states
-  'accent-active': 'var(--color-accent-active)',   // Active states
-  'accent-fg': 'var(--color-accent-fg)',           // Text on accent backgrounds
+  'accent-default': 'var(--color-accent-default)',
+  'accent-on': 'var(--color-accent-on)',       // Text on accent
+  'accent-bg': 'var(--color-accent-bg)',       // Accent background variant
+
+  // Shadow tokens
+  'shadow-default': 'var(--color-shadow-default)',
 }

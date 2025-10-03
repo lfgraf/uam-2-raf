@@ -69,22 +69,72 @@ The application has three distinct user roles, each with their own dashboard:
 
 ### FREEQ Design System
 
-**Token-Driven Design**: All colors, spacing, and typography come from `/src/lib/tokens.ts` and are exposed through Tailwind config.
+**Design Token Source of Truth**: `/src/lib/tokens.ts`
+- All colors, spacing, typography, and semantic tokens are defined here
+- Never edit `tokens-2.json.backup` (archived reference only)
+- Token flow: `tokens.ts` → `tailwind.config.ts` → `globals.css` → Components
 
-**Color System**:
-- **Graphite Neutrals** (#0F1116 → #E7ECF2): Primary color scale for dark mode
-- **Acid Accent** (#C9FF00): Used sparingly (<5% of screen) for focus states, CTAs, and key interactions
-- **Heat** (#FF5E86): Secondary emphasis for warnings and alerts
-- **Contrast Rule**: Always use `text-graphite-950` on `acid` backgrounds for accessibility
+#### Color System
+
+**Primitive Colors** (use sparingly, prefer semantic tokens):
+- **Graphite Neutrals** (#0F1116 → #E7ECF2): Dark mode color scale
+  - `950`: Global backdrop, full-bleed canvas
+  - `900`: Primary page background
+  - `850`: Elevated rows, navigation rails
+  - `800`: Input fills, subdued panels
+  - `700`: Borders, separators
+  - `500`: Secondary text, icon strokes
+  - `300`: Supporting copy, helper text
+  - `100`: Primary text, high-emphasis icons
+
+- **Acid Accent** (#C9FF00): Primary interaction color for dark mode
+  - Used sparingly (<5% of screen) for CTAs, focus states, key interactions
+  - `500`: Primary (default)
+  - `400`: Hover/focus halo
+  - `600`: Active states
+
+- **Heat** (#FF5E86): Secondary emphasis for warnings/alerts
+- **Gray Scale** (#f7fafc → #1a202c): Light mode color scale
+- **Indigo** (#7f9cf5, #5a67d8): Light mode accent
+
+**Semantic Tokens** (PREFERRED - theme-aware, auto-switch light/dark):
+```tsx
+// Text colors
+text-fg-default    // Primary text (graphite-100 dark, gray-900 light)
+text-fg-muted      // Supporting copy (graphite-300 dark, gray-600 light)
+text-fg-subtle     // Secondary text (graphite-500 dark, gray-500 light)
+
+// Backgrounds
+bg-bg-default      // Primary background (graphite-900 dark, white light)
+bg-bg-muted        // Subdued backgrounds (graphite-800 dark, gray-100 light)
+bg-bg-subtle       // Very subtle backgrounds (graphite-700 dark, gray-200 light)
+
+// Accents
+bg-accent          // Primary CTA (acid-500 dark, indigo-600 light)
+text-accent-on     // Text on accent bg (graphite-950 dark, white light)
+bg-accent-bg       // Accent variant (acid-400 dark, indigo-400 light)
+
+// Borders - use raw graphite for now
+border-graphite-700  // Primary borders (dark mode)
+border-gray-200      // Primary borders (light mode)
+```
+
+**Token Usage Rules**:
+1. ✅ ALWAYS use semantic tokens (`text-fg-default`, `bg-bg-default`) when possible
+2. ✅ Use raw graphite/acid for edge cases (gradients, specific shades)
+3. ❌ NEVER use `text-gray-900 dark:text-graphite-100` patterns
+4. ❌ NEVER use `text-white` or `bg-white` (use semantic tokens instead)
+5. ✅ Contrast rule: Always use `text-accent-on` on `bg-accent` backgrounds
 
 **Typography**:
 - Font: CoFo Sans (loaded via @font-face in globals.css)
 - Weights: Regular (400) and Medium (500) only - no bold/semibold
-- Font sizes mapped from tokens: xs, sm, base (body), lg-5xl (h6-h1)
+- Font sizes: xs (10px), sm (14px), body (16px), h6-h1 (16px-49px)
+- Letter spacing: -0.05em for headings (FREEQ refined density)
 
 **Spacing**: 4px base unit, scaling in powers of two (8px, 16px, 32px, 64px)
 
-**Dark Mode First**: Components are designed for dark mode primarily. Use `dark:` variants for all color/background utilities.
+**Border Radius**: sm (4px), lg (8px), xl (16px)
 
 ## Key Implementation Patterns
 
